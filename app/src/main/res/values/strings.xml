@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="zero_num">0</string>
+    <string name="nine_num">9</string>
+    <string name="eight_num">8</string>
+    <string name="seven_num">7</string>
+    <string name="six_num">6</string>
+    <string name="five_num">5</string>
+    <string name="four_num">4</string>
+    <string name="three_num">3</string>
+    <string name="two_num">2</string>
+    <string name="one_num">1</string>
+    <string name="divide_sym">\u00F7</string>
+    <string name="multiply_sym">\u00D7</string>
+    <string name="substract_sym">-</string>
+    <string name="add_sym">+</string>
+    <string name="equal_sym">=</string>
+    <string name="decimal_sym">,</string>
+    <string name="clear_sym">AC</string>
+    <string name="plus_minus_sym">+/-</string>
+    <string name="percent_sym">%</string>
+</resources>
