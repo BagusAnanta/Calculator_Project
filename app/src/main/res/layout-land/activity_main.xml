@@ -47,7 +47,7 @@
                 android:textSize="20sp"
                 android:text="@string/openparentheses_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Closeparentheses"
@@ -58,7 +58,7 @@
                 android:textSize="20sp"
                 android:text="@string/closeparentheses_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/MC"
@@ -69,7 +69,7 @@
                 android:textSize="20sp"
                 android:text="@string/mc_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Mplus"
@@ -80,7 +80,7 @@
                 android:textSize="20sp"
                 android:text="@string/mplus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Mminus"
@@ -91,7 +91,7 @@
                 android:textSize="20sp"
                 android:text="@string/mminus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Mr"
@@ -102,7 +102,7 @@
                 android:textSize="20sp"
                 android:text="@string/mr_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Clear"
@@ -166,7 +166,7 @@
                 android:textSize="20sp"
                 android:text="@string/powerX2_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Xpower3"
@@ -177,7 +177,7 @@
                 android:textSize="20sp"
                 android:text="@string/powerX3_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Xpowery"
@@ -188,7 +188,7 @@
                 android:textSize="20sp"
                 android:text="@string/powerXy_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Factorial"
@@ -199,7 +199,7 @@
                 android:textSize="20sp"
                 android:text="@string/factorial_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Root"
@@ -210,7 +210,7 @@
                 android:textSize="20sp"
                 android:text="@string/root_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/YunderrootX"
@@ -222,7 +222,7 @@
                 android:text="@string/yunderrootx_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Seven"
@@ -286,7 +286,7 @@
                 android:text="@string/divide1x_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Naturalequation"
@@ -298,7 +298,7 @@
                 android:text="@string/natural_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
 
             <Button
@@ -311,7 +311,7 @@
                 android:text="@string/naturalpowerx_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/In"
@@ -323,7 +323,7 @@
                 android:text="@string/In_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Logaritm"
@@ -335,7 +335,7 @@
                 android:text="@string/log_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Logaritmpowy"
@@ -347,7 +347,7 @@
                 android:text="@string/logpowery_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Four"
@@ -411,7 +411,7 @@
                 android:textSize="16sp"
                 android:text="@string/radian_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Sinus"
@@ -423,7 +423,7 @@
                 android:text="@string/sin_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Cosinus"
@@ -435,7 +435,7 @@
                 android:text="@string/cos_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Tangen"
@@ -447,7 +447,7 @@
                 android:text="@string/tan_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Inverse"
@@ -459,7 +459,7 @@
                 android:text="@string/inverse_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Tenpowerx"
@@ -471,7 +471,7 @@
                 android:text="@string/tenpowerx"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
 
             <Button
@@ -533,7 +533,7 @@
             android:textSize="16sp"
             android:text="@string/degress_sym"
             android:textColor="@color/black"
-            android:backgroundTint="@color/whiteback"/>
+            android:backgroundTint="@color/whitebackdark"/>
 
         <Button
             android:id="@+id/Sinush"
@@ -545,7 +545,7 @@
             android:text="@string/sinh_sym"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:backgroundTint="@color/whiteback"/>
+            android:backgroundTint="@color/whitebackdark"/>
 
 
         <Button
@@ -558,7 +558,7 @@
             android:text="@string/cosh_sym"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:backgroundTint="@color/whiteback"/>
+            android:backgroundTint="@color/whitebackdark"/>
 
         <Button
             android:id="@+id/Tangenh"
@@ -570,7 +570,7 @@
             android:text="@string/tanh_sym"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:backgroundTint="@color/whiteback"/>
+            android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Ypowerx"
@@ -582,7 +582,7 @@
                 android:text="@string/ypowerx"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whiteback"/>
+                android:backgroundTint="@color/whitebackdark"/>
 
         <Button
             android:id="@+id/pi"
@@ -594,7 +594,7 @@
             android:text="@string/pi_sym"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:backgroundTint="@color/whiteback"/>
+            android:backgroundTint="@color/whitebackdark"/>
 
             <Button
                 android:id="@+id/Percent"
