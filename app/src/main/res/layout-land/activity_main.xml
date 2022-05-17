@@ -1,6 +1,643 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/textViewcalculatorscientific"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:maxLength="12"
+        android:text="@string/zero_num"
+        android:textSize="85sp"
+        android:gravity="end"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/Tablelayoutcalculatorscientific"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TableLayout
+        android:id="@+id/Tablelayoutcalculatorscientific"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="fill"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewcalculatorscientific">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Openparentheses"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/openparentheses_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Closeparentheses"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/closeparentheses_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/MC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/mc_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Mplus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/mplus_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Mminus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/mminus_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Mr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/mr_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/clear_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/delete_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Plusminus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/plusminus_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Divide"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/divide_sym"
+                android:backgroundTint="@color/buop"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Xpower2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/powerX2_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Xpower3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/powerX3_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Xpowery"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/powerXy_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Factorial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/factorial_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Root"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/root_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/YunderrootX"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/yunderrootx_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Seven"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/seven_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Eight"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/eight_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Nine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/nine_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Multiply"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/multiply_sym"
+                android:backgroundTint="@color/buop"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Dividedby1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/divide1x_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Naturalequation"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/natural_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+
+            <Button
+                android:id="@+id/Naturalpowerx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/naturalpowerx_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/In"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="19sp"
+                android:text="@string/In_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Logaritm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/log_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Logaritmpowy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="16sp"
+                android:text="@string/logpowery_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Four"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/four_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Five"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/five_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Six"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/six_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Substract"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/substract_sym"
+                android:backgroundTint="@color/buop"/>
+
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Radiant"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="16sp"
+                android:text="@string/radian_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Sinus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/sin_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Cosinus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="18sp"
+                android:text="@string/cos_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Tangen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/tan_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Inverse"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="18sp"
+                android:text="@string/inverse_sym"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Tenpowerx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="18sp"
+                android:text="@string/tenpowerx"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+
+            <Button
+                android:id="@+id/One"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/one_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/two_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Three"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/three_num"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/add_sym"
+                android:backgroundTint="@color/buop"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+        <Button
+            android:id="@+id/Degress"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:textSize="16sp"
+            android:text="@string/degress_sym"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/whiteback"/>
+
+        <Button
+            android:id="@+id/Sinush"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:textSize="15sp"
+            android:text="@string/sinh_sym"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/whiteback"/>
+
+
+        <Button
+            android:id="@+id/Cosinush"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:textSize="13sp"
+            android:text="@string/cosh_sym"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/whiteback"/>
+
+        <Button
+            android:id="@+id/Tangenh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:textSize="15sp"
+            android:text="@string/tanh_sym"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Ypowerx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="20sp"
+                android:text="@string/ypowerx"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/whiteback"/>
+
+        <Button
+            android:id="@+id/pi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:textSize="20sp"
+            android:text="@string/pi_sym"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Percent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:text="@string/percent_sym"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Zero"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:text="@string/zero_num"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Decimal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:text="@string/decimal_sym"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
+                android:id="@+id/Equals"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:text="@string/equal_sym"
+                android:textSize="25sp"
+                android:backgroundTint="@color/buop"/>
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

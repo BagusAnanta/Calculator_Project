@@ -25,7 +25,7 @@
     <string name="equal_sym">=</string>
     <string name="decimal_sym">,</string>
     <string name="clear_sym">AC</string>
-    <string name="plus_minus_sym">+/-</string>
+    <string name="delete_sym">Del</string>
     <string name="percent_sym">%</string>
     <string name="openparentheses_sym">(</string>
     <string name="closeparentheses_sym">)</string>
@@ -38,11 +38,16 @@
     <string name="powerX3_sym">x<sup><small>3</small></sup> </string>
     <string name="powerXy_sym">x<sup><small>y</small></sup> </string>
     <string name="natural_sym">e</string>
-    <string name="In">In</string>
+    <string name="naturalpowerx_sym">e<sup><small>x</small></sup></string>
+    <string name="In_sym">In</string>
     <string name="log_sym">log</string>
+    <string name="logpowery_sym">log<sup><small>y</small></sup></string>
     <string name="sin_sym">sin</string>
     <string name="cos_sym">cos</string>
     <string name="tan_sym">tan</string>
+    <string name="sinh_sym">sinh</string>
+    <string name="cosh_sym">cosh</string>
+    <string name="tanh_sym">tanh</string>
     <string name="degress_sym">Deg</string>
     <string name="radian_sym">Rad</string>
     <string name="pi_sym">\u03C0</string>
@@ -53,5 +58,8 @@
     <string name="invsin_sym">sin<sup><small>-1</small></sup></string>
     <string name="invcos_sym">cos<sup><small>-1</small></sup></string>
     <string name="invtan_sym">tan<sup><small>-1</small></sup></string>
+    <string name="plusminus_sym">+/-</string>
+    <string name="tenpowerx">10<sup><small>x</small></sup></string>
+    <string name="ypowerx">Y<sup><small>x</small></sup></string>
 
 </resources>

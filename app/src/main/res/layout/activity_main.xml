@@ -16,7 +16,7 @@
         android:ems="10"
         android:maxLength="12"
         android:text="@string/zero_num"
-        android:textSize="80sp"
+        android:textSize="85sp"
         android:gravity="end"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/Tablelayoutcalculator"
@@ -53,24 +53,24 @@
                 android:backgroundTint="@color/whiteback"/>
 
             <Button
+                android:id="@+id/Delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:textSize="25sp"
+                android:text="@string/delete_sym"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
                 android:id="@+id/Plusminus"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="5dp"
                 android:textSize="25sp"
-                android:text="@string/plus_minus_sym"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
-
-            <Button
-                android:id="@+id/percent"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="5dp"
-                android:textSize="25sp"
-                android:text="@string/percent_sym"
+                android:text="@string/plusminus_sym"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/whiteback"/>
 
@@ -249,11 +249,22 @@
             android:gravity="center" >
 
             <Button
+                android:id="@+id/Percent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:text="@string/percent_sym"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/whiteback"/>
+
+            <Button
                 android:id="@+id/Zero"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="2.1"
+                android:layout_weight="1"
                 android:text="@string/zero_num"
                 android:textSize="25sp"
                 android:textColor="@color/black"
