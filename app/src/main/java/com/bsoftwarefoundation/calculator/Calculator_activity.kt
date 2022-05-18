@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
 
@@ -136,6 +137,87 @@ class Calculator_activity : AppCompatActivity() {
         Button_Tanh = findViewById(R.id.Tangenh)
         Button_YPowerX = findViewById(R.id.Ypowerx)
         Button_Pi = findViewById(R.id.pi)
+
+
+        // TODO : For Number Button
+
+        Button_One.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "1")
+        }
+
+        Button_Two.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "2")
+        }
+
+        Button_Three.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "3")
+        }
+
+        Button_Four.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "4")
+        }
+
+        Button_Five.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "5")
+        }
+
+        Button_Six.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "6")
+        }
+
+        Button_Seven.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "7")
+        }
+
+        Button_Eight.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "8")
+        }
+
+        Button_Nine.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "9")
+        }
+
+        Button_Zero.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "0")
+        }
+
+        // TODO: Button Symbol
+
+        Button_Decimal.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + ",")
+        }
+
+        Button_Add.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "+")
+        }
+
+        Button_Divide.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "/")
+        }
+
+        Button_Substract.setOnClickListener {
+            val string : String = Textview_Result.text.toString()
+            if(!string.get(index = string.length -1).equals("-")){
+                Textview_Result.text = (Textview_Result.toString() + "-")
+            }
+        }
+
+        Button_Multiply.setOnClickListener {
+            val string : String = Textview_Result.text.toString()
+            if(!string.get(index = string.length - 1).equals("*")){
+                Textview_Result.text = (Textview_Result.text.toString() + "*")
+            }
+        }
+
+        //TODO : Scientific Calculator Symbol
+        Button_OpenParentheses.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + "(")
+        }
+
+        Button_CloseParentheses.setOnClickListener {
+            Textview_Result.text = (Textview_Result.text.toString() + ")")
+        }
+
 
 
 
