@@ -22,6 +22,12 @@ open class MathPower{
         return result
     }
 
+    fun Dividebyone(X : Double) : Double {
+        val result = Math.pow(X,-1.0)
+        return result
+    }
+
+
 
 
 }

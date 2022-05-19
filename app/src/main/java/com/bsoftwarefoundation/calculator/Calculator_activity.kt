@@ -10,6 +10,8 @@ import com.bsoftwarefoundation.calculator.Mathformula.MathPower
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
+    // TODO: Initiated MathFormula Class
+    var Math_power = MathPower()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result : TextView
@@ -227,10 +229,23 @@ class Calculator_activity : AppCompatActivity() {
         Button_XPower2.setOnClickListener {
             // TODO : Please repair
             if(Textview_Result.text.toString().isEmpty()){
+                // If Textview_Result is empty, show text "Kesalahan"
+                Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
                 IndicatorError_Result.visibility = View.VISIBLE
                 IndicatorError_Result.setText("Kesalahan")
             } else {
+                // for tester if correct you can left, if have problem please correct it after
+                val string : String = Textview_Result.text.toString()
+                val Double_value : Double = string.toDouble()
 
+                // call function power in here!!! and set result in here
+                val XPower2_result = Math_power.XPower2(Double_value)
+
+                // you can use TextView_Result.setText()
+                Textview_Result.text = XPower2_result.toString()
+
+                // show formula in second Textview
+                SecondTextview_Result.text = "$Double_value^(2)"
             }
 
 
