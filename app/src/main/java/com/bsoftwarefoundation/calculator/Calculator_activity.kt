@@ -2,15 +2,20 @@ package com.bsoftwarefoundation.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import com.bsoftwarefoundation.calculator.Mathformula.MathPower
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result : TextView
+    private lateinit var SecondTextview_Result : TextView
+    private lateinit var IndicatorError_Result : TextView
+
 
     // TODO : Initiated Button Operation Symbol
     private lateinit var Button_AC : Button
@@ -79,8 +84,9 @@ class Calculator_activity : AppCompatActivity() {
         // TODO : Declare Button and Textview Calculator
 
         // Textview Result
-        Textview_Result = findViewById(R.id.textViewcalculatorscientific)
         Textview_Result = findViewById(R.id.textViewcalculator)
+        SecondTextview_Result = findViewById(R.id.secondtextViewcalculator)
+        IndicatorError_Result = findViewById(R.id.indicatorerrorcalculator)
 
         // Button Symbol
         Button_AC = findViewById(R.id.Clear)
@@ -220,7 +226,15 @@ class Calculator_activity : AppCompatActivity() {
 
         Button_XPower2.setOnClickListener {
             // TODO : Please repair
-            Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
+            if(Textview_Result.text.toString().isEmpty()){
+                IndicatorError_Result.visibility = View.VISIBLE
+                IndicatorError_Result.setText("Kesalahan")
+            } else {
+
+            }
+
+
+
         }
 
         Button_XPower3.setOnClickListener {

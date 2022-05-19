@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,31 +8,63 @@
     tools:context=".Calculator_activity">
 
     <TextView
+        android:id="@+id/secondtextViewcalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:maxLength="12"
+        android:text="@string/zero_num"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewcalculator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textViewcalculator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:ems="10"
+        android:gravity="end"
         android:maxLength="12"
         android:text="@string/zero_num"
-        android:textSize="85sp"
-        android:gravity="end"
         android:textColor="@color/white"
+        android:textSize="85sp"
         app:layout_constraintBottom_toTopOf="@id/Tablelayoutcalculator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/secondtextViewcalculator" />
+
+    <TextView
+        android:id="@+id/indicatorerrorcalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:maxLength="12"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/Tablelayoutcalculator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewcalculator" />
 
     <TableLayout
         android:id="@+id/Tablelayoutcalculator"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="fill"
         android:layout_marginStart="5dp"
+        android:gravity="fill"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewcalculator">
+        app:layout_constraintTop_toBottomOf="@+id/indicatorerrorcalculator">
 
         <TableRow
             android:layout_width="match_parent"
@@ -45,208 +76,208 @@
                 android:id="@+id/Clear"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/clear_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Delete"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/delete_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Plusminus"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/plusminus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Divide"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/divide_sym"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="25sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
                 android:id="@+id/Seven"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/seven_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Eight"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/eight_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Nine"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/nine_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Multiply"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/multiply_sym"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="25sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
-            android:gravity="center" >
+            android:layout_weight="1"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/Four"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/four_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Five"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/five_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Six"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/six_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Substract"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/substract_sym"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="25sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
-            android:gravity="center" >
+            android:layout_weight="1"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/One"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/one_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Two"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/two_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Three"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/three_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Add"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:textSize="25sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/add_sym"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="25sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
-            android:gravity="center" >
+            android:layout_weight="1"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/Percent"
@@ -254,10 +285,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/percent_sym"
-                android:textSize="25sp"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Zero"
@@ -265,10 +296,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/zero_num"
-                android:textSize="25sp"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/Decimal"
@@ -276,10 +307,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/decimal_sym"
-                android:textSize="25sp"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="25sp" />
 
 
             <Button
@@ -288,9 +319,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/equal_sym"
-                android:textSize="25sp"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="25sp" />
 
         </TableRow>
     </TableLayout>
