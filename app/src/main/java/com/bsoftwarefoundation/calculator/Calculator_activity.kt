@@ -218,9 +218,25 @@ class Calculator_activity : AppCompatActivity() {
             Textview_Result.text = (Textview_Result.text.toString() + ")")
         }
 
+        Button_XPower2.setOnClickListener {
+            // TODO : Please repair
+            Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
+        }
 
+        Button_XPower3.setOnClickListener {
+            // TODO : Please repair
+            Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
+        }
 
+        Button_XFactorial.setOnClickListener {
+            // TODO : Please repair
+            Textview_Result.text = (Textview_Result.text.toString() + "!")
+        }
 
+        Button_root.setOnClickListener {
+            // TODO : Please repair
+            Textview_Result.text = (Textview_Result.text.toString() + "\u221A")
+        }
 
 
 
