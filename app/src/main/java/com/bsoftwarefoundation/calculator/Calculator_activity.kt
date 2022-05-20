@@ -115,7 +115,8 @@ class Calculator_activity : AppCompatActivity() {
         Button_Nine = findViewById(R.id.Nine)
 
         // Scientific Math Calculator Symbol
-        Button_OpenParentheses = findViewById(R.id.Openparentheses)
+        // TODO: Null Pointer Exception Problem
+        Button_OpenParentheses   = findViewById(R.id.Openparentheses)
         Button_CloseParentheses = findViewById(R.id.Closeparentheses)
         Button_MC = findViewById(R.id.MC)
         Button_MPlus = findViewById(R.id.Mplus)
@@ -247,9 +248,6 @@ class Calculator_activity : AppCompatActivity() {
                 // show formula in second Textview
                 SecondTextview_Result.text = "$Double_value^(2)"
             }
-
-
-
         }
 
         Button_XPower3.setOnClickListener {
@@ -266,8 +264,5 @@ class Calculator_activity : AppCompatActivity() {
             // TODO : Please repair
             Textview_Result.text = (Textview_Result.text.toString() + "\u221A")
         }
-
-
-
     }
 }
