@@ -147,7 +147,6 @@ class Calculator_activity : AppCompatActivity() {
         Button_YPowerX = findViewById(R.id.Ypowerx)
         Button_Pi = findViewById(R.id.pi)
 
-
         // TODO : For Number Button
 
         Button_One.setOnClickListener {
@@ -206,7 +205,7 @@ class Calculator_activity : AppCompatActivity() {
 
         Button_Substract.setOnClickListener {
             val string : String = Textview_Result.text.toString()
-            if(!string.get(index = string.length -1).equals("-")){
+            if(!string.get(index = string.length - 1).equals("-")){
                 Textview_Result.text = (Textview_Result.toString() + "-")
             }
         }
