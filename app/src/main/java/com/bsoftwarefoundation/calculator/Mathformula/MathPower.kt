@@ -1,6 +1,6 @@
 package com.bsoftwarefoundation.calculator.Mathformula
 
-open class MathPower{
+ class MathPower{
 
     fun XPower2(X : Double) : Double{
         val result =  Math.pow(X, 2.0)
