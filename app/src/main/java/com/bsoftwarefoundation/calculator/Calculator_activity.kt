@@ -61,7 +61,7 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_ePowerX : Button
     private lateinit var Button_In : Button
     private lateinit var Button_log : Button
-    private lateinit var Button_logPowerY : Button
+    private lateinit var Button_Absolute : Button
     private lateinit var Button_Radian : Button
     private lateinit var Button_Sin : Button
     private lateinit var Button_Cos : Button
@@ -72,7 +72,7 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_Sinh : Button
     private lateinit var Button_Cosh : Button
     private lateinit var Button_Tanh : Button
-    private lateinit var Button_YPowerX : Button
+    private lateinit var Button_Derivative : Button
     private lateinit var Button_Pi : Button
 
 
@@ -133,7 +133,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_ePowerX = findViewById(R.id.Naturalpowerx)
         Button_In = findViewById(R.id.In)
         Button_log = findViewById(R.id.Logaritm)
-        Button_logPowerY = findViewById(R.id.Logaritmpowy)
+        Button_Absolute = findViewById(R.id.Absolute)
         Button_Radian = findViewById(R.id.Radiant)
         Button_Sin = findViewById(R.id.Sinus)
         Button_Cos = findViewById(R.id.Cosinus)
@@ -144,7 +144,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_Sinh = findViewById(R.id.Sinush)
         Button_Cosh = findViewById(R.id.Cosinush)
         Button_Tanh = findViewById(R.id.Tangenh)
-        Button_YPowerX = findViewById(R.id.Ypowerx)
+        Button_Derivative = findViewById(R.id.Derivative)
         Button_Pi = findViewById(R.id.pi)
 
         // TODO : For Number Button

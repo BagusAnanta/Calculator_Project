@@ -41,7 +41,7 @@
     <string name="naturalpowerx_sym">e<sup><small>x</small></sup></string>
     <string name="In_sym">In</string>
     <string name="log_sym">log</string>
-    <string name="logpowery_sym">log<sup><small>y</small></sup></string>
+    <string name="absolute_sym">|x|</string>
     <string name="sin_sym">sin</string>
     <string name="cos_sym">cos</string>
     <string name="tan_sym">tan</string>
@@ -60,6 +60,6 @@
     <string name="invtan_sym">tan<sup><small>-1</small></sup></string>
     <string name="plusminus_sym">+/-</string>
     <string name="tenpowerx">10<sup><small>x</small></sup></string>
-    <string name="ypowerx">Y<sup><small>x</small></sup></string>
+    <string name="derivative1">y<sup><small>'</small></sup></string>
 
 </resources>

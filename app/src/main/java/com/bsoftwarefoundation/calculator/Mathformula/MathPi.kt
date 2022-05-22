@@ -2,8 +2,8 @@ package com.bsoftwarefoundation.calculator.Mathformula
 
 class MathPi {
 
-    fun Pi() : Double{
+    fun Pi() : String{
         val pi : Double = Math.PI
-        return pi
+        return pi.toString()
     }
 }

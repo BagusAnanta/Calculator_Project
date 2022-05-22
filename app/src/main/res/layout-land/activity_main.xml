@@ -372,13 +372,13 @@
                 android:backgroundTint="@color/whitebackdark"/>
 
             <Button
-                android:id="@+id/Logaritmpowy"
+                android:id="@+id/Absolute"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="3dp"
                 android:textSize="16sp"
-                android:text="@string/logpowery_sym"
+                android:text="@string/absolute_sym"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/whitebackdark"/>
@@ -607,13 +607,13 @@
             android:backgroundTint="@color/whitebackdark"/>
 
             <Button
-                android:id="@+id/Ypowerx"
+                android:id="@+id/Derivative"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="3dp"
                 android:textSize="20sp"
-                android:text="@string/ypowerx"
+                android:text="@string/derivative1"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/whitebackdark"/>
