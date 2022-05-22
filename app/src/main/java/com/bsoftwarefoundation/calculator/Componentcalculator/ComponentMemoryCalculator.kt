@@ -1,4 +1,4 @@
-package com.bsoftwarefoundation.calculator
+package com.bsoftwarefoundation.calculator.Componentcalculator
 
 class ComponentMemoryCalculator {
     // Memory in calculator = MC : Clear Memory, M + : Add to Memory, M - : Substract from Memory, MR : Recall Memory
