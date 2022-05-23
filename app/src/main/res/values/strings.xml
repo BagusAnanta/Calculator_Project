@@ -7,7 +7,7 @@
 
     <!-- Note : -->
     <!-- num : Number -->
-    <!-- sym : Symbon -->
+    <!-- sym : Symbol -->
     <string name="zero_num">0</string>
     <string name="nine_num">9</string>
     <string name="eight_num">8</string>
@@ -60,6 +60,6 @@
     <string name="invtan_sym">tan<sup><small>-1</small></sup></string>
     <string name="plusminus_sym">+/-</string>
     <string name="tenpowerx">10<sup><small>x</small></sup></string>
-    <string name="derivative1">y<sup><small>'</small></sup></string>
+    <string name="derivative1">y<sup><small>\'</small></sup></string>
 
 </resources>

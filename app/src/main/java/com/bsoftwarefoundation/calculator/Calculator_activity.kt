@@ -1,17 +1,23 @@
 package com.bsoftwarefoundation.calculator
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
 import com.bsoftwarefoundation.calculator.Mathformula.MathPower
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
+
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
+
+    //TODO: Initiated Component Class
+    var Component_delete = ComponentDeleteClear()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result : TextView
@@ -79,7 +85,10 @@ class Calculator_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // full screen
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         // set content
         setContentView(R.layout.activity_main)
 
@@ -114,41 +123,45 @@ class Calculator_activity : AppCompatActivity() {
         Button_Eight = findViewById(R.id.Eight)
         Button_Nine = findViewById(R.id.Nine)
 
-        // Scientific Math Calculator Symbol
-        // TODO: Null Pointer Exception Problem
-        Button_OpenParentheses   = findViewById(R.id.Openparentheses)
-        Button_CloseParentheses = findViewById(R.id.Closeparentheses)
-        Button_MC = findViewById(R.id.MC)
-        Button_MPlus = findViewById(R.id.Mplus)
-        Button_MMinus = findViewById(R.id.Mminus)
-        Button_MR = findViewById(R.id.Mr)
-        Button_XPower2 = findViewById(R.id.Xpower2)
-        Button_XPower3 = findViewById(R.id.Xpower3)
-        Button_XPowery = findViewById(R.id.Xpowery)
-        Button_XFactorial = findViewById(R.id.Factorial)
-        Button_root = findViewById(R.id.Root)
-        Button_PowerY_UnderRootX = findViewById(R.id.YunderrootX)
-        Button_1DivideX = findViewById(R.id.Dividedby1)
-        Button_e = findViewById(R.id.Naturalequation)
-        Button_ePowerX = findViewById(R.id.Naturalpowerx)
-        Button_In = findViewById(R.id.In)
-        Button_log = findViewById(R.id.Logaritm)
-        Button_Absolute = findViewById(R.id.Absolute)
-        Button_Radian = findViewById(R.id.Radiant)
-        Button_Sin = findViewById(R.id.Sinus)
-        Button_Cos = findViewById(R.id.Cosinus)
-        Button_Tan = findViewById(R.id.Tangen)
-        Button_Inverse = findViewById(R.id.Inverse)
-        Button_10PowerX = findViewById(R.id.Tenpowerx)
-        Button_Degress = findViewById(R.id.Degress)
-        Button_Sinh = findViewById(R.id.Sinush)
-        Button_Cosh = findViewById(R.id.Cosinush)
-        Button_Tanh = findViewById(R.id.Tangenh)
-        Button_Derivative = findViewById(R.id.Derivative)
-        Button_Pi = findViewById(R.id.pi)
+        // Use this if a screen orientation Landscape
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+            // Scientific Math Calculator Symbol
+            // TODO: Null Pointer Exception Problem (Because after screen orientation landscape, findViewById() not detected a id component)
+            Button_OpenParentheses = findViewById(R.id.Openparentheses)
+            Button_CloseParentheses = findViewById(R.id.Closeparentheses)
+            Button_MC = findViewById(R.id.MC)
+            Button_MPlus = findViewById(R.id.Mplus)
+            Button_MMinus = findViewById(R.id.Mminus)
+            Button_MR = findViewById(R.id.Mr)
+            Button_XPower2 = findViewById(R.id.Xpower2)
+            Button_XPower3 = findViewById(R.id.Xpower3)
+            Button_XPowery = findViewById(R.id.Xpowery)
+            Button_XFactorial = findViewById(R.id.Factorial)
+            Button_root = findViewById(R.id.Root)
+            Button_PowerY_UnderRootX = findViewById(R.id.YunderrootX)
+            Button_1DivideX = findViewById(R.id.Dividedby1)
+            Button_e = findViewById(R.id.Naturalequation)
+            Button_ePowerX = findViewById(R.id.Naturalpowerx)
+            Button_In = findViewById(R.id.In)
+            Button_log = findViewById(R.id.Logaritm)
+            Button_Absolute = findViewById(R.id.Absolute)
+            Button_Radian = findViewById(R.id.Radiant)
+            Button_Sin = findViewById(R.id.Sinus)
+            Button_Cos = findViewById(R.id.Cosinus)
+            Button_Tan = findViewById(R.id.Tangen)
+            Button_Inverse = findViewById(R.id.Inverse)
+            Button_10PowerX = findViewById(R.id.Tenpowerx)
+            Button_Degress = findViewById(R.id.Degress)
+            Button_Sinh = findViewById(R.id.Sinush)
+            Button_Cosh = findViewById(R.id.Cosinush)
+            Button_Tanh = findViewById(R.id.Tangenh)
+            Button_Derivative = findViewById(R.id.Derivative)
+            Button_Pi = findViewById(R.id.pi)
+
+        }
 
         // TODO : For Number Button
-
         Button_One.setOnClickListener {
             Textview_Result.text = (Textview_Result.text.toString() + "1")
         }
@@ -190,7 +203,6 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         // TODO: Button Symbol
-
         Button_Decimal.setOnClickListener {
             Textview_Result.text = (Textview_Result.text.toString() + ",")
         }
@@ -204,64 +216,89 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         Button_Substract.setOnClickListener {
-            val string : String = Textview_Result.text.toString()
-            if(!string.get(index = string.length - 1).equals("-")){
+            val string: String = Textview_Result.text.toString()
+            if (!string.get(index = string.length - 1).equals("-")) {
                 Textview_Result.text = (Textview_Result.toString() + "-")
             }
         }
 
         Button_Multiply.setOnClickListener {
-            val string : String = Textview_Result.text.toString()
-            if(!string.get(index = string.length - 1).equals("*")){
+            val string: String = Textview_Result.text.toString()
+            if (!string.get(index = string.length - 1).equals("*")) {
                 Textview_Result.text = (Textview_Result.text.toString() + "*")
             }
         }
 
-        //TODO : Scientific Calculator Symbol
-        Button_OpenParentheses.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "(")
+        //TODO: Component Calculator
+        Button_DEL.setOnClickListener {
+            Component_delete.Delete(Textview_Result)
         }
 
-        Button_CloseParentheses.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + ")")
+        Button_AC.setOnClickListener {
+            Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
         }
 
-        Button_XPower2.setOnClickListener {
-            // TODO : Please repair
-            if(Textview_Result.text.toString().isEmpty()){
-                // If Textview_Result is empty, show text "Kesalahan"
-                Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
-                IndicatorError_Result.visibility = View.VISIBLE
-                IndicatorError_Result.setText("Kesalahan")
-            } else {
-                // for tester if correct you can left, if have problem please correct it after
-                val string : String = Textview_Result.text.toString()
-                val Double_value : Double = string.toDouble()
+        // TODO:Landscape/scientific calculator configuration
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-                // call function power in here!!! and set result in here
-                val XPower2_result = Math_power.XPower2(Double_value)
-
-                // you can use TextView_Result.setText()
-                Textview_Result.text = XPower2_result.toString()
-
-                // show formula in second Textview
-                SecondTextview_Result.text = "$Double_value^(2)"
+            //TODO : Scientific Calculator Symbol
+            Button_OpenParentheses.setOnClickListener {
+                Textview_Result.text = (Textview_Result.text.toString() + "(")
             }
-        }
 
-        Button_XPower3.setOnClickListener {
-            // TODO : Please repair
-            Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
-        }
+            Button_CloseParentheses.setOnClickListener {
+                Textview_Result.text = (Textview_Result.text.toString() + ")")
+            }
 
-        Button_XFactorial.setOnClickListener {
-            // TODO : Please repair
-            Textview_Result.text = (Textview_Result.text.toString() + "!")
-        }
+            Button_XPower2.setOnClickListener {
+                // TODO : Please repair
+                if (Textview_Result.text.toString().equals("0")) {
+                    // If Textview_Result is empty/ = 0, show text "Kesalahan"
+                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().equals("0")) {
+                    // Text kesalahan invisible
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    // for tester if correct you can left, if have problem please correct it after
+                    val value = Textview_Result.text.toString().toDouble()
 
-        Button_root.setOnClickListener {
-            // TODO : Please repair
-            Textview_Result.text = (Textview_Result.text.toString() + "\u221A")
+                    // call function power in here!!! and set result in here
+                    val XPower2_result = Math_power.XPower2(value)
+
+                    // you can use TextView_Result.setText()
+                    Textview_Result.text = XPower2_result.toString()
+
+                    // show formula in second Textview
+                    SecondTextview_Result.text = "$value^(2)"
+                }
+            }
+
+            Button_XPower3.setOnClickListener {
+                // TODO : Please repair
+                if(Textview_Result.text.toString().equals("0")){
+                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().equals("0")) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val XPower3_result = Math_power.XPower3(value)
+                    Textview_Result.text = XPower3_result.toString()
+                    SecondTextview_Result.text = "$value^(3)"
+                }
+
+            }
+
+            Button_XFactorial.setOnClickListener {
+                // TODO : Please repair
+                Textview_Result.text = (Textview_Result.text.toString() + "!")
+            }
+
+            Button_root.setOnClickListener {
+                // TODO : Please repair
+                Textview_Result.text = (Textview_Result.text.toString() + "\u221A")
+            }
         }
     }
 }
