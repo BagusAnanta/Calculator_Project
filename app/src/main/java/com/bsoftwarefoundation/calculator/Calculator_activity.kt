@@ -8,9 +8,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
-import com.bsoftwarefoundation.calculator.Mathformula.MathFactorial
-import com.bsoftwarefoundation.calculator.Mathformula.MathPower
-import com.bsoftwarefoundation.calculator.Mathformula.MathRoot
+import com.bsoftwarefoundation.calculator.Mathformula.*
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
@@ -19,6 +17,9 @@ class Calculator_activity : AppCompatActivity() {
     var Math_power = MathPower()
     var Math_factorial = MathFactorial()
     var Math_root = MathRoot()
+    var Math_eular = MathEuler()
+    var Math_logaritm = MathLogaritm()
+    var Math_Absolute = MathAbsolute()
 
     //TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
@@ -256,12 +257,12 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_XPower2.setOnClickListener {
                 // TODO : Please repair
-                if (Textview_Result.text.toString().equals("0")) {
+                if (Textview_Result.text.toString().isEmpty()) {
                     // If Textview_Result is empty/ = 0, show text "Kesalahan"
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().equals("0")) {
+                } else if(!Textview_Result.text.toString().isEmpty()) {
                     // Text kesalahan invisible
                     IndicatorError_Result.visibility = View.INVISIBLE
                     // for tester if correct you can left, if have problem please correct it after
@@ -280,11 +281,11 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_XPower3.setOnClickListener {
                 // TODO : Please repair
-                if(Textview_Result.text.toString().equals("0")){
+                if(Textview_Result.text.toString().isEmpty()){
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().equals("0")) {
+                } else if(!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val XPower3_result = Math_power.XPower3(value)
@@ -294,8 +295,13 @@ class Calculator_activity : AppCompatActivity() {
 
             }
 
+            // Repair later
             Button_XPowery.setOnClickListener {
-
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                }
             }
 
             Button_XFactorial.setOnClickListener {
@@ -311,6 +317,74 @@ class Calculator_activity : AppCompatActivity() {
                 Textview_Result.text = Squareroot.toString()
                 SecondTextview_Result.text = "$value\u221A"
             }
+
+            // Repair later
+            Button_PowerY_UnderRootX.setOnClickListener {
+
+            }
+
+            Button_1DivideX.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(-1)")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Onedividex = Math_power.Dividebyone(value)
+                    Textview_Result.text = Onedividex.toString()
+                    SecondTextview_Result.text = "$value^(-1)"
+                }
+            }
+
+            Button_e.setOnClickListener {
+                val Eular_equation = Math_eular.Euler()
+                Textview_Result.text = Eular_equation
+                SecondTextview_Result.text = "e"
+            }
+
+            Button_ePowerX.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "e" + "^" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Eular_powerx = Math_eular.EulerPowerX(value)
+                    Textview_Result.text = Eular_powerx.toString()
+                    SecondTextview_Result.text = "e^($value"
+                }
+            }
+
+            Button_In.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "In" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val In = Math_logaritm.ln(value)
+                    Textview_Result.text = In.toString()
+                    SecondTextview_Result.text = "In + ($value"
+                }
+            }
+
+            Button_Absolute.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "|" + "|")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Absolute = Math_Absolute.Absolute(value)
+                    Textview_Result.text = Absolute.toString()
+                    SecondTextview_Result.text = "| + $value + |"
+                }
+            }
+
         }
     }
 }

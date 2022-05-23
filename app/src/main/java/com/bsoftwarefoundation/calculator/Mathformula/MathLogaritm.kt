@@ -12,7 +12,4 @@ class MathLogaritm {
         return result
     }
 
-   /* fun LogaritmPowerY() : Double{
-        val result = Math.log
-    }*/
 }
