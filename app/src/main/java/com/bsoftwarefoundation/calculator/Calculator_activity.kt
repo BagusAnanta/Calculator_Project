@@ -8,13 +8,17 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
+import com.bsoftwarefoundation.calculator.Mathformula.MathFactorial
 import com.bsoftwarefoundation.calculator.Mathformula.MathPower
+import com.bsoftwarefoundation.calculator.Mathformula.MathRoot
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
+    var Math_factorial = MathFactorial()
+    var Math_root = MathRoot()
 
     //TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
@@ -290,14 +294,22 @@ class Calculator_activity : AppCompatActivity() {
 
             }
 
+            Button_XPowery.setOnClickListener {
+
+            }
+
             Button_XFactorial.setOnClickListener {
-                // TODO : Please repair
-                Textview_Result.text = (Textview_Result.text.toString() + "!")
+               val value = Textview_Result.text.toString().toInt()
+               val Factorial =  Math_factorial.Factorial(value)
+               Textview_Result.text = Factorial.toString()
+               SecondTextview_Result.text = "$value!"
             }
 
             Button_root.setOnClickListener {
-                // TODO : Please repair
-                Textview_Result.text = (Textview_Result.text.toString() + "\u221A")
+                val value = Textview_Result.toString().toDouble()
+                val Squareroot = Math_root.SquareRoot(value)
+                Textview_Result.text = Squareroot.toString()
+                SecondTextview_Result.text = "$value\u221A"
             }
         }
     }
