@@ -443,7 +443,7 @@
                 android:textSize="16sp"
                 android:text="@string/radian_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"/>
+                android:backgroundTint="@color/whitebackdark" />
 
             <Button
                 android:id="@+id/Sinus"

@@ -14,6 +14,10 @@ import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
 
+    // TODO: Initiated Degress & Radiant Value
+    var Degress_toggle : Boolean = false
+    var Radiant_toggle : Boolean = false
+
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
     var Math_factorial = MathFactorial()
@@ -24,7 +28,7 @@ class Calculator_activity : AppCompatActivity() {
     var Math_trigonometryhyper = MathTrigonometryHyperbolic()
     var Math_pi = MathPi()
 
-    //TODO: Initiated Component Class
+    // TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
 
     // TODO : Initiated TextView Result
@@ -450,6 +454,14 @@ class Calculator_activity : AppCompatActivity() {
                 SecondTextview_Result.text = "\u03C0"
             }
 
+            // for sin,cos,tan Degress/Radiant function
+
+
+
         }
     }
+
+    /*fun DegRadCheck(value : Boolean) : Boolean{
+        // if value == false, radian default
+    }*/
 }

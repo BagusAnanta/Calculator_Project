@@ -8,10 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
     <!-- Calculator Color Number,Symbol. -->
     <color name="gray">#6B6B6D</color>
     <color name="whiteback">#D6D6D6</color>
     <color name="buop">#F79261</color>
     <color name="whitebackdark">#ADADAD</color>
+
+    <!-- Degress/Radiant color change -->
+    <color name="true_toggle">#03DA18</color>
 
 </resources>
