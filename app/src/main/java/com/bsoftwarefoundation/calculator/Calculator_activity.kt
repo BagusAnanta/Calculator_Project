@@ -388,6 +388,20 @@ class Calculator_activity : AppCompatActivity() {
                 }
             }
 
+            Button_10PowerX.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(10")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Tenpowerx = Math_power.TenPowerx(value)
+                    Textview_Result.text = Tenpowerx.toString()
+                    SecondTextview_Result.text = "$value + ^ + (10) "
+                }
+            }
+
             Button_Sinh.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
                     Textview_Result.text = (Textview_Result.text.toString() + "sinh"+ "(")
