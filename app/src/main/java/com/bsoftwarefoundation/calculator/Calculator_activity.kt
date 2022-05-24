@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
 import com.bsoftwarefoundation.calculator.Mathformula.*
+import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import org.w3c.dom.Text
 
 class Calculator_activity : AppCompatActivity() {
@@ -19,7 +20,9 @@ class Calculator_activity : AppCompatActivity() {
     var Math_root = MathRoot()
     var Math_eular = MathEuler()
     var Math_logaritm = MathLogaritm()
-    var Math_Absolute = MathAbsolute()
+    var Math_absolute = MathAbsolute()
+    var Math_trigonometryhyper = MathTrigonometryHyperbolic()
+    var Math_pi = MathPi()
 
     //TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
@@ -376,13 +379,61 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "|" + "|")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.toString().isEmpty()){
+                } else if(!Textview_Result.text.toString().isEmpty()){
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
-                    val Absolute = Math_Absolute.Absolute(value)
+                    val Absolute = Math_absolute.Absolute(value)
                     Textview_Result.text = Absolute.toString()
                     SecondTextview_Result.text = "| + $value + |"
                 }
+            }
+
+            Button_Sinh.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "sinh"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
+                    Textview_Result.text = Sinh.toString()
+                    SecondTextview_Result.text = "sinh($value"
+                }
+            }
+
+            Button_Cosh.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "cosh"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
+                    Textview_Result.text = Cosh.toString()
+                    SecondTextview_Result.text = "cosh($value"
+                }
+            }
+
+            Button_Tanh.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "tanh"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
+                    Textview_Result.text = Tanh.toString()
+                    SecondTextview_Result.text = "tanh($value"
+                }
+            }
+
+            Button_Pi.setOnClickListener {
+                val Pi_equation = Math_pi.Pi()
+                Textview_Result.text = Pi_equation
+                SecondTextview_Result.text = "\u03C0"
             }
 
         }
