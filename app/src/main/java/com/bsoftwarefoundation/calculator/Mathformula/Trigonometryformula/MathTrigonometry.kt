@@ -5,20 +5,17 @@ class MathTrigonometry {
     // Trigonometry on Radiant
     fun SinusRadiant(X : Double) : Double{
         val result = Math.sin(X)
-        val radian_result = Math.toRadians(result)
-        return radian_result
+        return result
     }
 
     fun CosinusRadiant(X : Double) : Double{
         val result = Math.cos(X)
-        val radian_result = Math.toRadians(result)
-        return radian_result
+        return result
     }
 
     fun TangenRadiant(X : Double) : Double{
         val result = Math.tan(X)
-        val radian_result = Math.toRadians(result)
-        return radian_result
+        return result
     }
 
     inner class MathTrigonometryDegress{
