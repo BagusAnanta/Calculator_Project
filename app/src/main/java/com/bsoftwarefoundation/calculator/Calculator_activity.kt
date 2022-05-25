@@ -39,6 +39,7 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Textview_Result : TextView
     private lateinit var SecondTextview_Result : TextView
     private lateinit var IndicatorError_Result : TextView
+    private lateinit var Degradindicator_result : TextView
 
 
     // TODO : Initiated Button Operation Symbol
@@ -115,6 +116,7 @@ class Calculator_activity : AppCompatActivity() {
         SecondTextview_Result = findViewById(R.id.secondtextViewcalculator)
         IndicatorError_Result = findViewById(R.id.indicatorerrorcalculator)
 
+
         // Button Symbol
         Button_AC = findViewById(R.id.Clear)
         Button_PlusMinus = findViewById(R.id.Plusminus)
@@ -144,6 +146,7 @@ class Calculator_activity : AppCompatActivity() {
 
             // Scientific Math Calculator Symbol
             // TODO: Null Pointer Exception Problem (Because after screen orientation landscape, findViewById() not detected a id component)
+            Degradindicator_result = findViewById(R.id.degradnotif)
             Button_OpenParentheses = findViewById(R.id.Openparentheses)
             Button_CloseParentheses = findViewById(R.id.Closeparentheses)
             Button_MC = findViewById(R.id.MC)
@@ -259,6 +262,9 @@ class Calculator_activity : AppCompatActivity() {
         // TODO:Landscape/scientific calculator configuration
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
+            //TODO : Place here Degrad Indicator
+
+
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
                 Textview_Result.text = (Textview_Result.text.toString() + "(")
@@ -325,6 +331,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_root.setOnClickListener {
+                //TODO: NumberFormatException
                 val value = Textview_Result.toString().toDouble()
                 val Squareroot = Math_root.SquareRoot(value)
                 Textview_Result.text = Squareroot.toString()
@@ -394,7 +401,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Absolute = Math_absolute.Absolute(value)
                     Textview_Result.text = Absolute.toString()
-                    SecondTextview_Result.text = "| + $value + |"
+                    SecondTextview_Result.text = "| $value |"
                 }
             }
 
@@ -462,10 +469,12 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_Radian.setOnClickListener {
                 DegRad_toggle = true
+                Degradindicator_result.setText("Rad")
             }
 
             Button_Degress.setOnClickListener {
                 DegRad_toggle = false
+                Degradindicator_result.setText("Deg")
             }
 
             // for sin,cos,tan Degress/Radiant function
