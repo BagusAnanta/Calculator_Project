@@ -9,14 +9,15 @@ import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
 import com.bsoftwarefoundation.calculator.Mathformula.*
+import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import org.w3c.dom.Text
+import kotlin.properties.Delegates
 
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Degress & Radiant Value
-    var Degress_toggle : Boolean = false
-    var Radiant_toggle : Boolean = false
+    var DegRad_toggle : Boolean = true
 
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
@@ -26,6 +27,8 @@ class Calculator_activity : AppCompatActivity() {
     var Math_logaritm = MathLogaritm()
     var Math_absolute = MathAbsolute()
     var Math_trigonometryhyper = MathTrigonometryHyperbolic()
+    var Math_trigonometryradiant = MathTrigonometry()
+    var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
     var Math_pi = MathPi()
 
     // TODO: Initiated Component Class
@@ -216,7 +219,7 @@ class Calculator_activity : AppCompatActivity() {
 
         // TODO: Button Symbol
         Button_Decimal.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + ",")
+            Textview_Result.text = (Textview_Result.text.toString() + ".")
         }
 
         Button_Add.setOnClickListener {
@@ -454,14 +457,31 @@ class Calculator_activity : AppCompatActivity() {
                 SecondTextview_Result.text = "\u03C0"
             }
 
+            Button_Radian.setOnClickListener {
+                DegRad_toggle = true
+            }
+
+            Button_Degress.setOnClickListener {
+                DegRad_toggle = false
+            }
+
             // for sin,cos,tan Degress/Radiant function
+            Button_Sin.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "sin"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "sin($result"
 
+                }
 
+            }
 
         }
     }
-
-    /*fun DegRadCheck(value : Boolean) : Boolean{
-        // if value == false, radian default
-    }*/
 }
