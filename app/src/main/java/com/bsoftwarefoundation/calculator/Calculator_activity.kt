@@ -1,5 +1,6 @@
 package com.bsoftwarefoundation.calculator
 
+import android.app.admin.SecurityLog
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -116,8 +117,8 @@ class Calculator_activity : AppCompatActivity() {
 
         // Button Symbol
         Button_AC = findViewById(R.id.Clear)
-        Button_DEL = findViewById(R.id.Delete)
         Button_PlusMinus = findViewById(R.id.Plusminus)
+        Button_DEL = findViewById(R.id.Delete)
         Button_Divide = findViewById(R.id.Divide)
         Button_Multiply = findViewById(R.id.Multiply)
         Button_Substract = findViewById(R.id.Substract)
@@ -247,6 +248,8 @@ class Calculator_activity : AppCompatActivity() {
         //TODO: Component Calculator
         Button_DEL.setOnClickListener {
             Component_delete.Delete(Textview_Result)
+            // if SecondTextview isNotEmpty, we mush delete it!!!
+            SecondTextview_Result.text = ""
         }
 
         Button_AC.setOnClickListener {
