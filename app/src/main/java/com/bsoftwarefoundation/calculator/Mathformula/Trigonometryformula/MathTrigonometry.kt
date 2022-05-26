@@ -22,21 +22,22 @@ class MathTrigonometry {
 
         // Trigonometry on Degress
         fun SinusDegress(X : Double) : Double{
-            val result = Math.sin(X)
-            val degress_result = Math.toDegrees(result)
-            return degress_result
+            // convert into radian
+            val convert_radiant = Math.toRadians(X)
+            val result = Math.sin(convert_radiant)
+            return result
         }
 
         fun CosinusDegress(X : Double) : Double{
-            val result = Math.cos(X)
-            val degress_result = Math.toDegrees(result)
-            return degress_result
+            val convert_radiant = Math.toRadians(X)
+            val result = Math.cos(convert_radiant)
+            return result
         }
 
         fun TangenDegress(X : Double) : Double{
-            val result = Math.tan(X)
-            val degress_result = Math.toDegrees(result)
-            return degress_result
+            val convert_radiant = Math.toRadians(X)
+            val result = Math.tan(convert_radiant)
+            return result
         }
     }
 }
