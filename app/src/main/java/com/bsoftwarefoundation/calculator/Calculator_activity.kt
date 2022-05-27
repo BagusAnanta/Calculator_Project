@@ -274,11 +274,15 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_MPlus.setOnClickListener {
                 val convertdouble = Textview_Result.text.toString().toDouble()
-                // if Memory is 0.0, we must add firstly
-                if(Component_memory.Memory == 0.0){
-                    Component_memory.GetMemory(convertdouble)
+                val getmem = Component_memory.GetMemory(convertdouble)
+
+                if(getmem != 0.0){
+                   val addmem = Component_memory.AddMemory(getmem)
+                   Textview_Result.text = addmem.toString()
                 }
             }
+
+
 
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
