@@ -262,8 +262,6 @@ class Calculator_activity : AppCompatActivity() {
         // TODO:Landscape/scientific calculator configuration
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-            //TODO : Place here Degrad Indicator
-
 
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
@@ -491,7 +489,34 @@ class Calculator_activity : AppCompatActivity() {
                     SecondTextview_Result.text = "sin($result"
 
                 }
+            }
 
+            Button_Cos.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "cos"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "cos($result"
+                }
+            }
+
+            Button_Tan.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "tan"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "tan($result"
+                }
             }
 
         }
