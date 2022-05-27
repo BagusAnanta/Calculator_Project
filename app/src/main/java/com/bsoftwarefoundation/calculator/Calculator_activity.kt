@@ -143,7 +143,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_Eight = findViewById(R.id.Eight)
         Button_Nine = findViewById(R.id.Nine)
 
-        // Use this if a screen orientation Landscape
+        // use this if a screen orientation Landscape
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
             // Scientific Math Calculator Symbol
@@ -259,26 +259,49 @@ class Calculator_activity : AppCompatActivity() {
 
         Button_AC.setOnClickListener {
             Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
+
         }
 
         // TODO:Landscape/scientific calculator configuration
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            //TODO: Memory calculator
+            //TODO: Memory calculator (Check This!)
             Button_MC.setOnClickListener {
-                if(Textview_Result.text.toString().equals("0")){
-                    IndicatorError_Result.setText("Memory kosong")
+                // if get memory value = 0.0/ no have value
+                if(Component_memory.GetMemory() == 0.0){
+                    // Indicator warning show
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Memori kosong")
                 } else {
+                    // Memory and PrefMemory value must delete or 0 value
                     Component_memory.ClearMemory()
+                    Component_memory.ClearPrefMemory()
                 }
             }
 
+            // TODO: Repair this and check this!
             Button_MPlus.setOnClickListener {
                 val convertdouble = Textview_Result.text.toString().toDouble()
-                val getmem = Component_memory.GetMemory(convertdouble)
+                // setmem if get mem == 0
+                val setmem = Component_memory.SetMemory(convertdouble)
 
-                if(getmem != 0.0){
-                   val addmem = Component_memory.AddMemory(getmem)
-                   Textview_Result.text = addmem.toString()
+            }
+
+            // TODO: Repair this and check this!
+            Button_MMinus.setOnClickListener {
+                val convertdouble = Textview_Result.text.toString().toDouble()
+                // get memory before
+                val getmem = Component_memory.GetMemory()
+            }
+
+            Button_MR.setOnClickListener {
+                // show Pref value before
+                // if component_memory in PrefMemory is 0.0
+                if(Component_memory.PrefMemory == 0.0){
+                    // we get PrefMemory value from Memory value
+                    Component_memory.PrefMemory = Component_memory.GetMemory()
+                } else {
+                    // if prefmemory is exist/ != 0.0 we get memory data
+                    Textview_Result.text = Component_memory.PrefMemory.toString()
                 }
             }
 

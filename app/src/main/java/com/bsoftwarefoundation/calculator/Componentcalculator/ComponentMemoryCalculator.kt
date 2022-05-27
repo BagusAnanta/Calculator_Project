@@ -3,12 +3,22 @@ package com.bsoftwarefoundation.calculator.Componentcalculator
 class ComponentMemoryCalculator {
     // Memory in calculator = MC : Clear Memory, M + : Add to Memory, M - : Substract from Memory, MR : Recall Memory
 
-    // Default value
+    // Default value Memory
     var Memory : Double = 0.0
 
-    fun GetMemory(X : Double) : Double{
-        // Here, must have get value from result
+    // Pref value Memory
+    var PrefMemory : Double = 0.0
+        get() = field
+        set(X) {
+            field = X
+        }
+
+    fun SetMemory(X : Double){
+        // Here, must have get value from X/result
         Memory = X
+    }
+
+    fun GetMemory() : Double{
         return Memory
     }
 
@@ -31,6 +41,7 @@ class ComponentMemoryCalculator {
 
     // Here, you Clear Memory and return to null
     fun ClearMemory(){Memory = 0.0}
+    fun ClearPrefMemory(){PrefMemory = 0.0}
 
 
 
