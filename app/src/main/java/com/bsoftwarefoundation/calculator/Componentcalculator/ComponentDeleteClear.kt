@@ -6,8 +6,8 @@ class ComponentDeleteClear {
 
     fun ClearAll(Maintext : TextView,Secondtext : TextView){
         // cleare all text
-        Maintext.text = (Maintext.text.toString() + "")
-        Secondtext.text = (Secondtext.text.toString() + "")
+        var maintext : String = Maintext.text.toString()
+        var secondtext : String = Secondtext.text.toString()
     }
 
     fun Delete(MainText : TextView){

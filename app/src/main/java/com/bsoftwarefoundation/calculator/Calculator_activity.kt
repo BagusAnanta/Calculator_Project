@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
+import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentMemoryCalculator
 import com.bsoftwarefoundation.calculator.Mathformula.*
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
@@ -34,6 +35,7 @@ class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
+    var Component_memory = ComponentMemoryCalculator()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result : TextView
@@ -261,7 +263,22 @@ class Calculator_activity : AppCompatActivity() {
 
         // TODO:Landscape/scientific calculator configuration
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //TODO: Memory calculator
+            Button_MC.setOnClickListener {
+                if(Textview_Result.text.toString().equals("0")){
+                    IndicatorError_Result.setText("Memory kosong")
+                } else {
+                    Component_memory.ClearMemory()
+                }
+            }
 
+            Button_MPlus.setOnClickListener {
+                val convertdouble = Textview_Result.text.toString().toDouble()
+                // if Memory is 0.0, we must add firstly
+                if(Component_memory.Memory == 0.0){
+                    Component_memory.GetMemory(convertdouble)
+                }
+            }
 
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
@@ -273,7 +290,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower2.setOnClickListener {
-                // TODO : Please repair
+
                 if (Textview_Result.text.toString().isEmpty()) {
                     // If Textview_Result is empty/ = 0, show text "Kesalahan"
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")

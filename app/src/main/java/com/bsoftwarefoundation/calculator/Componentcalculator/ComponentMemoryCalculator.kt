@@ -4,33 +4,33 @@ class ComponentMemoryCalculator {
     // Memory in calculator = MC : Clear Memory, M + : Add to Memory, M - : Substract from Memory, MR : Recall Memory
 
     // Default value
-    var Memory : Double? = null
+    var Memory : Double = 0.0
 
     fun GetMemory(X : Double) : Double{
         // Here, must have get value from result
         Memory = X
-        return Memory as Double
+        return Memory
     }
 
-    fun AddMemory(X : Double) : Double?{
+    fun AddMemory(X : Double) : Double{
         // Add memory formula : Memory + X (X : New user input Value)
-        val result = Memory?.plus(X)
+        val result = Memory.plus(X)
         return result
     }
 
-    fun SubstractMemory(X : Double) : Double?{
+    fun SubstractMemory(X : Double) : Double{
         // Substract memory formula : Memory - X (X : New user input Value)
-        val result = Memory?.minus(X)
+        val result = Memory.minus(X)
         return result
     }
 
-    fun RecallMemory() : Double?{
+    fun RecallMemory() : Double{
         // call back value/number from memory
         return Memory
     }
 
     // Here, you Clear Memory and return to null
-    fun ClearMemory(){Memory = null}
+    fun ClearMemory(){Memory = 0.0}
 
 
 
