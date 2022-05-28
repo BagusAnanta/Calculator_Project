@@ -5,9 +5,8 @@ import android.widget.TextView
 class ComponentDeleteClear {
 
     fun ClearAll(Maintext : TextView,Secondtext : TextView){
-        // cleare all text
-        var maintext : String = Maintext.text.toString()
-        var secondtext : String = Secondtext.text.toString()
+        Maintext.setText("")
+        Secondtext.setText("")
     }
 
     fun Delete(MainText : TextView){

@@ -250,7 +250,7 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
 
-        //TODO: Component Calculator
+        //TODO: Component Calculator AC/Del/+/-
         Button_DEL.setOnClickListener {
             Component_delete.Delete(Textview_Result)
             // if SecondTextview isNotEmpty, we mush delete it!!!
@@ -289,6 +289,7 @@ class Calculator_activity : AppCompatActivity() {
                     // if a GetMemory() have a value or != 0.0 we must add with resultconvert and replace a new value into Prevmemory
                     val addmem = Component_memory.AddMemory(resultconvert)
                     Component_memory.PrefMemory = addmem
+                    Textview_Result.text = addmem.toString()
                 }
 
             }
@@ -304,6 +305,7 @@ class Calculator_activity : AppCompatActivity() {
                     val substractmem = Component_memory.SubstractMemory(resultconvert)
                     // place value result into Prefmemory
                     Component_memory.PrefMemory = substractmem
+                    Textview_Result.text = substractmem.toString()
                 }
             }
 
@@ -322,7 +324,6 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = Component_memory.PrefMemory.toString()
                 }
             }
-
 
 
             //TODO : Scientific Calculator Symbol
