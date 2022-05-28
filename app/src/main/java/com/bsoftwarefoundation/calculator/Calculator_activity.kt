@@ -297,7 +297,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_MMinus.setOnClickListener {
                 val resultconvert = Textview_Result.text.toString().toDouble()
                 // same like M+ but, use SubstractMemory()
-                // check before if memory empty/0.0 we must get memory before or if a prefmemory have a value before we use prefmemory
+                // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
                 if(Component_memory.GetMemory() == 0.0){
                     Component_memory.SetMemory(resultconvert)
                 } else if(!Component_memory.PrefMemory.equals(0.0)){ // if PrefMemory != 0.0 or have value
