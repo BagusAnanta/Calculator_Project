@@ -267,7 +267,7 @@ class Calculator_activity : AppCompatActivity() {
             //TODO: Memory calculator (Check This!)
             Button_MC.setOnClickListener {
                 // if get memory value = 0.0/ no have value
-                if(Component_memory.GetMemory() == 0.0){
+                if(Component_memory.GetMemory() == 0.0 || Component_memory.PrefMemory == 0.0){
                     // Indicator warning show
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Memori kosong")
@@ -280,25 +280,43 @@ class Calculator_activity : AppCompatActivity() {
 
             // TODO: Repair this and check this!
             Button_MPlus.setOnClickListener {
-                val convertdouble = Textview_Result.text.toString().toDouble()
-                // setmem if get mem == 0
-                val setmem = Component_memory.SetMemory(convertdouble)
+                val resultconvert = Textview_Result.text.toString().toDouble()
+                // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
+                if(Component_memory.GetMemory() == 0.0){
+                    // set first value in memory
+                    Component_memory.SetMemory(resultconvert)
+                } else {
+                    // if a GetMemory() have a value or != 0.0 we must add with resultconvert and replace a new value into Prevmemory
+                    val addmem = Component_memory.AddMemory(resultconvert)
+                    Component_memory.PrefMemory = addmem
+                }
 
             }
 
             // TODO: Repair this and check this!
             Button_MMinus.setOnClickListener {
-                val convertdouble = Textview_Result.text.toString().toDouble()
-                // get memory before
-                val getmem = Component_memory.GetMemory()
+                val resultconvert = Textview_Result.text.toString().toDouble()
+                // same like M+ but, use SubstractMemory()
+                // check before if memory empty/0.0 we must get memory before or if a prefmemory have a value before we use prefmemory
+                if(Component_memory.GetMemory() == 0.0){
+                    Component_memory.SetMemory(resultconvert)
+                } else if(!Component_memory.PrefMemory.equals(0.0)){ // if PrefMemory != 0.0 or have value
+                    val substractmem = Component_memory.SubstractMemory(resultconvert)
+                    // place value result into Prefmemory
+                    Component_memory.PrefMemory = substractmem
+                }
             }
 
             Button_MR.setOnClickListener {
                 // show Pref value before
                 // if component_memory in PrefMemory is 0.0
                 if(Component_memory.PrefMemory == 0.0){
-                    // we get PrefMemory value from Memory value
+                    // we get PrefMemory value from Memory value and show in Pref memory
                     Component_memory.PrefMemory = Component_memory.GetMemory()
+                    Textview_Result.text = Component_memory.PrefMemory.toString()
+                } else if(Component_memory.GetMemory() == 0.0) {
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Memori kosong")
                 } else {
                     // if prefmemory is exist/ != 0.0 we get memory data
                     Textview_Result.text = Component_memory.PrefMemory.toString()
