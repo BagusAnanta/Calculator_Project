@@ -4,12 +4,14 @@ import android.app.admin.SecurityLog
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentMemoryCalculator
+import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentPlusMinus
 import com.bsoftwarefoundation.calculator.Mathformula.*
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
@@ -36,6 +38,7 @@ class Calculator_activity : AppCompatActivity() {
     // TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
     var Component_memory = ComponentMemoryCalculator()
+    var Component_plusmin = ComponentPlusMinus()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result : TextView
@@ -254,12 +257,29 @@ class Calculator_activity : AppCompatActivity() {
         Button_DEL.setOnClickListener {
             Component_delete.Delete(Textview_Result)
             // if SecondTextview isNotEmpty, we mush delete it!!!
-            SecondTextview_Result.text = ""
         }
 
         Button_AC.setOnClickListener {
             Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
 
+        }
+
+        Button_PlusMinus.setOnClickListener {
+            // NumberformatException if Textview_Result empty
+          try{
+              if(Textview_Result.text.isEmpty()){
+                  val defaultnumber = 0.0
+                  val defaultplusminus = Component_plusmin.PlusMinusOperation(defaultnumber)
+                  Textview_Result.text = defaultplusminus.toString()
+              } else {
+                  //
+                  val resultconvert = Textview_Result.text.toString().toDouble()
+                  val plusminusconvert = Component_plusmin.PlusMinusOperation(resultconvert)
+                  Textview_Result.text = plusminusconvert.toString()
+              }
+          } catch (Exception : NumberFormatException){
+             Log.e("PlusMinusException", Exception.toString())
+          }
         }
 
         // TODO:Landscape/scientific calculator configuration
