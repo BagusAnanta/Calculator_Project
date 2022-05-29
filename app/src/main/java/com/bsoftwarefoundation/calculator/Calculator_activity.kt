@@ -400,26 +400,37 @@ class Calculator_activity : AppCompatActivity() {
 
             // Repair later
             Button_XPowery.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                /*if(Textview_Result.text.toString().isEmpty()){
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                }
+                }*/
             }
 
             Button_XFactorial.setOnClickListener {
-               val value = Textview_Result.text.toString().toInt()
-               val Factorial =  Math_factorial.Factorial(value)
-               Textview_Result.text = Factorial.toString()
-               SecondTextview_Result.text = "$value!"
+               if(Textview_Result.text.toString().isEmpty()){
+                   Textview_Result.text = (Textview_Result.text.toString() + "X" + "!")
+                   IndicatorError_Result.visibility = View.VISIBLE
+                   IndicatorError_Result.setText("Kesalahan")
+               } else {
+                   val value = Textview_Result.text.toString().toInt()
+                   val Factorial = Math_factorial.Factorial(value)
+                   Textview_Result.text = Factorial.toString()
+                   SecondTextview_Result.text = "$value!"
+               }
             }
 
             Button_root.setOnClickListener {
-                //TODO: NumberFormatException
-                val value = Textview_Result.toString().toDouble()
-                val Squareroot = Math_root.SquareRoot(value)
-                Textview_Result.text = Squareroot.toString()
-                SecondTextview_Result.text = "$value\u221A"
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "\u221A" + "X")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else {
+                    val value = Textview_Result.toString().toDouble()
+                    val Squareroot = Math_root.SquareRoot(value)
+                    Textview_Result.text = Squareroot.toString()
+                    SecondTextview_Result.text = "$value\u221A"
+                }
             }
 
             // Repair later
