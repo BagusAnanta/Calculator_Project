@@ -1,12 +1,14 @@
 package com.bsoftwarefoundation.calculator.Componentcalculator
 
+import android.view.View
 import android.widget.TextView
 
 class ComponentDeleteClear {
 
     fun ClearAll(Maintext : TextView,Secondtext : TextView){
-        Maintext.setText("")
-        Secondtext.setText("")
+        // Maintext set at 0 and Secondtext set at Invisible
+        Maintext.setText("0")
+        Secondtext.setText("0")
     }
 
     fun Delete(MainText : TextView){

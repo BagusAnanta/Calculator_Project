@@ -255,13 +255,17 @@ class Calculator_activity : AppCompatActivity() {
 
         //TODO: Component Calculator AC/Del/+/-
         Button_DEL.setOnClickListener {
+            // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
+            if(SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()){
+                SecondTextview_Result.setText("0")
+                IndicatorError_Result.visibility = View.INVISIBLE
+            }
+            // component_delete call if Button_del pressed
             Component_delete.Delete(Textview_Result)
-            // if SecondTextview isNotEmpty, we mush delete it!!!
         }
 
         Button_AC.setOnClickListener {
             Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
-
         }
 
         Button_PlusMinus.setOnClickListener {
@@ -272,7 +276,6 @@ class Calculator_activity : AppCompatActivity() {
                   val defaultplusminus = Component_plusmin.PlusMinusOperation(defaultnumber)
                   Textview_Result.text = defaultplusminus.toString()
               } else {
-                  //
                   val resultconvert = Textview_Result.text.toString().toDouble()
                   val plusminusconvert = Component_plusmin.PlusMinusOperation(resultconvert)
                   Textview_Result.text = plusminusconvert.toString()
