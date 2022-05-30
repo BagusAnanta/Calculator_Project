@@ -474,7 +474,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Eular_powerx = Math_eular.EulerPowerX(value)
                     Textview_Result.text = Eular_powerx.toString()
-                    SecondTextview_Result.text = "e^($value"
+                    SecondTextview_Result.text = "e^($value)"
                 }
             }
 
@@ -488,13 +488,27 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val In = Math_logaritm.ln(value)
                     Textview_Result.text = In.toString()
-                    SecondTextview_Result.text = "In + ($value"
+                    SecondTextview_Result.text = "In + ($value)"
+                }
+            }
+
+            Button_log.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "log()")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Logaritm = Math_logaritm.Logaritm(value)
+                    Textview_Result.text = Logaritm.toString()
+                    SecondTextview_Result.text = "log($value)"
                 }
             }
 
             Button_Absolute.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "|" + "|")
+                    Textview_Result.text = (Textview_Result.text.toString() +  "|X|")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
                 } else if(!Textview_Result.text.toString().isEmpty()){
@@ -504,6 +518,64 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = Absolute.toString()
                     SecondTextview_Result.text = "| $value |"
                 }
+            }
+
+            Button_Radian.setOnClickListener {
+                DegRad_toggle = true
+                Degradindicator_result.setText("Rad")
+            }
+
+            // for sin,cos,tan Degress/Radiant function
+            Button_Sin.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "sin"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "sin($result)"
+
+                }
+            }
+
+            Button_Cos.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "cos"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "cos($result)"
+                }
+            }
+
+            Button_Tan.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "tan"+ "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(result)
+                    Textview_Result.text = checkdegrad.toString()
+                    SecondTextview_Result.text = "tan($result)"
+                }
+            }
+
+            Button_Inverse.setOnClickListener {
+                // setText at sin/cos/tan button if button is press
+                Button_Sin.setText(R.string.invsin_sym)
+                Button_Cos.setText(R.string.invcos_sym)
+                Button_Tan.setText(R.string.invtan_sym)
+
+                // if(Button_Inverse.isPressed == true)
             }
 
             Button_10PowerX.setOnClickListener {
@@ -520,6 +592,11 @@ class Calculator_activity : AppCompatActivity() {
                 }
             }
 
+            Button_Degress.setOnClickListener {
+                DegRad_toggle = false
+                Degradindicator_result.setText("Deg")
+            }
+
             Button_Sinh.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
                     Textview_Result.text = (Textview_Result.text.toString() + "sinh"+ "(")
@@ -530,7 +607,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
                     Textview_Result.text = Sinh.toString()
-                    SecondTextview_Result.text = "sinh($value"
+                    SecondTextview_Result.text = "sinh($value)"
                 }
             }
 
@@ -544,7 +621,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
                     Textview_Result.text = Cosh.toString()
-                    SecondTextview_Result.text = "cosh($value"
+                    SecondTextview_Result.text = "cosh($value)"
                 }
             }
 
@@ -558,7 +635,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
                     Textview_Result.text = Tanh.toString()
-                    SecondTextview_Result.text = "tanh($value"
+                    SecondTextview_Result.text = "tanh($value)"
                 }
             }
 
@@ -567,61 +644,6 @@ class Calculator_activity : AppCompatActivity() {
                 Textview_Result.text = Pi_equation
                 SecondTextview_Result.text = "\u03C0"
             }
-
-            Button_Radian.setOnClickListener {
-                DegRad_toggle = true
-                Degradindicator_result.setText("Rad")
-            }
-
-            Button_Degress.setOnClickListener {
-                DegRad_toggle = false
-                Degradindicator_result.setText("Deg")
-            }
-
-            // for sin,cos,tan Degress/Radiant function
-            Button_Sin.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "sin"+ "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
-                    Textview_Result.text = checkdegrad.toString()
-                    SecondTextview_Result.text = "sin($result"
-
-                }
-            }
-
-            Button_Cos.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "cos"+ "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(result)
-                    Textview_Result.text = checkdegrad.toString()
-                    SecondTextview_Result.text = "cos($result"
-                }
-            }
-
-            Button_Tan.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "tan"+ "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(result)
-                    Textview_Result.text = checkdegrad.toString()
-                    SecondTextview_Result.text = "tan($result"
-                }
-            }
-
         }
     }
 }
