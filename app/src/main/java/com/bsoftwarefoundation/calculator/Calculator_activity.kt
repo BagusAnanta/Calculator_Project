@@ -366,7 +366,7 @@ class Calculator_activity : AppCompatActivity() {
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
                 } else if(!Textview_Result.text.toString().isEmpty()) {
-                    // Text kesalahan invisible
+                    // Text "kesalahan" invisible
                     IndicatorError_Result.visibility = View.INVISIBLE
                     // for tester if correct you can left, if have problem please correct it after
                     val value = Textview_Result.text.toString().toDouble()
@@ -400,11 +400,13 @@ class Calculator_activity : AppCompatActivity() {
 
             // Repair later
             Button_XPowery.setOnClickListener {
-                /*if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                }*/
+                // TODO: I recommend use edittext because, this operation must have 2 input
+                val variable_X = Textview_Result.text.toString().toDouble()
+                val power_y = Textview_Result.text.toString().toDouble()
+                val Xpowery = Math_power.XPowerY(variable_X,power_y)
+                Textview_Result.text = Xpowery.toString()
+                SecondTextview_Result.text = "$variable_X + ^ + ($power_y)"
+
             }
 
             Button_XFactorial.setOnClickListener {
@@ -435,7 +437,11 @@ class Calculator_activity : AppCompatActivity() {
 
             // Repair later
             Button_PowerY_UnderRootX.setOnClickListener {
-
+               // TODO: I recommend use edittext because, this operation must have 2 input
+                val power_y = Textview_Result.text.toString().toDouble()
+                val root_X =  Textview_Result.text.toString().toDouble()
+                val PowerYunderrootX = Math_root.YunderrootX(power_y,root_X)
+                Textview_Result.text = PowerYunderrootX.toString()
             }
 
             Button_1DivideX.setOnClickListener {
