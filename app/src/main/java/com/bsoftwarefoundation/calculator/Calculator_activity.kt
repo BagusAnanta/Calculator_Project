@@ -35,6 +35,7 @@ class Calculator_activity : AppCompatActivity() {
     var Math_trigonometryradiant = MathTrigonometry()
     var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
     var Math_pi = MathPi()
+    var Math_derivative = MathDerivative()
 
     // TODO: Initiated Component Class
     var Component_delete = ComponentDeleteClear()
@@ -406,7 +407,7 @@ class Calculator_activity : AppCompatActivity() {
                 val power_y = Textview_Result.text.toString().toDouble()
                 val Xpowery = Math_power.XPowerY(variable_X,power_y)
                 Textview_Result.text = Xpowery.toString()
-                SecondTextview_Result.text = "$variable_X + ^ + ($power_y)"
+                SecondTextview_Result.text = "$variable_X^($power_y)"
 
             }
 
@@ -642,6 +643,20 @@ class Calculator_activity : AppCompatActivity() {
                     val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
                     Textview_Result.text = Tanh.toString()
                     SecondTextview_Result.text = "tanh($value)"
+                }
+            }
+
+            Button_Derivative.setOnClickListener {
+                if(Textview_Result.text.toString().isEmpty()){
+                    Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if(!Textview_Result.text.toString().isEmpty()){
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Yderivative = Math_derivative.Derivative(value)
+                    Textview_Result.text = "$value X^($Yderivative-1)"
+                    SecondTextview_Result.text = "$value X^($Yderivative-1)"
                 }
             }
 
