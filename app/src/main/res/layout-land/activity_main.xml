@@ -494,17 +494,20 @@
                 android:textAllCaps="false"
                 android:backgroundTint="@color/whitebackdark"/>
 
-            <Button
-                android:id="@+id/Inverse"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="3dp"
-                android:textSize="18sp"
-                android:text="@string/inverse_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
-                android:backgroundTint="@color/whitebackdark"/>
+
+                <ToggleButton
+                    android:id="@+id/Inverse"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="3dp"
+                    android:textSize="18sp"
+                    android:textOff="@string/inverse_sym"
+                    android:textOn="@string/inverse_sym"
+                    android:textColor="@color/black"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/whitebackdark"/>
+
 
             <Button
                 android:id="@+id/Tenpowerx"

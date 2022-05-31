@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.ToggleButton
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDeleteClear
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentMemoryCalculator
 import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentPlusMinus
@@ -94,7 +95,7 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_Sin : Button
     private lateinit var Button_Cos : Button
     private lateinit var Button_Tan : Button
-    private lateinit var Button_Inverse : Button
+    private lateinit var Button_Inverse : ToggleButton
     private lateinit var Button_10PowerX : Button
     private lateinit var Button_Degress : Button
     private lateinit var Button_Sinh : Button
@@ -569,14 +570,19 @@ class Calculator_activity : AppCompatActivity() {
                 }
             }
 
-            Button_Inverse.setOnClickListener {
-                // setText at sin/cos/tan button if button is press
-                Button_Sin.setText(R.string.invsin_sym)
-                Button_Cos.setText(R.string.invcos_sym)
-                Button_Tan.setText(R.string.invtan_sym)
-
-                // if(Button_Inverse.isPressed == true)
-            }
+           Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
+               if(isChecked){
+                   Button_Sin.setText(R.string.invsin_sym)
+                   Button_Cos.setText(R.string.invcos_sym)
+                   Button_Tan.setText(R.string.invtan_sym)
+                   // function for change inverse operation
+               } else {
+                   Button_Sin.setText(R.string.sin_sym)
+                   Button_Cos.setText(R.string.cos_sym)
+                   Button_Tan.setText(R.string.tan_sym)
+                   // function for change operation back
+               }
+           }
 
             Button_10PowerX.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
