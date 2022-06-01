@@ -490,7 +490,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val In = Math_logaritm.ln(value)
                     Textview_Result.text = In.toString()
-                    SecondTextview_Result.text = "In + ($value)"
+                    SecondTextview_Result.text = "In($value)"
                 }
             }
 
@@ -595,7 +595,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Tenpowerx = Math_power.TenPowerx(value)
                     Textview_Result.text = Tenpowerx.toString()
-                    SecondTextview_Result.text = "$value + ^ + (10) "
+                    SecondTextview_Result.text = "$value^(10)"
                 }
             }
 
@@ -655,7 +655,7 @@ class Calculator_activity : AppCompatActivity() {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Yderivative = Math_derivative.Derivative(value)
-                    Textview_Result.text = "$value X^($Yderivative-1)"
+                    Textview_Result.text = "$value X^($Yderivative)"
                     SecondTextview_Result.text = "$value X^($Yderivative-1)"
                 }
             }
