@@ -16,6 +16,7 @@ import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentPlusMinus
 import com.bsoftwarefoundation.calculator.Mathformula.*
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
+import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
 import org.w3c.dom.Text
 import kotlin.properties.Delegates
 
@@ -34,6 +35,8 @@ class Calculator_activity : AppCompatActivity() {
     var Math_trigonometryhyper = MathTrigonometryHyperbolic()
     var Math_trigonometryradiant = MathTrigonometry()
     var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
+    var Math_trigonometryinverseradiant = MathTrigonometryInverse()
+    var Math_trigonometryinversedegress = MathTrigonometryInverse().MathTrigonometryInverseDegress()
     var Math_pi = MathPi()
     var Math_derivative = MathDerivative()
 
@@ -268,6 +271,7 @@ class Calculator_activity : AppCompatActivity() {
 
         Button_AC.setOnClickListener {
             Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
+            IndicatorError_Result.visibility = View.INVISIBLE
         }
 
         Button_PlusMinus.setOnClickListener {
@@ -385,7 +389,6 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                // TODO : Please repair
                 if(Textview_Result.text.toString().isEmpty()){
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
@@ -400,7 +403,7 @@ class Calculator_activity : AppCompatActivity() {
 
             }
 
-            // Repair later
+            // TODO: Repair later
             Button_XPowery.setOnClickListener {
                 // TODO: I recommend use edittext because, this operation must have 2 input
                 val variable_X = Textview_Result.text.toString().toDouble()
@@ -437,7 +440,7 @@ class Calculator_activity : AppCompatActivity() {
                 }
             }
 
-            // Repair later
+            // TODO: Repair later
             Button_PowerY_UnderRootX.setOnClickListener {
                // TODO: I recommend use edittext because, this operation must have 2 input
                 val power_y = Textview_Result.text.toString().toDouble()
@@ -533,7 +536,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "sin"+ "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if(Textview_Result.text.toString().isNotEmpty()){
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
                     val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
@@ -548,7 +551,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "cos"+ "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if(Textview_Result.text.toString().isNotEmpty()){
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
                     val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(result)
@@ -562,7 +565,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "tan"+ "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if(Textview_Result.text.toString().isNotEmpty()){
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
                     val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(result)
@@ -667,4 +670,31 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
     }
+
+    fun checkinverttrig(isInverse : Boolean,value : Double = 0.0,isSin : Boolean = false,isCos : Boolean = false,isTan : Boolean = false,isDegress : Boolean = false) : Double{
+        // default value result
+        var result = 0.0
+
+        if(isInverse){
+            // change to Inverse Trigonometry function
+            if(isSin){
+                val SinInverse = if(isDegress) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
+                result = SinInverse
+            } else if(isCos){
+                val CosInverse = if(isDegress) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
+                result = CosInverse
+            } else if(isTan){
+                val TanInverse = if(isDegress) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
+                result = TanInverse
+            } else{
+                IndicatorError_Result.setText("Kesalahan")
+            }
+
+        } else {
+
+        }
+
+        return result
+    }
+
 }
