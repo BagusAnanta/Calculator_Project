@@ -61,5 +61,6 @@
     <string name="plusminus_sym">+/-</string>
     <string name="tenpowerx">10<sup><small>x</small></sup></string>
     <string name="derivative1">y<sup><small>\'</small></sup></string>
+    <string name="error_sign">Kesalahan</string>
 
 </resources>

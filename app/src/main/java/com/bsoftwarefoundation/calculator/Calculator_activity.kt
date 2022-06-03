@@ -25,6 +25,9 @@ class Calculator_activity : AppCompatActivity() {
     // TODO: Initiated Degress & Radiant Value
     var DegRad_toggle : Boolean = true
 
+    // TODO: Initiated Invert value default
+    var Inverse_toggle : Boolean = false
+
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
     var Math_factorial = MathFactorial()
@@ -243,7 +246,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_Divide.setOnClickListener {
             Textview_Result.text = (Textview_Result.text.toString() + "/")
         }
-
+        // TODO: Repair this!!!
         Button_Substract.setOnClickListener {
             val string: String = Textview_Result.text.toString()
             if (!string.get(index = string.length - 1).equals("-")) {
@@ -530,6 +533,24 @@ class Calculator_activity : AppCompatActivity() {
                 Degradindicator_result.setText("Rad")
             }
 
+            Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
+                if(isChecked){
+                    Button_Sin.setText(R.string.invsin_sym)
+                    Button_Cos.setText(R.string.invcos_sym)
+                    Button_Tan.setText(R.string.invtan_sym)
+                    // Inverse toggle equals true because in parameters "isInverse" true value
+                    Inverse_toggle = true
+                    // function for change inverse operation
+                } else {
+                    Button_Sin.setText(R.string.sin_sym)
+                    Button_Cos.setText(R.string.cos_sym)
+                    Button_Tan.setText(R.string.tan_sym)
+                    // Non inverse toggle equals false (if user 2x press button) and back to normal trigonometry operation
+                    Inverse_toggle = false
+                    // function for change operation back
+                }
+            }
+
             // for sin,cos,tan Degress/Radiant function
             Button_Sin.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
@@ -539,8 +560,9 @@ class Calculator_activity : AppCompatActivity() {
                 } else if(Textview_Result.text.toString().isNotEmpty()){
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
-                    Textview_Result.text = checkdegrad.toString()
+                    // val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
+                    val sinusoperation = checkinverttrig(Inverse_toggle,result,isSin = true, checkDegRad = DegRad_toggle)
+                    Textview_Result.text = sinusoperation.toString()
                     SecondTextview_Result.text = "sin($result)"
 
                 }
@@ -573,20 +595,6 @@ class Calculator_activity : AppCompatActivity() {
                     SecondTextview_Result.text = "tan($result)"
                 }
             }
-
-           Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
-               if(isChecked){
-                   Button_Sin.setText(R.string.invsin_sym)
-                   Button_Cos.setText(R.string.invcos_sym)
-                   Button_Tan.setText(R.string.invtan_sym)
-                   // function for change inverse operation
-               } else {
-                   Button_Sin.setText(R.string.sin_sym)
-                   Button_Cos.setText(R.string.cos_sym)
-                   Button_Tan.setText(R.string.tan_sym)
-                   // function for change operation back
-               }
-           }
 
             Button_10PowerX.setOnClickListener {
                 if(Textview_Result.text.toString().isEmpty()){
@@ -671,30 +679,55 @@ class Calculator_activity : AppCompatActivity() {
         }
     }
 
-    fun checkinverttrig(isInverse : Boolean,value : Double = 0.0,isSin : Boolean = false,isCos : Boolean = false,isTan : Boolean = false,isDegress : Boolean = false) : Double{
+    private fun checkinverttrig(isInverse : Boolean,value : Double = 0.0,isSin : Boolean = false,isCos : Boolean = false,isTan : Boolean = false,checkDegRad : Boolean = false) : Double{
         // default value result
         var result = 0.0
 
         if(isInverse){
             // change to Inverse Trigonometry function
             if(isSin){
-                val SinInverse = if(isDegress) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
+                val SinInverse = if(checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
                 result = SinInverse
             } else if(isCos){
-                val CosInverse = if(isDegress) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
+                val CosInverse = if(checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
                 result = CosInverse
             } else if(isTan){
-                val TanInverse = if(isDegress) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
+                val TanInverse = if(checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
                 result = TanInverse
             } else{
                 IndicatorError_Result.setText("Kesalahan")
             }
 
         } else {
-
+            // here, you must change to normal sin/cos/tan
+            if(isSin){
+                val Sinus = if(checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
+                result = Sinus
+            } else if(isCos){
+                val Cosinus = if(checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
+                result = Cosinus
+            } else if(isTan){
+                val Tangent = if(checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
+                result = Tangent
+            } else{
+                IndicatorError_Result.setText("Kesalahan")
+            }
         }
-
         return result
     }
+
+    /*private fun setresult(symbol : TextView,mathfunction : Double){
+        if(Textview_Result.text.toString().isEmpty()){
+            Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
+            IndicatorError_Result.visibility = View.VISIBLE
+            IndicatorError_Result.setText(R.string.error_sign)
+        } else if(Textview_Result.text.toString().isNotEmpty()){
+            IndicatorError_Result.visibility = View.INVISIBLE
+            val value = Textview_Result.text.toString().toDouble()
+            val operation = Math_derivative.Derivative(value)
+            Textview_Result.text = "$value X^($Yderivative)"
+            SecondTextview_Result.text = "$value X^($Yderivative-1)"
+        }
+    }*/
 
 }
