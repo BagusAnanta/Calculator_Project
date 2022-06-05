@@ -23,10 +23,10 @@ import kotlin.properties.Delegates
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Degress & Radiant Value
-    var DegRad_toggle : Boolean = true
+    var DegRad_toggle: Boolean = true
 
     // TODO: Initiated Invert value default
-    var Inverse_toggle : Boolean = false
+    var Inverse_toggle: Boolean = false
 
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
@@ -49,67 +49,67 @@ class Calculator_activity : AppCompatActivity() {
     var Component_plusmin = ComponentPlusMinus()
 
     // TODO : Initiated TextView Result
-    private lateinit var Textview_Result : TextView
-    private lateinit var SecondTextview_Result : TextView
-    private lateinit var IndicatorError_Result : TextView
-    private lateinit var Degradindicator_result : TextView
+    private lateinit var Textview_Result: TextView
+    private lateinit var SecondTextview_Result: TextView
+    private lateinit var IndicatorError_Result: TextView
+    private lateinit var Degradindicator_result: TextView
 
 
     // TODO : Initiated Button Operation Symbol
-    private lateinit var Button_AC : Button
-    private lateinit var Button_DEL : Button
-    private lateinit var Button_PlusMinus : Button
-    private lateinit var Button_Divide : Button
-    private lateinit var Button_Multiply : Button
-    private lateinit var Button_Substract : Button
-    private lateinit var Button_Add : Button
-    private lateinit var Button_Equals : Button
-    private lateinit var Button_Percent : Button
-    private lateinit var Button_Decimal : Button
+    private lateinit var Button_AC: Button
+    private lateinit var Button_DEL: Button
+    private lateinit var Button_PlusMinus: Button
+    private lateinit var Button_Divide: Button
+    private lateinit var Button_Multiply: Button
+    private lateinit var Button_Substract: Button
+    private lateinit var Button_Add: Button
+    private lateinit var Button_Equals: Button
+    private lateinit var Button_Percent: Button
+    private lateinit var Button_Decimal: Button
 
     // TODO : Initiated Button Number
-    private lateinit var Button_Zero : Button
-    private lateinit var Button_One : Button
-    private lateinit var Button_Two : Button
-    private lateinit var Button_Three : Button
-    private lateinit var Button_Four : Button
-    private lateinit var Button_Five : Button
-    private lateinit var Button_Six : Button
-    private lateinit var Button_Seven : Button
-    private lateinit var Button_Eight : Button
-    private lateinit var Button_Nine : Button
+    private lateinit var Button_Zero: Button
+    private lateinit var Button_One: Button
+    private lateinit var Button_Two: Button
+    private lateinit var Button_Three: Button
+    private lateinit var Button_Four: Button
+    private lateinit var Button_Five: Button
+    private lateinit var Button_Six: Button
+    private lateinit var Button_Seven: Button
+    private lateinit var Button_Eight: Button
+    private lateinit var Button_Nine: Button
 
     // TODO : Initiated Button Scientific Calculator Symbol
-    private lateinit var Button_OpenParentheses : Button
-    private lateinit var Button_CloseParentheses : Button
-    private lateinit var Button_MC : Button
-    private lateinit var Button_MPlus : Button
-    private lateinit var Button_MMinus : Button
-    private lateinit var Button_MR : Button
-    private lateinit var Button_XPower2 : Button
-    private lateinit var Button_XPower3 : Button
-    private lateinit var Button_XPowery : Button
-    private lateinit var Button_XFactorial : Button
-    private lateinit var Button_root : Button
-    private lateinit var Button_PowerY_UnderRootX : Button
-    private lateinit var Button_1DivideX : Button
-    private lateinit var Button_e : Button
-    private lateinit var Button_ePowerX : Button
-    private lateinit var Button_In : Button
-    private lateinit var Button_log : Button
-    private lateinit var Button_Absolute : Button
-    private lateinit var Button_Radian : Button
-    private lateinit var Button_Sin : Button
-    private lateinit var Button_Cos : Button
-    private lateinit var Button_Tan : Button
-    private lateinit var Button_Inverse : ToggleButton
-    private lateinit var Button_10PowerX : Button
-    private lateinit var Button_Degress : Button
-    private lateinit var Button_Sinh : Button
-    private lateinit var Button_Cosh : Button
-    private lateinit var Button_Tanh : Button
-    private lateinit var Button_Derivative : Button
-    private lateinit var Button_Pi : Button
+    private lateinit var Button_OpenParentheses: Button
+    private lateinit var Button_CloseParentheses: Button
+    private lateinit var Button_MC: Button
+    private lateinit var Button_MPlus: Button
+    private lateinit var Button_MMinus: Button
+    private lateinit var Button_MR: Button
+    private lateinit var Button_XPower2: Button
+    private lateinit var Button_XPower3: Button
+    private lateinit var Button_XPowery: Button
+    private lateinit var Button_XFactorial: Button
+    private lateinit var Button_root: Button
+    private lateinit var Button_PowerY_UnderRootX: Button
+    private lateinit var Button_1DivideX: Button
+    private lateinit var Button_e: Button
+    private lateinit var Button_ePowerX: Button
+    private lateinit var Button_In: Button
+    private lateinit var Button_log: Button
+    private lateinit var Button_Absolute: Button
+    private lateinit var Button_Radian: Button
+    private lateinit var Button_Sin: Button
+    private lateinit var Button_Cos: Button
+    private lateinit var Button_Tan: Button
+    private lateinit var Button_Inverse: ToggleButton
+    private lateinit var Button_10PowerX: Button
+    private lateinit var Button_Degress: Button
+    private lateinit var Button_Sinh: Button
+    private lateinit var Button_Cosh: Button
+    private lateinit var Button_Tanh: Button
+    private lateinit var Button_Derivative: Button
+    private lateinit var Button_Pi: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -264,7 +264,9 @@ class Calculator_activity : AppCompatActivity() {
         //TODO: Component Calculator AC/Del/+/-
         Button_DEL.setOnClickListener {
             // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
-            if(SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()){
+            if (SecondTextview_Result.text.toString()
+                    .isNotEmpty() || IndicatorError_Result.text.isNotEmpty()
+            ) {
                 SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
@@ -273,25 +275,25 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         Button_AC.setOnClickListener {
-            Component_delete.ClearAll(Textview_Result,SecondTextview_Result)
+            Component_delete.ClearAll(Textview_Result, SecondTextview_Result)
             IndicatorError_Result.visibility = View.INVISIBLE
         }
 
         Button_PlusMinus.setOnClickListener {
             // NumberformatException if Textview_Result empty
-          try{
-              if(Textview_Result.text.isEmpty()){
-                  val defaultnumber = 0.0
-                  val defaultplusminus = Component_plusmin.PlusMinusOperation(defaultnumber)
-                  Textview_Result.text = defaultplusminus.toString()
-              } else {
-                  val resultconvert = Textview_Result.text.toString().toDouble()
-                  val plusminusconvert = Component_plusmin.PlusMinusOperation(resultconvert)
-                  Textview_Result.text = plusminusconvert.toString()
-              }
-          } catch (Exception : NumberFormatException){
-             Log.e("PlusMinusException", Exception.toString())
-          }
+            try {
+                if (Textview_Result.text.isEmpty()) {
+                    val defaultnumber = 0.0
+                    val defaultplusminus = Component_plusmin.PlusMinusOperation(defaultnumber)
+                    Textview_Result.text = defaultplusminus.toString()
+                } else {
+                    val resultconvert = Textview_Result.text.toString().toDouble()
+                    val plusminusconvert = Component_plusmin.PlusMinusOperation(resultconvert)
+                    Textview_Result.text = plusminusconvert.toString()
+                }
+            } catch (Exception: NumberFormatException) {
+                Log.e("PlusMinusException", Exception.toString())
+            }
         }
 
         // TODO:Landscape/scientific calculator configuration
@@ -299,7 +301,7 @@ class Calculator_activity : AppCompatActivity() {
             //TODO: Memory calculator (Check This!)
             Button_MC.setOnClickListener {
                 // if get memory value = 0.0/ no have value
-                if(Component_memory.GetMemory() == 0.0 || Component_memory.PrefMemory == 0.0){
+                if (Component_memory.GetMemory() == 0.0 || Component_memory.PrefMemory == 0.0) {
                     // Indicator warning show
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Memori kosong")
@@ -314,7 +316,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_MPlus.setOnClickListener {
                 val resultconvert = Textview_Result.text.toString().toDouble()
                 // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
-                if(Component_memory.GetMemory() == 0.0){
+                if (Component_memory.GetMemory() == 0.0) {
                     // set first value in memory
                     Component_memory.SetMemory(resultconvert)
                 } else {
@@ -331,9 +333,9 @@ class Calculator_activity : AppCompatActivity() {
                 val resultconvert = Textview_Result.text.toString().toDouble()
                 // same like M+ but, use SubstractMemory()
                 // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
-                if(Component_memory.GetMemory() == 0.0){
+                if (Component_memory.GetMemory() == 0.0) {
                     Component_memory.SetMemory(resultconvert)
-                } else if(!Component_memory.PrefMemory.equals(0.0)){ // if PrefMemory != 0.0 or have value
+                } else if (!Component_memory.PrefMemory.equals(0.0)) { // if PrefMemory != 0.0 or have value
                     val substractmem = Component_memory.SubstractMemory(resultconvert)
                     // place value result into Prefmemory
                     Component_memory.PrefMemory = substractmem
@@ -344,11 +346,11 @@ class Calculator_activity : AppCompatActivity() {
             Button_MR.setOnClickListener {
                 // show Pref value before
                 // if component_memory in PrefMemory is 0.0
-                if(Component_memory.PrefMemory == 0.0){
+                if (Component_memory.PrefMemory == 0.0) {
                     // we get PrefMemory value from Memory value and show in Pref memory
                     Component_memory.PrefMemory = Component_memory.GetMemory()
                     Textview_Result.text = Component_memory.PrefMemory.toString()
-                } else if(Component_memory.GetMemory() == 0.0) {
+                } else if (Component_memory.GetMemory() == 0.0) {
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Memori kosong")
                 } else {
@@ -374,7 +376,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()) {
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     // Text "kesalahan" invisible
                     IndicatorError_Result.visibility = View.INVISIBLE
                     // for tester if correct you can left, if have problem please correct it after
@@ -392,11 +394,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()) {
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val XPower3_result = Math_power.XPower3(value)
@@ -411,27 +413,27 @@ class Calculator_activity : AppCompatActivity() {
                 // TODO: I recommend use edittext because, this operation must have 2 input
                 val variable_X = Textview_Result.text.toString().toDouble()
                 val power_y = Textview_Result.text.toString().toDouble()
-                val Xpowery = Math_power.XPowerY(variable_X,power_y)
+                val Xpowery = Math_power.XPowerY(variable_X, power_y)
                 Textview_Result.text = Xpowery.toString()
                 SecondTextview_Result.text = "$variable_X^($power_y)"
 
             }
 
             Button_XFactorial.setOnClickListener {
-               if(Textview_Result.text.toString().isEmpty()){
-                   Textview_Result.text = (Textview_Result.text.toString() + "X" + "!")
-                   IndicatorError_Result.visibility = View.VISIBLE
-                   IndicatorError_Result.setText("Kesalahan")
-               } else {
-                   val value = Textview_Result.text.toString().toInt()
-                   val Factorial = Math_factorial.Factorial(value)
-                   Textview_Result.text = Factorial.toString()
-                   SecondTextview_Result.text = "$value!"
-               }
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "X" + "!")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else {
+                    val value = Textview_Result.text.toString().toInt()
+                    val Factorial = Math_factorial.Factorial(value)
+                    Textview_Result.text = Factorial.toString()
+                    SecondTextview_Result.text = "$value!"
+                }
             }
 
             Button_root.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "\u221A" + "X")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
@@ -445,19 +447,19 @@ class Calculator_activity : AppCompatActivity() {
 
             // TODO: Repair later
             Button_PowerY_UnderRootX.setOnClickListener {
-               // TODO: I recommend use edittext because, this operation must have 2 input
+                // TODO: I recommend use edittext because, this operation must have 2 input
                 val power_y = Textview_Result.text.toString().toDouble()
-                val root_X =  Textview_Result.text.toString().toDouble()
-                val PowerYunderrootX = Math_root.YunderrootX(power_y,root_X)
+                val root_X = Textview_Result.text.toString().toDouble()
+                val PowerYunderrootX = Math_root.YunderrootX(power_y, root_X)
                 Textview_Result.text = PowerYunderrootX.toString()
             }
 
             Button_1DivideX.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(-1)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Onedividex = Math_power.Dividebyone(value)
@@ -473,11 +475,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_ePowerX.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "e" + "^" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Eular_powerx = Math_eular.EulerPowerX(value)
@@ -487,11 +489,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_In.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "In" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val In = Math_logaritm.ln(value)
@@ -501,11 +503,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_log.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "log()")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Logaritm = Math_logaritm.Logaritm(value)
@@ -515,11 +517,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Absolute.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() +  "|X|")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "|X|")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Absolute = Math_absolute.Absolute(value)
@@ -534,7 +536,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
-                if(isChecked){
+                if (isChecked) {
                     Button_Sin.setText(R.string.invsin_sym)
                     Button_Cos.setText(R.string.invcos_sym)
                     Button_Tan.setText(R.string.invtan_sym)
@@ -553,15 +555,20 @@ class Calculator_activity : AppCompatActivity() {
 
             // for sin,cos,tan Degress/Radiant function
             Button_Sin.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "sin"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "sin" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(Textview_Result.text.toString().isNotEmpty()){
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
                     // val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
-                    val sinusoperation = checkinverttrig(Inverse_toggle,result,isSin = true, checkDegRad = DegRad_toggle)
+                    val sinusoperation = checkinverttrig(
+                        Inverse_toggle,
+                        result,
+                        isSin = true,
+                        checkDegRad = DegRad_toggle
+                    )
                     Textview_Result.text = sinusoperation.toString()
                     SecondTextview_Result.text = "sin($result)"
 
@@ -569,39 +576,45 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Cos.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "cos"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "cos" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(Textview_Result.text.toString().isNotEmpty()){
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(result)
+                    val checkdegrad =
+                        if (DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(
+                            result
+                        )
                     Textview_Result.text = checkdegrad.toString()
                     SecondTextview_Result.text = "cos($result)"
                 }
             }
 
             Button_Tan.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "tan"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "tan" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(Textview_Result.text.toString().isNotEmpty()){
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(result)
+                    val checkdegrad =
+                        if (DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(
+                            result
+                        )
                     Textview_Result.text = checkdegrad.toString()
                     SecondTextview_Result.text = "tan($result)"
                 }
             }
 
             Button_10PowerX.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(10")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Tenpowerx = Math_power.TenPowerx(value)
@@ -616,11 +629,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Sinh.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "sinh"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "sinh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
@@ -630,11 +643,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Cosh.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "cosh"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "cosh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
@@ -644,11 +657,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Tanh.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
-                    Textview_Result.text = (Textview_Result.text.toString() + "tanh"+ "(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "tanh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
@@ -658,11 +671,11 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Derivative.setOnClickListener {
-                if(Textview_Result.text.toString().isEmpty()){
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if(!Textview_Result.text.toString().isEmpty()){
+                } else if (!Textview_Result.text.toString().isEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Yderivative = Math_derivative.Derivative(value)
@@ -679,37 +692,62 @@ class Calculator_activity : AppCompatActivity() {
         }
     }
 
-    private fun checkinverttrig(isInverse : Boolean,value : Double = 0.0,isSin : Boolean = false,isCos : Boolean = false,isTan : Boolean = false,checkDegRad : Boolean = false) : Double{
+    private fun checkinverttrig(
+        isInverse: Boolean,
+        value: Double = 0.0,
+        isSin: Boolean = false,
+        isCos: Boolean = false,
+        isTan: Boolean = false,
+        checkDegRad: Boolean = false
+    ): Double {
         // default value result
         var result = 0.0
 
-        if(isInverse){
+        if (isInverse) {
             // change to Inverse Trigonometry function
-            if(isSin){
-                val SinInverse = if(checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
+            if (isSin) {
+                val SinInverse =
+                    if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(
+                        value
+                    )
                 result = SinInverse
-            } else if(isCos){
-                val CosInverse = if(checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
+            } else if (isCos) {
+                val CosInverse =
+                    if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(
+                        value
+                    )
                 result = CosInverse
-            } else if(isTan){
-                val TanInverse = if(checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
+            } else if (isTan) {
+                val TanInverse =
+                    if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(
+                        value
+                    )
                 result = TanInverse
-            } else{
+            } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
 
         } else {
             // here, you must change to normal sin/cos/tan
-            if(isSin){
-                val Sinus = if(checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
+            if (isSin) {
+                val Sinus =
+                    if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(
+                        value
+                    )
                 result = Sinus
-            } else if(isCos){
-                val Cosinus = if(checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
+            } else if (isCos) {
+                val Cosinus =
+                    if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(
+                        value
+                    )
                 result = Cosinus
-            } else if(isTan){
-                val Tangent = if(checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
+            } else if (isTan) {
+                val Tangent =
+                    if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(
+                        value
+                    )
                 result = Tangent
-            } else{
+            } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
         }
