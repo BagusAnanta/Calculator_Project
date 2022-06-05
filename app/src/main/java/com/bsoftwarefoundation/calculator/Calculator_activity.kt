@@ -738,7 +738,7 @@ class Calculator_activity : AppCompatActivity() {
         return result
     }
 
-    /*private fun setresult(symbol : TextView,mathfunction : Double){
+   /* private fun setresult(mathsymbol : TextView,mathoperation : Double,result : TextView){
         if(Textview_Result.text.toString().isEmpty()){
             Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
             IndicatorError_Result.visibility = View.VISIBLE
