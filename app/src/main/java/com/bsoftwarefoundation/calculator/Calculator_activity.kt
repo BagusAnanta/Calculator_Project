@@ -23,6 +23,7 @@ import kotlin.properties.Delegates
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Degress & Radiant Value
+    // Degress Default
     var DegRad_toggle: Boolean = true
 
     // TODO: Initiated Invert value default
@@ -531,7 +532,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Radian.setOnClickListener {
-                DegRad_toggle = true
+                DegRad_toggle = false
                 Degradindicator_result.setText("Rad")
             }
 
@@ -542,14 +543,12 @@ class Calculator_activity : AppCompatActivity() {
                     Button_Tan.setText(R.string.invtan_sym)
                     // Inverse toggle equals true because in parameters "isInverse" true value
                     Inverse_toggle = true
-                    // function for change inverse operation
                 } else {
                     Button_Sin.setText(R.string.sin_sym)
                     Button_Cos.setText(R.string.cos_sym)
                     Button_Tan.setText(R.string.tan_sym)
                     // Non inverse toggle equals false (if user 2x press button) and back to normal trigonometry operation
                     Inverse_toggle = false
-                    // function for change operation back
                 }
             }
 
@@ -562,8 +561,7 @@ class Calculator_activity : AppCompatActivity() {
                 } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    // val checkdegrad =  if(DegRad_toggle) Math_trigonometryradiant.SinusRadiant(result) else Math_trigonometrydegress.SinusDegress(result)
-                    val sinusoperation = checkinverttrig(
+                    val sinusoperation = trigonometryoperationchecker(
                         Inverse_toggle,
                         result,
                         isSin = true,
@@ -583,11 +581,13 @@ class Calculator_activity : AppCompatActivity() {
                 } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =
-                        if (DegRad_toggle) Math_trigonometryradiant.CosinusRadiant(result) else Math_trigonometrydegress.CosinusDegress(
-                            result
-                        )
-                    Textview_Result.text = checkdegrad.toString()
+                    val cosinusoperation = trigonometryoperationchecker(
+                        Inverse_toggle,
+                        result,
+                        isCos = true,
+                        checkDegRad = DegRad_toggle
+                    )
+                    Textview_Result.text = cosinusoperation.toString()
                     SecondTextview_Result.text = "cos($result)"
                 }
             }
@@ -600,11 +600,13 @@ class Calculator_activity : AppCompatActivity() {
                 } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val result = Textview_Result.text.toString().toDouble()
-                    val checkdegrad =
-                        if (DegRad_toggle) Math_trigonometryradiant.TangenRadiant(result) else Math_trigonometrydegress.TangenDegress(
-                            result
-                        )
-                    Textview_Result.text = checkdegrad.toString()
+                    val tangenoperation = trigonometryoperationchecker(
+                        Inverse_toggle,
+                        result,
+                        isTan = true,
+                        checkDegRad = DegRad_toggle
+                    )
+                    Textview_Result.text = tangenoperation.toString()
                     SecondTextview_Result.text = "tan($result)"
                 }
             }
@@ -624,7 +626,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Degress.setOnClickListener {
-                DegRad_toggle = false
+                DegRad_toggle = true
                 Degradindicator_result.setText("Deg")
             }
 
@@ -692,7 +694,7 @@ class Calculator_activity : AppCompatActivity() {
         }
     }
 
-    private fun checkinverttrig(
+    private fun trigonometryoperationchecker(
         isInverse: Boolean,
         value: Double = 0.0,
         isSin: Boolean = false,
@@ -706,23 +708,14 @@ class Calculator_activity : AppCompatActivity() {
         if (isInverse) {
             // change to Inverse Trigonometry function
             if (isSin) {
-                val SinInverse =
-                    if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(
-                        value
-                    )
-                result = SinInverse
+                val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
+                    result = SinInverse
             } else if (isCos) {
-                val CosInverse =
-                    if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(
-                        value
-                    )
-                result = CosInverse
+                val CosInverse = if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
+                    result = CosInverse
             } else if (isTan) {
-                val TanInverse =
-                    if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(
-                        value
-                    )
-                result = TanInverse
+                val TanInverse = if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
+                    result = TanInverse
             } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
@@ -730,23 +723,14 @@ class Calculator_activity : AppCompatActivity() {
         } else {
             // here, you must change to normal sin/cos/tan
             if (isSin) {
-                val Sinus =
-                    if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(
-                        value
-                    )
-                result = Sinus
+                val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
+                    result = Sinus
             } else if (isCos) {
-                val Cosinus =
-                    if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(
-                        value
-                    )
-                result = Cosinus
+                val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
+                    result = Cosinus
             } else if (isTan) {
-                val Tangent =
-                    if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(
-                        value
-                    )
-                result = Tangent
+                val Tangent = if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
+                    result = Tangent
             } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
