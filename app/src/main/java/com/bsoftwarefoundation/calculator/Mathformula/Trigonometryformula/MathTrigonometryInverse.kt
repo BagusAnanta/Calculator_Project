@@ -5,37 +5,34 @@ class MathTrigonometryInverse {
     var Mathtrigonometry = MathTrigonometry().MathTrigonometryDegress()
 
     fun SinusInverseRadiant(X : Double) : Double{
-        val result = Math.toRadians(Math.asin(Math.sin(X)))
+        val result = Math.asin(X)
         return result
     }
 
     fun CosinusInverseRadiant(X : Double) : Double{
-        val result = Math.toRadians(Math.acos(Math.cos(X)))
+        val result = Math.acos(X)
         return result
     }
 
     fun TangeInverseRadiant(X : Double) : Double{
-        val result = Math.toRadians(Math.atan(Math.tan(X)))
+        val result = Math.atan(X)
         return result
     }
 
     inner class MathTrigonometryInverseDegress{
 
         fun SinusInverseDegress(X : Double) : Double{
-            val convert_radiant = Math.toRadians(X)
-            val result = Math.toDegrees(Math.asin(Math.sin(convert_radiant)))
+            val result = Math.toDegrees(Math.asin(X))
             return result
         }
 
         fun CosinusInverseDegress(X : Double) : Double{
-            val convert_radiant = Math.toRadians(X)
-            val result = Math.toDegrees(Math.asin(Math.cos(convert_radiant)))
+            val result = Math.toDegrees(Math.acos(X))
             return result
         }
 
         fun TangenInverseDegress(X : Double) : Double{
-            val convert_radiant = Math.toRadians(X)
-            val result = Math.toDegrees(Math.atan(Math.tan(convert_radiant)))
+            val result = Math.toDegrees(Math.atan(X))
             return result
         }
 

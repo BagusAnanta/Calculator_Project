@@ -707,6 +707,7 @@ class Calculator_activity : AppCompatActivity() {
 
         if (isInverse) {
             // change to Inverse Trigonometry function
+
             if (isSin) {
                 val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
                     result = SinInverse
