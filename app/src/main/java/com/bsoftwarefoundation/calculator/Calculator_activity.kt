@@ -737,19 +737,4 @@ class Calculator_activity : AppCompatActivity() {
         }
         return result
     }
-
-   /* private fun setresult(mathsymbol : TextView,mathoperation : Double,result : TextView){
-        if(Textview_Result.text.toString().isEmpty()){
-            Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
-            IndicatorError_Result.visibility = View.VISIBLE
-            IndicatorError_Result.setText(R.string.error_sign)
-        } else if(Textview_Result.text.toString().isNotEmpty()){
-            IndicatorError_Result.visibility = View.INVISIBLE
-            val value = Textview_Result.text.toString().toDouble()
-            val operation = Math_derivative.Derivative(value)
-            Textview_Result.text = "$value X^($Yderivative)"
-            SecondTextview_Result.text = "$value X^($Yderivative-1)"
-        }
-    }*/
-
 }
