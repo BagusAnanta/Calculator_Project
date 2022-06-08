@@ -2,6 +2,7 @@ package com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula
 
 class MathTrigonometryInverse {
     // Inverse formula in trigonometry sin^-1,cos^-1 ,tan^-1 and inverse have 2 in radiant or degress
+    var Mathtrigonometry = MathTrigonometry().MathTrigonometryDegress()
 
     fun SinusInverseRadiant(X : Double) : Double{
         val result = Math.toRadians(Math.asin(Math.sin(X)))
