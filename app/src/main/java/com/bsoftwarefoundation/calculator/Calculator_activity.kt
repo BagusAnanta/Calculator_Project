@@ -395,7 +395,12 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
+                val Textviewresultdata = Textview_Result.setText(Textview_Result.text.toString() + "^" + "(3)")
+                val value = Textview_Result.text.toString().toDouble()
+                val XPower3_result = Math_power.XPower3(value)
+                val Secondtextviewdata = "$value^(3)"
+
+               /* if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
@@ -405,7 +410,9 @@ class Calculator_activity : AppCompatActivity() {
                     val XPower3_result = Math_power.XPower3(value)
                     Textview_Result.text = XPower3_result.toString()
                     SecondTextview_Result.text = "$value^(3)"
-                }
+                }*/
+
+
 
             }
 
@@ -707,7 +714,6 @@ class Calculator_activity : AppCompatActivity() {
 
         if (isInverse) {
             // change to Inverse Trigonometry function
-
             if (isSin) {
                 val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
                     result = SinInverse
@@ -737,5 +743,18 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
         return result
+    }
+
+    fun showresult(TextviewettextSoal : TextView,Mathresult : Double,Secondtextview : TextView){
+        // Test this before you implement this function
+        if (Textview_Result.text.toString().isEmpty()) {
+            Textview_Result.text = TextviewettextSoal.toString()
+            IndicatorError_Result.visibility = View.VISIBLE
+            IndicatorError_Result.setText("Kesalahan")
+        } else if (Textview_Result.text.toString().isNotEmpty()) {
+            IndicatorError_Result.visibility = View.INVISIBLE
+            Textview_Result.text = Mathresult.toString()
+            SecondTextview_Result.text = Secondtextview.toString()
+        }
     }
 }
