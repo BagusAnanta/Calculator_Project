@@ -395,12 +395,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                val Textviewresultdata = Textview_Result.setText(Textview_Result.text.toString() + "^" + "(3)")
-                val value = Textview_Result.text.toString().toDouble()
-                val XPower3_result = Math_power.XPower3(value)
-                val Secondtextviewdata = "$value^(3)"
-
-               /* if (Textview_Result.text.toString().isEmpty()) {
+                if (Textview_Result.text.toString().isEmpty()) {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
@@ -410,10 +405,7 @@ class Calculator_activity : AppCompatActivity() {
                     val XPower3_result = Math_power.XPower3(value)
                     Textview_Result.text = XPower3_result.toString()
                     SecondTextview_Result.text = "$value^(3)"
-                }*/
-
-
-
+                }
             }
 
             // TODO: Repair later
