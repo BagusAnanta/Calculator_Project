@@ -37,11 +37,38 @@ class Evaluate {
             }
 
             fun parseTerm() : Double{
-               /* var value = parseFactor()
+                var value = parseFactor()
                 while(true){
                     if(extraSpace('*'.toInt())) value *= parseFactor()
-                    else if (extraSpace('/'.toInt()))
-                }*/
+                    else if (extraSpace('/'.toInt())) value /= parseFactor()
+                    else return value
+                }
+
+            }
+
+            fun parseFactor() : Double{
+                // on below, we gonna check add and substract and performing unary operation
+                if(extraSpace('+'.toInt())) return parseFactor() // Unary add
+                if(extraSpace('-'.toInt())) return -parseFactor() // Unary Substract
+
+                // double variable for answer
+                var answer : Double
+                // variable for position
+                val startPosition = position
+
+                // below, we are make check open and close parenthesis algoritm
+                if(extraSpace('('.toInt())){
+                    answer = parseExpression()
+                    extraSpace(')'.toInt())
+                } else if (chart >= '0'.toInt() && chart <= '9'.toInt() || chart == '.'.toInt()){
+                    while (chart >= '0'.toInt() && chart <= '9'.toInt() || chart == '.'.toInt()) nextChar()
+                    // below we are getting sub string from our string user start and position
+                    answer = str.substring(startPosition,position).toDouble()
+                } else if (chart >= 'a'.toInt() && chart <= 'z'.toInt()){
+                    // below we are check for operator in our expresion
+                    while (chart >= 'a'.toInt() && chart <= 'z'.toInt()) nextChar()
+                    val func = str.substring(startPosition,position)
+                }
                 return 0.0
             }
 
