@@ -26,12 +26,19 @@ class Evaluate {
                 return false
             }
 
+            fun parse() : Double{
+                nextChar()
+                val value = parseExpression()
+                if(position < str.length) throw RuntimeException("Unexpected: " + chart.toChar())
+                return value
+            }
+
             // this function will only perform add and substract operation
             fun parseExpression() : Double{
                 var value = parseTerm()
                 while(true){
                     if(extraSpace('+'.toInt())) value += parseTerm() // add
-                    else if(extraSpace('-'.toInt())) value -= parseTerm() // substract
+                    else if(extraSpace('-'.toInt())) value -= parseTerm() // subtract
                     else return value
                 }
             }
@@ -49,10 +56,10 @@ class Evaluate {
             fun parseFactor() : Double{
                 // on below, we gonna check add and substract and performing unary operation
                 if(extraSpace('+'.toInt())) return parseFactor() // Unary add
-                if(extraSpace('-'.toInt())) return -parseFactor() // Unary Substract
+                if(extraSpace('-'.toInt())) return -parseFactor() // Unary Subtract
 
                 // double variable for answer
-                var answer : Double
+                var answer : Double = 0.0
                 // variable for position
                 val startPosition = position
 
@@ -64,14 +71,9 @@ class Evaluate {
                     while (chart >= '0'.toInt() && chart <= '9'.toInt() || chart == '.'.toInt()) nextChar()
                     // below we are getting sub string from our string user start and position
                     answer = str.substring(startPosition,position).toDouble()
-                } else if (chart >= 'a'.toInt() && chart <= 'z'.toInt()){
-                    // below we are check for operator in our expresion
-                    while (chart >= 'a'.toInt() && chart <= 'z'.toInt()) nextChar()
-                    val func = str.substring(startPosition,position)
                 }
-                return 0.0
+                return answer
             }
-
-        }
+        }.parse()
     }
 }
