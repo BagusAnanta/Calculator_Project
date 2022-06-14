@@ -17,6 +17,7 @@ import com.bsoftwarefoundation.calculator.Mathformula.*
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
+import com.bsoftwarefoundation.calculator.Mathoperation.Evaluate
 import org.w3c.dom.Text
 import kotlin.properties.Delegates
 
@@ -48,6 +49,9 @@ class Calculator_activity : AppCompatActivity() {
     var Component_delete = ComponentDeleteClear()
     var Component_memory = ComponentMemoryCalculator()
     var Component_plusmin = ComponentPlusMinus()
+
+    // TOD: Initiated Evaluate/Result Component Class
+    var Evaluate_result = Evaluate()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result: TextView
@@ -249,17 +253,29 @@ class Calculator_activity : AppCompatActivity() {
         }
         // TODO: Repair this!!!
         Button_Substract.setOnClickListener {
-            val string: String = Textview_Result.text.toString()
-            if (!string.get(index = string.length - 1).equals("-")) {
-                Textview_Result.text = (Textview_Result.toString() + "-")
-            }
+            Textview_Result.text = (Textview_Result.text.toString() + "-")
         }
 
         Button_Multiply.setOnClickListener {
             val string: String = Textview_Result.text.toString()
-            if (!string.get(index = string.length - 1).equals("*")) {
+            try{
+            if (!string.get(index = string.length - 1).equals("*")) { // StringIndexOutOfBoundException
                 Textview_Result.text = (Textview_Result.text.toString() + "*")
+               }
+            } catch (E : StringIndexOutOfBoundsException){
+                Textview_Result.setText("")
             }
+        }
+
+        Button_Equals.setOnClickListener {
+            // TODO: Convert into string and call Evaluate class in here
+            val value : String = Textview_Result.text.toString()
+            val result : Double = Evaluate_result.evaluate(value) as Double
+            // TODO: Convert into string
+            val convert_result = result.toString()
+            // TODO: Show in at Textview_result and Second_result
+            Textview_Result.setText(convert_result)
+            SecondTextview_Result.text = value
         }
 
         //TODO: Component Calculator AC/Del/+/-
@@ -295,6 +311,13 @@ class Calculator_activity : AppCompatActivity() {
             } catch (Exception: NumberFormatException) {
                 Log.e("PlusMinusException", Exception.toString())
             }
+        }
+
+        Button_Percent.setOnClickListener {
+            val value = Textview_Result.text.toString().toDouble()
+            val result = value/100
+            Textview_Result.text = result.toString()
+            SecondTextview_Result.text = value.toString()
         }
 
         // TODO:Landscape/scientific calculator configuration
