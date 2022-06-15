@@ -367,7 +367,7 @@ class Calculator_activity : AppCompatActivity() {
                    // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
                    if (Component_memory.GetMemory() == 0.0) {
                        Component_memory.SetMemory(resultconvert)
-                   } else { // if PrefMemory != 0.0 or have value
+                   } else if(!Component_memory.PrefMemory.equals(0)) { // if PrefMemory != 0.0 or have value
                        val substractmem = Component_memory.SubstractMemory(resultconvert)
                        // place value result into Prefmemory
                        Component_memory.PrefMemory = substractmem
