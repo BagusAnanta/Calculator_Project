@@ -251,7 +251,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_Divide.setOnClickListener {
             Textview_Result.text = (Textview_Result.text.toString() + "/")
         }
-        // TODO: Repair this!!!
+
         Button_Substract.setOnClickListener {
             Textview_Result.text = (Textview_Result.text.toString() + "-")
         }
@@ -313,11 +313,12 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
 
+        // TODO: Repair This (Add percent text result)
         Button_Percent.setOnClickListener {
             val value = Textview_Result.text.toString().toDouble()
             val result = value/100
             Textview_Result.text = result.toString()
-            SecondTextview_Result.text = value.toString()
+            SecondTextview_Result.text = "$value%"
         }
 
         // TODO:Landscape/scientific calculator configuration
@@ -338,33 +339,42 @@ class Calculator_activity : AppCompatActivity() {
 
             // TODO: Repair this and check this!
             Button_MPlus.setOnClickListener {
-                val resultconvert = Textview_Result.text.toString().toDouble()
-                // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
-                if (Component_memory.GetMemory() == 0.0) {
-                    // set first value in memory
-                    Component_memory.SetMemory(resultconvert)
-                } else {
-                    // if a GetMemory() have a value or != 0.0 we must add with resultconvert and replace a new value into Prevmemory
-                    val addmem = Component_memory.AddMemory(resultconvert)
-                    Component_memory.PrefMemory = addmem
-                    Textview_Result.text = addmem.toString()
-                }
+               try{
+                   // if result convert is empty, set value default 0.0
+                   var resultconvert = Textview_Result.text.toString().toDouble()
+                   // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
+                   if (Component_memory.GetMemory() == 0.0) {
+                       // set first value in memory
+                       Component_memory.SetMemory(resultconvert)
+                   } else {
+                       // if a GetMemory() have a value or != 0.0 we must add with resultconvert and replace a new value into Prevmemory
+                       val addmem = Component_memory.AddMemory(resultconvert)
+                       Component_memory.PrefMemory = addmem
+                       Textview_Result.text = addmem.toString()
+                   }
+               } catch (E : NumberFormatException){
+                   IndicatorError_Result.setText("Nilai kosong")
+               }
 
             }
 
             // TODO: Repair this and check this!
             Button_MMinus.setOnClickListener {
-                val resultconvert = Textview_Result.text.toString().toDouble()
-                // same like M+ but, use SubstractMemory()
-                // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
-                if (Component_memory.GetMemory() == 0.0) {
-                    Component_memory.SetMemory(resultconvert)
-                } else if (!Component_memory.PrefMemory.equals(0.0)) { // if PrefMemory != 0.0 or have value
-                    val substractmem = Component_memory.SubstractMemory(resultconvert)
-                    // place value result into Prefmemory
-                    Component_memory.PrefMemory = substractmem
-                    Textview_Result.text = substractmem.toString()
-                }
+               try{
+                   var resultconvert = Textview_Result.text.toString().toDouble()
+                   // same like M+ but, use SubstractMemory()
+                   // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
+                   if (Component_memory.GetMemory() == 0.0) {
+                       Component_memory.SetMemory(resultconvert)
+                   } else if (!Component_memory.PrefMemory.equals(0.0)) { // if PrefMemory != 0.0 or have value
+                       val substractmem = Component_memory.SubstractMemory(resultconvert)
+                       // place value result into Prefmemory
+                       Component_memory.PrefMemory = substractmem
+                       Textview_Result.text = substractmem.toString()
+                   }
+               } catch (E : NumberFormatException){
+                   IndicatorError_Result.setText("Nilai kosong")
+               }
             }
 
             Button_MR.setOnClickListener {
@@ -382,7 +392,6 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = Component_memory.PrefMemory.toString()
                 }
             }
-
 
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
