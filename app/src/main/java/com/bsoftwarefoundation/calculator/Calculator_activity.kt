@@ -432,7 +432,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val XPower3_result = Math_power.XPower3(value)
@@ -457,7 +457,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "X" + "!")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else {
+                } else if(Textview_Result.text.toString().isNotEmpty()) {
                     val value = Textview_Result.text.toString().toInt()
                     val Factorial = Math_factorial.Factorial(value)
                     Textview_Result.text = Factorial.toString()
@@ -492,7 +492,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(-1)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Onedividex = Math_power.Dividebyone(value)
@@ -512,7 +512,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "e" + "^" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Eular_powerx = Math_eular.EulerPowerX(value)
@@ -526,7 +526,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "In" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val In = Math_logaritm.ln(value)
@@ -540,7 +540,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "log()")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Logaritm = Math_logaritm.Logaritm(value)
@@ -554,7 +554,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "|X|")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Absolute = Math_absolute.Absolute(value)
@@ -648,7 +648,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "^" + "(10")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Tenpowerx = Math_power.TenPowerx(value)
@@ -667,7 +667,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "sinh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
@@ -681,7 +681,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "cosh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
@@ -695,7 +695,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "tanh" + "(")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
@@ -709,7 +709,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
-                } else if (!Textview_Result.text.toString().isEmpty()) {
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
                     IndicatorError_Result.visibility = View.INVISIBLE
                     val value = Textview_Result.text.toString().toDouble()
                     val Yderivative = Math_derivative.Derivative(value)
