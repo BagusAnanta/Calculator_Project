@@ -342,7 +342,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_MPlus.setOnClickListener {
                try{
                    // if result convert is empty, set value default 0.0
-                   var resultconvert = Textview_Result.text.toString().toDouble()
+                   val resultconvert = Textview_Result.text.toString().toDouble()
                    // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
                    if (Component_memory.GetMemory() == 0.0) {
                        // set first value in memory
@@ -362,12 +362,12 @@ class Calculator_activity : AppCompatActivity() {
             // TODO: Repair this and check this!
             Button_MMinus.setOnClickListener {
                try{
-                   var resultconvert = Textview_Result.text.toString().toDouble()
+                   val resultconvert = Textview_Result.text.toString().toDouble()
                    // same like M+ but, use SubstractMemory()
                    // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
                    if (Component_memory.GetMemory() == 0.0) {
                        Component_memory.SetMemory(resultconvert)
-                   } else if(!Component_memory.PrefMemory.equals(0)) { // if PrefMemory != 0.0 or have value
+                   } else if(!Component_memory.GetMemory().equals(0.0)) { // if PrefMemory != 0.0 or have value
                        val substractmem = Component_memory.SubstractMemory(resultconvert)
                        // place value result into Prefmemory
                        Component_memory.PrefMemory = substractmem
