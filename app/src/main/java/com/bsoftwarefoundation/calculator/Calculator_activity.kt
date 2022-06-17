@@ -259,7 +259,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_Multiply.setOnClickListener {
             val string: String = Textview_Result.text.toString()
             try{
-            if (!string.get(index = string.length - 1).equals("*")) { // StringIndexOutOfBoundException
+            if (!string.get(index = string.length - 1).equals("*")) {
                 Textview_Result.text = (Textview_Result.text.toString() + "*")
                }
             } catch (E : StringIndexOutOfBoundsException){
@@ -297,7 +297,6 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         Button_PlusMinus.setOnClickListener {
-            // NumberformatException if Textview_Result empty
             try {
                 if (Textview_Result.text.isEmpty()) {
                     val defaultnumber = 0.0
@@ -313,7 +312,6 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
 
-        // TODO: Repair This (Add percent text result)
         Button_Percent.setOnClickListener {
             val value = Textview_Result.text.toString().toDouble()
             val result = value/100
@@ -600,8 +598,6 @@ class Calculator_activity : AppCompatActivity() {
                         checkDegRad = DegRad_toggle
                     )
                     Textview_Result.text = sinusoperation.toString()
-                    SecondTextview_Result.text = "sin($result)"
-
                 }
             }
 
@@ -620,7 +616,6 @@ class Calculator_activity : AppCompatActivity() {
                         checkDegRad = DegRad_toggle
                     )
                     Textview_Result.text = cosinusoperation.toString()
-                    SecondTextview_Result.text = "cos($result)"
                 }
             }
 
@@ -639,7 +634,6 @@ class Calculator_activity : AppCompatActivity() {
                         checkDegRad = DegRad_toggle
                     )
                     Textview_Result.text = tangenoperation.toString()
-                    SecondTextview_Result.text = "tan($result)"
                 }
             }
 
@@ -714,7 +708,7 @@ class Calculator_activity : AppCompatActivity() {
                     val value = Textview_Result.text.toString().toDouble()
                     val Yderivative = Math_derivative.Derivative(value)
                     Textview_Result.text = "$value X^($Yderivative)"
-                    SecondTextview_Result.text = "$value X^($Yderivative-1)"
+                    SecondTextview_Result.text = "$value X^($value-1)"
                 }
             }
 
@@ -742,12 +736,15 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
                     result = SinInverse
+                    SecondTextview_Result.setText("sin^-1($value)")
             } else if (isCos) {
                 val CosInverse = if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
                     result = CosInverse
+                    SecondTextview_Result.setText("cos^-1($value)")
             } else if (isTan) {
                 val TanInverse = if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
                     result = TanInverse
+                    SecondTextview_Result.setText("tan^-1($value)")
             } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
@@ -757,12 +754,15 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
                     result = Sinus
+                    SecondTextview_Result.setText("sin($value)")
             } else if (isCos) {
                 val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
                     result = Cosinus
+                    SecondTextview_Result.setText("cos($value)")
             } else if (isTan) {
                 val Tangent = if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
                     result = Tangent
+                    SecondTextview_Result.setText("tan($value)")
             } else {
                 IndicatorError_Result.setText("Kesalahan")
             }
@@ -770,7 +770,7 @@ class Calculator_activity : AppCompatActivity() {
         return result
     }
 
-    fun showresult(TextviewettextSoal : TextView,Mathresult : Double,Secondtextview : TextView){
+   /* fun showresult(TextviewettextSoal : TextView,Mathresult : Double,Secondtextview : TextView){
         // Test this before you implement this function
         if (Textview_Result.text.toString().isEmpty()) {
             Textview_Result.text = TextviewettextSoal.toString()
@@ -781,5 +781,5 @@ class Calculator_activity : AppCompatActivity() {
             Textview_Result.text = Mathresult.toString()
             SecondTextview_Result.text = Secondtextview.toString()
         }
-    }
+    }*/
 }

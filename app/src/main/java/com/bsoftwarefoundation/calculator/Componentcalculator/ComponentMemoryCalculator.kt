@@ -30,7 +30,7 @@ class ComponentMemoryCalculator {
 
     fun SubstractMemory(X : Double) : Double{
         // Substract memory formula : Memory - X (X : New user input Value)
-        val result = PrefMemory.minus(X)
+        val result = Memory.minus(X)
         return result
     }
 
