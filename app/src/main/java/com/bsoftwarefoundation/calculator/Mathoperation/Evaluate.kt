@@ -1,8 +1,11 @@
 package com.bsoftwarefoundation.calculator.Mathoperation
 
+import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDegressRadiant
+import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentInvert
 import com.bsoftwarefoundation.calculator.Mathformula.MathEuler
 import com.bsoftwarefoundation.calculator.Mathformula.MathLogaritm
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
+import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryDegRadcheck
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
 
@@ -11,6 +14,9 @@ class Evaluate {
     var Math_eular = MathEuler()
     var Math_logaritm = MathLogaritm()
     var Math_trigonometryhyper = MathTrigonometryHyperbolic()
+    var Math_trigonodegradchck = MathTrigonometryDegRadcheck()
+    var Component_invert = ComponentInvert()
+    var Component_degradchk = ComponentDegressRadiant()
 
     // for check position and char position
     fun evaluate(str : String) : Any {
@@ -87,13 +93,16 @@ class Evaluate {
                     val function = str.substring(startPosition,position)
                     value = parseFactor()
                     value = when(function){
-                        "ln"   -> Math_logaritm.ln(value)
-                        "log"  -> Math_logaritm.Logaritm(value)
-                        "sinh" -> Math_trigonometryhyper.SinusHyperbolic(value)
-                        "cosh" -> Math_trigonometryhyper.CosinusHyperbolic(value)
-                        "tanh" -> Math_trigonometryhyper.TangenHyperbolic(value)
-                        "e^x"  -> Math_eular.EulerPowerX(value)
-                        else -> 0.0
+                        "ln("   -> Math_logaritm.ln(value)
+                        "e^("   -> Math_eular.EulerPowerX(value)
+                        "log("  -> Math_logaritm.Logaritm(value)
+                        "sin("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert,value,true, checkDegRad = Component_degradchk.isDegRad)
+                        "cos("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert,value, isCos = true, checkDegRad = Component_degradchk.isDegRad)
+                        "tan("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert, isTan = true, checkDegRad = Component_degradchk.isDegRad)
+                        "sinh(" -> Math_trigonometryhyper.SinusHyperbolic(value)
+                        "cosh(" -> Math_trigonometryhyper.CosinusHyperbolic(value)
+                        "tanh(" -> Math_trigonometryhyper.TangenHyperbolic(value)
+                        else -> throw RuntimeException("Unexpected: " + chart.toChar())
                     }
                 }
                 return value

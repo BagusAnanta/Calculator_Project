@@ -63,4 +63,18 @@
     <string name="derivative1">y<sup><small>\'</small></sup></string>
     <string name="error_sign">Kesalahan</string>
 
+    <!-- String for show result-->
+    <string name="naturalpowerx_sym_show">e^(</string>
+    <string name="In_sym_show">In(</string>
+    <string name="log_sym_show">log(</string>
+    <string name="invsin_sym_show">sin^1(</string>
+    <string name="invcos_sym_show">cos^1(></string>
+    <string name="invtan_sym_show">tan^1(</string>
+    <string name="sin_sym_show">sin(</string>
+    <string name="cos_sym_show">cos(</string>
+    <string name="tan_sym_show">tan(</string>
+    <string name="sinh_sym_show">sinh(</string>
+    <string name="cosh_sym_show">cosh(</string>
+    <string name="tanh_sym_show">tanh(</string>
+
 </resources>

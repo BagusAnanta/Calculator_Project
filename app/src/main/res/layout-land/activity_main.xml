@@ -43,6 +43,7 @@
         android:ems="10"
         android:maxLength="12"
         android:textSize="75sp"
+        android:text="@string/zero_num"
         android:gravity="end"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/Tablelayoutcalculator"
