@@ -1,6 +1,5 @@
 package com.bsoftwarefoundation.calculator
 
-import android.app.admin.SecurityLog
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,17 +15,15 @@ import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTr
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
 import com.bsoftwarefoundation.calculator.Mathoperation.Evaluate
-import org.w3c.dom.Text
-import kotlin.properties.Delegates
 
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Degress & Radiant Value
-    /*// Degress Default
+    // Degress Default
     var DegRad_toggle: Boolean = true
 
     // TODO: Initiated Invert value default
-    var Inverse_toggle: Boolean = false*/
+    var Inverse_toggle: Boolean = false
 
     // TODO: Initiated MathFormula Class
     var Math_power = MathPower()
@@ -36,6 +33,10 @@ class Calculator_activity : AppCompatActivity() {
     var Math_logaritm = MathLogaritm()
     var Math_absolute = MathAbsolute()
     var Math_trigonometryhyper = MathTrigonometryHyperbolic()
+    var Math_trigonometryradiant = MathTrigonometry()
+    var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
+    var Math_trigonometryinverseradiant = MathTrigonometryInverse()
+    var Math_trigonometryinversedegress = MathTrigonometryInverse().MathTrigonometryInverseDegress()
     var Math_pi = MathPi()
     var Math_derivative = MathDerivative()
 
@@ -43,8 +44,6 @@ class Calculator_activity : AppCompatActivity() {
     var Component_delete = ComponentDeleteClear()
     var Component_memory = ComponentMemoryCalculator()
     var Component_plusmin = ComponentPlusMinus()
-    var Component_invert = ComponentInvert()
-    var Component_degrad = ComponentDegressRadiant()
 
     // TOD: Initiated Evaluate/Result Component Class
     var Evaluate_result = Evaluate()
@@ -277,9 +276,7 @@ class Calculator_activity : AppCompatActivity() {
         //TODO: Component Calculator AC/Del/+/-
         Button_DEL.setOnClickListener {
             // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
-            if (SecondTextview_Result.text.toString()
-                    .isNotEmpty() || IndicatorError_Result.text.isNotEmpty()
-            ) {
+            if (SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()) {
                 SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
@@ -502,15 +499,45 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_ePowerX.setOnClickListener {
-               Textview_Result.text = (Textview_Result.text.toString() + R.string.naturalpowerx_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "e" + "^" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Eular_powerx = Math_eular.EulerPowerX(value)
+                    Textview_Result.text = Eular_powerx.toString()
+                    SecondTextview_Result.text = "e^($value)"
+                }
             }
 
             Button_In.setOnClickListener {
-              Textview_Result.text = (Textview_Result.text.toString() + R.string.In_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "In" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val In = Math_logaritm.ln(value)
+                    Textview_Result.text = In.toString()
+                    SecondTextview_Result.text = "In($value)"
+                }
             }
 
             Button_log.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + "log(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "log()")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Logaritm = Math_logaritm.Logaritm(value)
+                    Textview_Result.text = Logaritm.toString()
+                    SecondTextview_Result.text = "log($value)"
+                }
             }
 
             Button_Absolute.setOnClickListener {
@@ -529,7 +556,7 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_Radian.setOnClickListener {
                 // Radiant component
-                Component_degrad.isDegRad = false
+                DegRad_toggle = false
                 Degradindicator_result.setText("Rad")
             }
 
@@ -539,27 +566,69 @@ class Calculator_activity : AppCompatActivity() {
                     Button_Cos.setText(R.string.invcos_sym)
                     Button_Tan.setText(R.string.invtan_sym)
                     // Inverse toggle equals true because in parameters "isInverse" true value
-                    Component_invert.isInvert = true
+                    Inverse_toggle = true
                 } else {
                     Button_Sin.setText(R.string.sin_sym)
                     Button_Cos.setText(R.string.cos_sym)
                     Button_Tan.setText(R.string.tan_sym)
                     // Non inverse toggle equals false (if user 2x press button) and back to normal trigonometry operation
-                    Component_invert.isInvert = false
+                    Inverse_toggle = false
                 }
             }
 
             // for sin,cos,tan Degress/Radiant function
             Button_Sin.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + "sin(")
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "sin" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val sinusoperation = trigonometryoperationchecker(
+                        Inverse_toggle,
+                        result,
+                        isSin = true,
+                        checkDegRad = DegRad_toggle
+                    )
+                    Textview_Result.text = sinusoperation.toString()
+                }
             }
 
             Button_Cos.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + R.string.cos_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "cos" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val cosinusoperation = trigonometryoperationchecker(
+                        Inverse_toggle,
+                        result,
+                        isCos = true,
+                        checkDegRad = DegRad_toggle
+                    )
+                    Textview_Result.text = cosinusoperation.toString()
+                }
             }
 
             Button_Tan.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + R.string.tan_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "tan" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val result = Textview_Result.text.toString().toDouble()
+                    val tangenoperation = trigonometryoperationchecker(
+                        Inverse_toggle,
+                        result,
+                        isTan = true,
+                        checkDegRad = DegRad_toggle
+                    )
+                    Textview_Result.text = tangenoperation.toString()
+                }
             }
 
             Button_10PowerX.setOnClickListener {
@@ -577,20 +646,50 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Degress.setOnClickListener {
-                Component_degrad.isDegRad = true
+                DegRad_toggle = true
                 Degradindicator_result.setText("Deg")
             }
 
             Button_Sinh.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + R.string.sinh_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "sinh" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
+                    Textview_Result.text = Sinh.toString()
+                    SecondTextview_Result.text = "sinh($value)"
+                }
             }
 
             Button_Cosh.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + R.string.cosh_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "cosh" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
+                    Textview_Result.text = Cosh.toString()
+                    SecondTextview_Result.text = "cosh($value)"
+                }
             }
 
             Button_Tanh.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + R.string.tanh_sym_show)
+                if (Textview_Result.text.toString().isEmpty()) {
+                    Textview_Result.text = (Textview_Result.text.toString() + "tanh" + "(")
+                    IndicatorError_Result.visibility = View.VISIBLE
+                    IndicatorError_Result.setText("Kesalahan")
+                } else if (Textview_Result.text.toString().isNotEmpty()) {
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
+                    val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
+                    Textview_Result.text = Tanh.toString()
+                    SecondTextview_Result.text = "tanh($value)"
+                }
             }
 
             Button_Derivative.setOnClickListener {
@@ -613,6 +712,56 @@ class Calculator_activity : AppCompatActivity() {
                 SecondTextview_Result.text = "\u03C0"
             }
         }
+    }
+
+    private fun trigonometryoperationchecker(
+        isInverse: Boolean,
+        value: Double = 0.0,
+        isSin: Boolean = false,
+        isCos: Boolean = false,
+        isTan: Boolean = false,
+        checkDegRad: Boolean = false
+    ): Double {
+        // default value result
+        var result = 0.0
+
+        if (isInverse) {
+            // change to Inverse Trigonometry function
+            if (isSin) {
+                val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
+                result = SinInverse
+                SecondTextview_Result.setText("sin^-1($value)")
+            } else if (isCos) {
+                val CosInverse = if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
+                result = CosInverse
+                SecondTextview_Result.setText("cos^-1($value)")
+            } else if (isTan) {
+                val TanInverse = if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
+                result = TanInverse
+                SecondTextview_Result.setText("tan^-1($value)")
+            } else {
+                IndicatorError_Result.setText("Kesalahan")
+            }
+
+        } else {
+            // here, you must change to normal sin/cos/tan
+            if (isSin) {
+                val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
+                result = Sinus
+                SecondTextview_Result.setText("sin($value)")
+            } else if (isCos) {
+                val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
+                result = Cosinus
+                SecondTextview_Result.setText("cos($value)")
+            } else if (isTan) {
+                val Tangent = if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
+                result = Tangent
+                SecondTextview_Result.setText("tan($value)")
+            } else {
+                IndicatorError_Result.setText("Kesalahan")
+            }
+        }
+        return result
     }
 
 

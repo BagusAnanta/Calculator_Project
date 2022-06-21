@@ -1,22 +1,8 @@
 package com.bsoftwarefoundation.calculator.Mathoperation
 
-import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentDegressRadiant
-import com.bsoftwarefoundation.calculator.Componentcalculator.ComponentInvert
-import com.bsoftwarefoundation.calculator.Mathformula.MathEuler
-import com.bsoftwarefoundation.calculator.Mathformula.MathLogaritm
-import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
-import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryDegRadcheck
-import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
-import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
-
 class Evaluate {
     
-    var Math_eular = MathEuler()
-    var Math_logaritm = MathLogaritm()
-    var Math_trigonometryhyper = MathTrigonometryHyperbolic()
-    var Math_trigonodegradchck = MathTrigonometryDegRadcheck()
-    var Component_invert = ComponentInvert()
-    var Component_degradchk = ComponentDegressRadiant()
+
 
     // for check position and char position
     fun evaluate(str : String) : Any {
@@ -88,22 +74,6 @@ class Evaluate {
                     while (chart >= '0'.toInt() && chart <= '9'.toInt() || chart == '.'.toInt()) nextChar()
                     // below we are getting sub string from our string user start and position
                     value = str.substring(startPosition,position).toDouble()
-                } else if(chart >= 'a'.toInt() && chart <= 'z'.toInt()){
-                    while(chart >= 'a'.toInt() && chart <= 'z'.toInt()) nextChar()
-                    val function = str.substring(startPosition,position)
-                    value = parseFactor()
-                    value = when(function){
-                        "ln("   -> Math_logaritm.ln(value)
-                        "e^("   -> Math_eular.EulerPowerX(value)
-                        "log("  -> Math_logaritm.Logaritm(value)
-                        "sin("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert,value,true, checkDegRad = Component_degradchk.isDegRad)
-                        "cos("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert,value, isCos = true, checkDegRad = Component_degradchk.isDegRad)
-                        "tan("  -> Math_trigonodegradchck.trigonometryoperationchecker(Component_invert.isInvert, isTan = true, checkDegRad = Component_degradchk.isDegRad)
-                        "sinh(" -> Math_trigonometryhyper.SinusHyperbolic(value)
-                        "cosh(" -> Math_trigonometryhyper.CosinusHyperbolic(value)
-                        "tanh(" -> Math_trigonometryhyper.TangenHyperbolic(value)
-                        else -> throw RuntimeException("Unexpected: " + chart.toChar())
-                    }
                 }
                 return value
             }
