@@ -263,6 +263,14 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         Button_Equals.setOnClickListener {
+            /*
+            * TODO:
+            *  Kesel aku cok mati terus ni laptop dah, jadi mau ngoding males gua :(, jadi gini
+            *  cara ngitung untuk scientific equation (sin() + sin()) atau etc kita ubah dulu mereka kedalam nilai baru dihitung
+            *  Ex: sin(0) + sin(30) nanti kita ubah dulu ke nilainya jadi sin(0) = 0 dan sin(30) = 0,5 jadi nanti 0 + 0,5 = 0,5
+            *  sin(0) + sin(30) ->  0 + 0,5 -> = 0,5
+            */
+
             // TODO: Convert into string and call Evaluate class in here
             val value : String = Textview_Result.text.toString()
             val result : Double = Evaluate_result.evaluate(value) as Double
@@ -462,10 +470,11 @@ class Calculator_activity : AppCompatActivity() {
                     IndicatorError_Result.visibility = View.VISIBLE
                     IndicatorError_Result.setText("Kesalahan")
                 } else if(Textview_Result.text.toString().isNotEmpty()){
-                    val value = Textview_Result.toString().toDouble()
+                    IndicatorError_Result.visibility = View.INVISIBLE
+                    val value = Textview_Result.text.toString().toDouble()
                     val Squareroot = Math_root.SquareRoot(value)
                     Textview_Result.text = Squareroot.toString()
-                    SecondTextview_Result.text = "$value\u221A"
+                    SecondTextview_Result.text = "√$value"
                 }
             }
 

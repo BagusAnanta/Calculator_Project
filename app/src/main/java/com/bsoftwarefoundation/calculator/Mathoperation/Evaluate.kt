@@ -1,8 +1,6 @@
 package com.bsoftwarefoundation.calculator.Mathoperation
 
 class Evaluate {
-    
-
 
     // for check position and char position
     fun evaluate(str : String) : Any {
