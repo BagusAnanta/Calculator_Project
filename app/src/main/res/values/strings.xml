@@ -36,7 +36,7 @@
     <string name="mr_sym">mr</string>
     <string name="powerX2_sym">x<sup><small>2</small></sup> </string>
     <string name="powerX3_sym">x<sup><small>3</small></sup> </string>
-    <string name="powerXy_sym">x<sup><small>y</small></sup> </string>
+    <string name="powerXx_sym">x<sup><small>x</small></sup> </string>
     <string name="natural_sym">e</string>
     <string name="naturalpowerx_sym">e<sup><small>x</small></sup></string>
     <string name="In_sym">In</string>
@@ -53,7 +53,7 @@
     <string name="pi_sym">\u03C0</string>
     <string name="factorial_sym">x!</string>
     <string name="root_sym">\u221A</string>
-    <string name="yunderrootx_sym"><sup><small>y</small></sup>√x</string>
+    <string name="yunderrooty_sym"><sup><small>y</small></sup>√y</string>
     <string name="inverse_sym">INV</string>
     <string name="invsin_sym">sin<sup><small>-1</small></sup></string>
     <string name="invcos_sym">cos<sup><small>-1</small></sup></string>

@@ -12,8 +12,8 @@ package com.bsoftwarefoundation.calculator.Mathformula
         return result
     }
 
-    fun XPowerY(X : Double, Y : Double) : Double{
-        val result = Math.pow(X,Y)
+    fun XPowerx(X : Double) : Double{
+        val result = Math.pow(X,X)
         return result
     }
 

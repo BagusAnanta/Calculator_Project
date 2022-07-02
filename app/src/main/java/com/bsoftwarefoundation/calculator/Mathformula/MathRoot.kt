@@ -7,9 +7,9 @@ class MathRoot {
         return result
     }
 
-    fun YunderrootX(y : Double, X : Double) : Double{
-        // a formula is X ^ 1/y
-        val formula : Double = Math.pow(X,1.0/y)
+    fun Yunderrooty(y : Double) : Double{
+        // a formula is y ^ 1/y
+        val formula : Double = Math.pow(y,1.0/y)
         return formula
     }
 

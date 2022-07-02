@@ -1,6 +1,7 @@
 package com.bsoftwarefoundation.calculator
 
 import android.content.res.Configuration
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTr
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
 import com.bsoftwarefoundation.calculator.Mathoperation.Evaluate
+import com.bsoftwarefoundation.calculator.Mathoperation.Operation
 
 class Calculator_activity : AppCompatActivity() {
 
@@ -44,6 +46,7 @@ class Calculator_activity : AppCompatActivity() {
     var Component_delete = ComponentDeleteClear()
     var Component_memory = ComponentMemoryCalculator()
     var Component_plusmin = ComponentPlusMinus()
+    var Operation = Operation()
 
     // TOD: Initiated Evaluate/Result Component Class
     var Evaluate_result = Evaluate()
@@ -88,10 +91,10 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_MR: Button
     private lateinit var Button_XPower2: Button
     private lateinit var Button_XPower3: Button
-    private lateinit var Button_XPowery: Button
+    private lateinit var Button_XPowerX: Button
     private lateinit var Button_XFactorial: Button
     private lateinit var Button_root: Button
-    private lateinit var Button_PowerY_UnderRootX: Button
+    private lateinit var Button_PowerY_UnderRootY: Button
     private lateinit var Button_1DivideX: Button
     private lateinit var Button_e: Button
     private lateinit var Button_ePowerX: Button
@@ -168,10 +171,10 @@ class Calculator_activity : AppCompatActivity() {
             Button_MR = findViewById(R.id.Mr)
             Button_XPower2 = findViewById(R.id.Xpower2)
             Button_XPower3 = findViewById(R.id.Xpower3)
-            Button_XPowery = findViewById(R.id.Xpowery)
+            Button_XPowerX = findViewById(R.id.Xpowerx)
             Button_XFactorial = findViewById(R.id.Factorial)
             Button_root = findViewById(R.id.Root)
-            Button_PowerY_UnderRootX = findViewById(R.id.YunderrootX)
+            Button_PowerY_UnderRootY = findViewById(R.id.Yunderrooty)
             Button_1DivideX = findViewById(R.id.Dividedby1)
             Button_e = findViewById(R.id.Naturalequation)
             Button_ePowerX = findViewById(R.id.Naturalpowerx)
@@ -271,13 +274,18 @@ class Calculator_activity : AppCompatActivity() {
             *  sin(0) + sin(30) ->  0 + 0,5 -> = 0,5
             */
 
+            /*
+            * TODO: Yang perlu diperbaiki adalah letak nilai yang harus diambil yang akan dijadikan hasilnya
+            *  */
+
             // TODO: Convert into string and call Evaluate class in here
             val value : String = Textview_Result.text.toString()
-            val result : Double = Evaluate_result.evaluate(value) as Double
+           /* // val result : Double = Evaluate_result.evaluate(value) as Double
             // TODO: Convert into string
-            val convert_result = result.toString()
+            val convert_result = result.toString()*/
+            val result = Operation.operation(value)
             // TODO: Show in at Textview_result and Second_result
-            Textview_Result.setText(convert_result)
+            Textview_Result.setText(result)
             SecondTextview_Result.text = value
         }
 
@@ -285,7 +293,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_DEL.setOnClickListener {
             // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
             if (SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()) {
-                SecondTextview_Result.setText("0")
+                // SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
             // component_delete call if Button_del pressed
@@ -427,27 +435,23 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(3)")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val XPower3_result = Math_power.XPower3(value)
-                    Textview_Result.text = XPower3_result.toString()
-                    SecondTextview_Result.text = "$value^(3)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "^" + "(3)")
+                // Warning, parsedouble Exception you must set default 0 or try and catch this value
+                val value = Textview_Result.text.toString().toDouble()
+                val XPower3_result = Math_power.XPower3(value).toString()
+                val secondformula = "$value^(3)"
+
+                setcontentresult(formulatext,XPower3_result,secondformula)
+
             }
 
             // TODO: Repair later
-            Button_XPowery.setOnClickListener {
+            Button_XPowerX.setOnClickListener {
                 // TODO: I recommend use edittext because, this operation must have 2 input
                 val variable_X = Textview_Result.text.toString().toDouble()
-                val power_y = Textview_Result.text.toString().toDouble()
-                val Xpowery = Math_power.XPowerY(variable_X, power_y)
+                val Xpowery = Math_power.XPowerx(variable_X)
                 Textview_Result.text = Xpowery.toString()
-                SecondTextview_Result.text = "$variable_X^($power_y)"
+                SecondTextview_Result.text = "$variable_X^($variable_X)"
 
             }
 
@@ -479,12 +483,12 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             // TODO: Repair later
-            Button_PowerY_UnderRootX.setOnClickListener {
+            Button_PowerY_UnderRootY.setOnClickListener {
                 // TODO: I recommend use edittext because, this operation must have 2 input
                 val power_y = Textview_Result.text.toString().toDouble()
-                val root_X = Textview_Result.text.toString().toDouble()
-                val PowerYunderrootX = Math_root.YunderrootX(power_y, root_X)
+                val PowerYunderrootX = Math_root.Yunderrooty(power_y)
                 Textview_Result.text = PowerYunderrootX.toString()
+                SecondTextview_Result.text = "^$power_y√$power_y"
             }
 
             Button_1DivideX.setOnClickListener {
@@ -757,7 +761,8 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
                 result = Sinus
-                SecondTextview_Result.setText("sin($value)")
+                // SecondTextview_Result.setText("sin($value)")
+                // SecondTextview_Result.text = result.toString()
             } else if (isCos) {
                 val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
                 result = Cosinus
@@ -771,6 +776,41 @@ class Calculator_activity : AppCompatActivity() {
             }
         }
         return result
+    }
+
+    /*private fun updatetext(stringtoAdd : String){
+        val oldstring = Textview_Result.text.toString()
+        val cursorposition : Int = Textview_Result.selectionStart
+        val leftstring = oldstring.substring(0,cursorposition)
+        val rightstring = oldstring.substring(cursorposition)
+
+        Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
+    }*/
+
+    /*Button_Derivative.setOnClickListener {
+        if (Textview_Result.text.toString().isEmpty()) {
+            Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
+            IndicatorError_Result.visibility = View.VISIBLE
+            IndicatorError_Result.setText("Kesalahan")
+        } else if (Textview_Result.text.toString().isNotEmpty()) {
+            IndicatorError_Result.visibility = View.INVISIBLE
+            val value = Textview_Result.text.toString().toDouble()
+            val Yderivative = Math_derivative.Derivative(value)
+            Textview_Result.text = "$value X^($Yderivative)"
+            SecondTextview_Result.text = "$value X^($value-1)"
+        }
+    }*/
+
+    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String){
+        if (Textview_Result.text.toString().isEmpty()) {
+            Textview_Result.text = ErrtextviewResult
+            IndicatorError_Result.visibility = View.VISIBLE
+            IndicatorError_Result.setText("Kesalahan")
+        } else if (Textview_Result.text.toString().isNotEmpty()) {
+            IndicatorError_Result.visibility = View.INVISIBLE
+            Textview_Result.text = LastOperationShow
+            SecondTextview_Result.text = FormulaShow
+        }
     }
 
 
