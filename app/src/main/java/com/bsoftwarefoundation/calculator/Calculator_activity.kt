@@ -536,59 +536,27 @@ class Calculator_activity : AppCompatActivity() {
             // for sin,cos,tan Degress/Radiant function
             Button_Sin.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "sin()")
-                val sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
-
-
+                val Sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
+                setcontentresult(formulatext,Sinusoperation)
             }
 
             Button_Cos.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "cos" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val cosinusoperation = trigonometryoperationchecker(
-                        Inverse_toggle,
-                        result,
-                        isCos = true,
-                        checkDegRad = DegRad_toggle
-                    )
-                    Textview_Result.text = cosinusoperation.toString()
-                }
+                val formulatext = (Textview_Result.text.toString() + "cos()")
+                val cosinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isCos = true, checkDegRad = DegRad_toggle).toString()
+                setcontentresult(formulatext,cosinusoperation)
             }
 
             Button_Tan.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "tan" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val tangenoperation = trigonometryoperationchecker(
-                        Inverse_toggle,
-                        result,
-                        isTan = true,
-                        checkDegRad = DegRad_toggle
-                    )
-                    Textview_Result.text = tangenoperation.toString()
-                }
+                val formulatext = (Textview_Result.text.toString() + "tan()")
+                val tangenoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isTan = true, checkDegRad = DegRad_toggle).toString()
+                setcontentresult(formulatext,tangenoperation)
             }
 
             Button_10PowerX.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(10")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Tenpowerx = Math_power.TenPowerx(value)
-                    Textview_Result.text = Tenpowerx.toString()
-                    SecondTextview_Result.text = "$value^(10)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "^(10)")
+                val Tenpowerx = Math_power.TenPowerx(funvalue()).toString()
+                val secondtextformula = "${funvalue()}^(10)"
+                setcontentresult(formulatext,Tenpowerx,secondtextformula)
             }
 
             Button_Degress.setOnClickListener {
@@ -597,31 +565,17 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Sinh.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "sinh" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Sinh = Math_trigonometryhyper.SinusHyperbolic(value)
-                    Textview_Result.text = Sinh.toString()
-                    SecondTextview_Result.text = "sinh($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "sinh()")
+                val Sinh = Math_trigonometryhyper.SinusHyperbolic(funvalue()).toString()
+                val secondtextformula = "sinh(${funvalue()})"
+                setcontentresult(formulatext,Sinh,secondtextformula)
             }
 
             Button_Cosh.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "cosh" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Cosh = Math_trigonometryhyper.CosinusHyperbolic(value)
-                    Textview_Result.text = Cosh.toString()
-                    SecondTextview_Result.text = "cosh($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "cosh()")
+                val Cosh = Math_trigonometryhyper.CosinusHyperbolic(funvalue()).toString()
+                val secondtextformula = "cosh(${funvalue()})"
+                setcontentresult(formulatext,Cosh,secondtextformula)
             }
 
             Button_Tanh.setOnClickListener {
@@ -639,23 +593,16 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Derivative.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Yderivative = Math_derivative.Derivative(value)
-                    Textview_Result.text = "$value X^($Yderivative)"
-                    SecondTextview_Result.text = "$value X^($value-1)"
-                }
+                // TODO: Repair later
+                Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
+                val value = Textview_Result.text.toString().toDouble()
+                val Yderivative = Math_derivative.Derivative(value)
+                Textview_Result.text = "$value X^($Yderivative)"
+                SecondTextview_Result.text = "$value X^($value-1)"
             }
 
             Button_Pi.setOnClickListener {
-                val Pi_equation = Math_pi.Pi()
-                Textview_Result.text = Pi_equation
-                SecondTextview_Result.text = "\u03C0"
+                setcontentresult("π",Math_pi.Pi().toString(),"π")
             }
         }
     }
@@ -720,7 +667,7 @@ class Calculator_activity : AppCompatActivity() {
         Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
     }*/
 
-    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String){
+    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String = "0"){
         if (Textview_Result.text.toString().isEmpty()) {
             Textview_Result.text = ErrtextviewResult
             IndicatorError_Result.visibility = View.VISIBLE
