@@ -48,7 +48,7 @@ class Calculator_activity : AppCompatActivity() {
     var Component_plusmin = ComponentPlusMinus()
     var Operation = Operation()
 
-    // TOD: Initiated Evaluate/Result Component Class
+    // TODO: Initiated Evaluate/Result Component Class
     var Evaluate_result = Evaluate()
 
     // TODO : Initiated TextView Result
@@ -435,136 +435,80 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower3.setOnClickListener {
-                val formulatext = (Textview_Result.text.toString() + "^" + "(3)")
-                // Warning, parsedouble Exception you must set default 0 or try and catch this value
-                val value = Textview_Result.text.toString().toDouble()
-                val XPower3_result = Math_power.XPower3(value).toString()
-                val secondformula = "$value^(3)"
-
-                setcontentresult(formulatext,XPower3_result,secondformula)
+                val formulatext = (Textview_Result.text.toString() + "^(3)")
+                val XPower3_result = Math_power.XPower3(funvalue()).toString()
+                val secondtextformula = "${funvalue()}^(3)"
+                setcontentresult(formulatext,XPower3_result,secondtextformula)
 
             }
 
-            // TODO: Repair later
             Button_XPowerX.setOnClickListener {
-                // TODO: I recommend use edittext because, this operation must have 2 input
-                val variable_X = Textview_Result.text.toString().toDouble()
-                val Xpowery = Math_power.XPowerx(variable_X)
-                Textview_Result.text = Xpowery.toString()
-                SecondTextview_Result.text = "$variable_X^($variable_X)"
-
+                val formulatext = (Textview_Result.text.toString() + "X^(x)")
+                val Xpowerx = Math_power.XPowerx(funvalue()).toString()
+                val secondtextformula = "${funvalue()}^(${funvalue()})"
+                setcontentresult(formulatext,Xpowerx,secondtextformula)
             }
 
             Button_XFactorial.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "X" + "!")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if(Textview_Result.text.toString().isNotEmpty()) {
-                    val value = Textview_Result.text.toString().toInt()
-                    val Factorial = Math_factorial.Factorial(value)
-                    Textview_Result.text = Factorial.toString()
-                    SecondTextview_Result.text = "$value!"
-                }
+                val formulatext = (Textview_Result.text.toString() + "X!")
+                val Factorial = Math_factorial.Factorial(funvalue().toInt()).toString()
+                val secondtextformula = "${funvalue()}!"
+                setcontentresult(formulatext,Factorial,secondtextformula)
             }
 
             Button_root.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "\u221A" + "X")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if(Textview_Result.text.toString().isNotEmpty()){
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Squareroot = Math_root.SquareRoot(value)
-                    Textview_Result.text = Squareroot.toString()
-                    SecondTextview_Result.text = "√$value"
-                }
+                val formulatext = (Textview_Result.text.toString() + "\u221A" + "X")
+                val Squareroot = Math_root.SquareRoot(funvalue()).toString()
+                val secondtextformula = "√${funvalue()}"
+                setcontentresult(formulatext,Squareroot,secondtextformula)
             }
 
             // TODO: Repair later
             Button_PowerY_UnderRootY.setOnClickListener {
-                // TODO: I recommend use edittext because, this operation must have 2 input
-                val power_y = Textview_Result.text.toString().toDouble()
-                val PowerYunderrootX = Math_root.Yunderrooty(power_y)
-                Textview_Result.text = PowerYunderrootX.toString()
-                SecondTextview_Result.text = "^$power_y√$power_y"
+                val formulatext = (Textview_Result.text.toString() + "Y√y")
+                val PowerYunderrooty = Math_root.Yunderrooty(funvalue()).toString()
+                val secondtextformula = "^${funvalue()}√${funvalue()}"
+                setcontentresult(formulatext,PowerYunderrooty,secondtextformula)
             }
 
             Button_1DivideX.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(-1)")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Onedividex = Math_power.Dividebyone(value)
-                    Textview_Result.text = Onedividex.toString()
-                    SecondTextview_Result.text = "$value^(-1)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "^(-1)")
+                val Onedividex = Math_power.Dividebyone(funvalue()).toString()
+                val secondtextformula = "${funvalue()}^(-1)"
+                setcontentresult(formulatext,Onedividex,secondtextformula)
             }
 
             Button_e.setOnClickListener {
-                val Eular_equation = Math_eular.Euler()
-                Textview_Result.text = Eular_equation
-                SecondTextview_Result.text = "e"
+                setcontentresult("e",Math_eular.Euler(),"e")
             }
 
             Button_ePowerX.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "e" + "^" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Eular_powerx = Math_eular.EulerPowerX(value)
-                    Textview_Result.text = Eular_powerx.toString()
-                    SecondTextview_Result.text = "e^($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "e^()")
+                val Eular_powerx = Math_eular.EulerPowerX(funvalue()).toString()
+                val secondtextformula = "e^(${funvalue()})"
+                setcontentresult(formulatext,Eular_powerx,secondtextformula)
             }
 
             Button_In.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "In" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val In = Math_logaritm.ln(value)
-                    Textview_Result.text = In.toString()
-                    SecondTextview_Result.text = "In($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "In()")
+                val In = Math_logaritm.ln(funvalue()).toString()
+                val secondtextformula = "In(${funvalue()})"
+                setcontentresult(formulatext,In,secondtextformula)
             }
 
             Button_log.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "log()")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Logaritm = Math_logaritm.Logaritm(value)
-                    Textview_Result.text = Logaritm.toString()
-                    SecondTextview_Result.text = "log($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "log()")
+                val Logaritm = Math_logaritm.Logaritm(funvalue()).toString()
+                val secondtextformula = "log(${Logaritm})"
+                setcontentresult(formulatext,Logaritm,secondtextformula)
+
             }
 
             Button_Absolute.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "|X|")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Absolute = Math_absolute.Absolute(value)
-                    Textview_Result.text = Absolute.toString()
-                    SecondTextview_Result.text = "| $value |"
-                }
+                val formulatext = (Textview_Result.text.toString() + "|X|")
+                val Absolute = Math_absolute.Absolute(funvalue()).toString()
+                val secondtextformula = "| ${funvalue()} |"
+                setcontentresult(formulatext,Absolute,secondtextformula)
             }
 
             Button_Radian.setOnClickListener {
@@ -591,21 +535,10 @@ class Calculator_activity : AppCompatActivity() {
 
             // for sin,cos,tan Degress/Radiant function
             Button_Sin.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "sin" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val result = Textview_Result.text.toString().toDouble()
-                    val sinusoperation = trigonometryoperationchecker(
-                        Inverse_toggle,
-                        result,
-                        isSin = true,
-                        checkDegRad = DegRad_toggle
-                    )
-                    Textview_Result.text = sinusoperation.toString()
-                }
+                val formulatext = (Textview_Result.text.toString() + "sin()")
+                val sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
+
+
             }
 
             Button_Cos.setOnClickListener {
@@ -787,20 +720,6 @@ class Calculator_activity : AppCompatActivity() {
         Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
     }*/
 
-    /*Button_Derivative.setOnClickListener {
-        if (Textview_Result.text.toString().isEmpty()) {
-            Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
-            IndicatorError_Result.visibility = View.VISIBLE
-            IndicatorError_Result.setText("Kesalahan")
-        } else if (Textview_Result.text.toString().isNotEmpty()) {
-            IndicatorError_Result.visibility = View.INVISIBLE
-            val value = Textview_Result.text.toString().toDouble()
-            val Yderivative = Math_derivative.Derivative(value)
-            Textview_Result.text = "$value X^($Yderivative)"
-            SecondTextview_Result.text = "$value X^($value-1)"
-        }
-    }*/
-
     private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String){
         if (Textview_Result.text.toString().isEmpty()) {
             Textview_Result.text = ErrtextviewResult
@@ -811,6 +730,18 @@ class Calculator_activity : AppCompatActivity() {
             Textview_Result.text = LastOperationShow
             SecondTextview_Result.text = FormulaShow
         }
+    }
+
+    private fun funvalue() : Double{
+        val value = Textview_Result.text.toString().toDouble()
+        // check value if have Exception and catch this exception
+       try{
+           value
+       } catch (E : Exception){
+           // set default value == 0 on textview_result
+          Textview_Result.text = "0"
+       }
+        return value
     }
 
 
