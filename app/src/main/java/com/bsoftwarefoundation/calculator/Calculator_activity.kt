@@ -411,29 +411,12 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_XPower2.setOnClickListener {
+                val formulatext = (Textview_Result.text.toString() + "^(2)")
+                val XPower2_result = Math_power.XPower2(funvalue()).toString()
+                val secondtextformula = "${funvalue()}^(2)"
+                setcontentresult(formulatext,XPower2_result,secondtextformula)
 
-                if (Textview_Result.text.toString().isEmpty()) {
-                    // If Textview_Result is empty/ = 0, show text "Kesalahan"
-                    Textview_Result.text = (Textview_Result.text.toString() + "^" + "(2)")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    // Text "kesalahan" invisible
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    // for tester if correct you can left, if have problem please correct it after
-                    val value = Textview_Result.text.toString().toDouble()
-
-                    // call function power in here!!! and set result in here
-                    val XPower2_result = Math_power.XPower2(value)
-
-                    // you can use TextView_Result.setText()
-                    Textview_Result.text = XPower2_result.toString()
-
-                    // show formula in second Textview
-                    SecondTextview_Result.text = "$value^(2)"
-                }
             }
-
             Button_XPower3.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "^(3)")
                 val XPower3_result = Math_power.XPower3(funvalue()).toString()
@@ -463,7 +446,6 @@ class Calculator_activity : AppCompatActivity() {
                 setcontentresult(formulatext,Squareroot,secondtextformula)
             }
 
-            // TODO: Repair later
             Button_PowerY_UnderRootY.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "Y√y")
                 val PowerYunderrooty = Math_root.Yunderrooty(funvalue()).toString()
@@ -499,7 +481,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_log.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "log()")
                 val Logaritm = Math_logaritm.Logaritm(funvalue()).toString()
-                val secondtextformula = "log(${Logaritm})"
+                val secondtextformula = "log(${funvalue()})"
                 setcontentresult(formulatext,Logaritm,secondtextformula)
 
             }
@@ -593,16 +575,14 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Derivative.setOnClickListener {
-                // TODO: Repair later
-                Textview_Result.text = (Textview_Result.text.toString() + "X^(n-1)")
-                val value = Textview_Result.text.toString().toDouble()
-                val Yderivative = Math_derivative.Derivative(value)
-                Textview_Result.text = "$value X^($Yderivative)"
-                SecondTextview_Result.text = "$value X^($value-1)"
+                val formulatext = (Textview_Result.text.toString() + "X^(n-1)")
+                val resultcalculation = "${funvalue()} X^(${Math_derivative.Derivative(funvalue())})"
+                val secondtextformula = "${funvalue()} X^(${funvalue()}-1)"
+                setcontentresult(formulatext,resultcalculation,secondtextformula)
             }
 
             Button_Pi.setOnClickListener {
-                setcontentresult("π",Math_pi.Pi().toString(),"π")
+                setcontentresult("π",Math_pi.Pi(),"π")
             }
         }
     }
@@ -641,8 +621,7 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
                 result = Sinus
-                // SecondTextview_Result.setText("sin($value)")
-                // SecondTextview_Result.text = result.toString()
+                SecondTextview_Result.setText("sin($value)")
             } else if (isCos) {
                 val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
                 result = Cosinus
@@ -690,6 +669,5 @@ class Calculator_activity : AppCompatActivity() {
        }
         return value
     }
-
 
 }
