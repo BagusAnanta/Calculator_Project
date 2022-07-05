@@ -62,6 +62,7 @@
     <string name="tenpowerx">10<sup><small>x</small></sup></string>
     <string name="derivative1">y<sup><small>\'</small></sup></string>
     <string name="error_sign">Kesalahan</string>
+    <string name="empty_sign">Nilai kosong</string>
 
     <!-- String for show result-->
     <string name="naturalpowerx_sym_show">e^(</string>

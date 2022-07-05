@@ -336,7 +336,7 @@ class Calculator_activity : AppCompatActivity() {
                 if (Component_memory.GetMemory() == 0.0 || Component_memory.PrefMemory == 0.0) {
                     // Indicator warning show
                     IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Memori kosong")
+                    IndicatorError_Result.setText(R.string.empty_sign)
                     Textview_Result.text = "0"
                 } else {
                     // Memory and PrefMemory value must delete or 0 value
@@ -361,7 +361,7 @@ class Calculator_activity : AppCompatActivity() {
                        Textview_Result.text = addmem.toString()
                    }
                } catch (E : NumberFormatException){
-                   IndicatorError_Result.setText("Nilai kosong")
+                   IndicatorError_Result.setText(R.string.empty_sign)
                }
 
             }
@@ -381,7 +381,7 @@ class Calculator_activity : AppCompatActivity() {
                        Textview_Result.text = substractmem.toString()
                    }
                } catch (E : NumberFormatException){
-                   IndicatorError_Result.setText("Nilai kosong")
+                   IndicatorError_Result.setText(R.string.empty_sign)
                }
             }
 
@@ -394,7 +394,7 @@ class Calculator_activity : AppCompatActivity() {
                     Textview_Result.text = Component_memory.PrefMemory.toString()
                 } else if (Component_memory.GetMemory() == 0.0) {
                     IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Memori kosong")
+                    IndicatorError_Result.setText(R.string.empty_sign)
                 } else {
                     // if prefmemory is exist/ != 0.0 we get memory data
                     Textview_Result.text = Component_memory.PrefMemory.toString()
@@ -415,14 +415,12 @@ class Calculator_activity : AppCompatActivity() {
                 val XPower2_result = Math_power.XPower2(funvalue()).toString()
                 val secondtextformula = "${funvalue()}^(2)"
                 setcontentresult(formulatext,XPower2_result,secondtextformula)
-
             }
             Button_XPower3.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "^(3)")
                 val XPower3_result = Math_power.XPower3(funvalue()).toString()
                 val secondtextformula = "${funvalue()}^(3)"
                 setcontentresult(formulatext,XPower3_result,secondtextformula)
-
             }
 
             Button_XPowerX.setOnClickListener {
@@ -496,7 +494,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_Radian.setOnClickListener {
                 // Radiant component
                 DegRad_toggle = false
-                Degradindicator_result.setText("Rad")
+                Degradindicator_result.setText(R.string.radian_sym)
             }
 
             Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
@@ -516,6 +514,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             // for sin,cos,tan Degress/Radiant function
+            // TODO: Please repair this because secondtextresult is not show
             Button_Sin.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "sin()")
                 val Sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
@@ -543,11 +542,12 @@ class Calculator_activity : AppCompatActivity() {
 
             Button_Degress.setOnClickListener {
                 DegRad_toggle = true
-                Degradindicator_result.setText("Deg")
+                Degradindicator_result.setText(R.string.degress_sym)
             }
 
             Button_Sinh.setOnClickListener {
-                val formulatext = (Textview_Result.text.toString() + "sinh()")
+                // TODO: If use plus() function same like concatenation at kotlin
+                val formulatext = (Textview_Result.text.toString().plus("sinh()"))
                 val Sinh = Math_trigonometryhyper.SinusHyperbolic(funvalue()).toString()
                 val secondtextformula = "sinh(${funvalue()})"
                 setcontentresult(formulatext,Sinh,secondtextformula)
@@ -561,17 +561,10 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Tanh.setOnClickListener {
-                if (Textview_Result.text.toString().isEmpty()) {
-                    Textview_Result.text = (Textview_Result.text.toString() + "tanh" + "(")
-                    IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText("Kesalahan")
-                } else if (Textview_Result.text.toString().isNotEmpty()) {
-                    IndicatorError_Result.visibility = View.INVISIBLE
-                    val value = Textview_Result.text.toString().toDouble()
-                    val Tanh = Math_trigonometryhyper.CosinusHyperbolic(value)
-                    Textview_Result.text = Tanh.toString()
-                    SecondTextview_Result.text = "tanh($value)"
-                }
+                val formulatext = (Textview_Result.text.toString() + "tanh()")
+                val Tanh = Math_trigonometryhyper.TangenHyperbolic(funvalue()).toString()
+                val secondtextformula = "tanh(${funvalue()})"
+                setcontentresult(formulatext,Tanh,secondtextformula)
             }
 
             Button_Derivative.setOnClickListener {
@@ -613,7 +606,7 @@ class Calculator_activity : AppCompatActivity() {
                 result = TanInverse
                 SecondTextview_Result.setText("tan^-1($value)")
             } else {
-                IndicatorError_Result.setText("Kesalahan")
+                IndicatorError_Result.setText(R.string.error_sign)
             }
 
         } else {
@@ -631,7 +624,7 @@ class Calculator_activity : AppCompatActivity() {
                 result = Tangent
                 SecondTextview_Result.setText("tan($value)")
             } else {
-                IndicatorError_Result.setText("Kesalahan")
+                IndicatorError_Result.setText(R.string.error_sign)
             }
         }
         return result
@@ -646,7 +639,7 @@ class Calculator_activity : AppCompatActivity() {
         Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
     }*/
 
-    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String = "0"){
+    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String = ""){
         if (Textview_Result.text.toString().isEmpty()) {
             Textview_Result.text = ErrtextviewResult
             IndicatorError_Result.visibility = View.VISIBLE
