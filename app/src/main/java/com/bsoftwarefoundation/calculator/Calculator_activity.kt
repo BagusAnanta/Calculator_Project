@@ -114,6 +114,9 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_Derivative: Button
     private lateinit var Button_Pi: Button
 
+    // TODO: Initiate sin/cos/tan notation
+    // private lateinit var
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -198,7 +201,8 @@ class Calculator_activity : AppCompatActivity() {
 
         // TODO : For Number Button
         Button_One.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "1")
+            // check this if oke change more
+            Textview_Result.text = (Textview_Result.text.toString().plus(R.string.one_num))
         }
 
         Button_Two.setOnClickListener {
@@ -498,39 +502,42 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Inverse.setOnCheckedChangeListener { compoundButton, isChecked ->
-                if (isChecked) {
+                Inverse_toggle = if (isChecked) {
                     Button_Sin.setText(R.string.invsin_sym)
                     Button_Cos.setText(R.string.invcos_sym)
                     Button_Tan.setText(R.string.invtan_sym)
                     // Inverse toggle equals true because in parameters "isInverse" true value
-                    Inverse_toggle = true
+                    true
                 } else {
                     Button_Sin.setText(R.string.sin_sym)
                     Button_Cos.setText(R.string.cos_sym)
                     Button_Tan.setText(R.string.tan_sym)
                     // Non inverse toggle equals false (if user 2x press button) and back to normal trigonometry operation
-                    Inverse_toggle = false
+                    false
                 }
             }
 
             // for sin,cos,tan Degress/Radiant function
-            // TODO: Please repair this because secondtextresult is not show
+            // TODO: Please repair this because secondtextresult is not show, and show default value (0)
             Button_Sin.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "sin()")
                 val Sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
-                setcontentresult(formulatext,Sinusoperation)
+                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("sin^-1(${funvalue()})").toString() else SecondTextview_Result.setText("sin(${funvalue()})").toString()
+                setcontentresult(formulatext,Sinusoperation,secondtextformula)
             }
 
             Button_Cos.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "cos()")
                 val cosinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isCos = true, checkDegRad = DegRad_toggle).toString()
-                setcontentresult(formulatext,cosinusoperation)
+                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("cos^-1(${funvalue()})").toString() else SecondTextview_Result.setText("cos(${funvalue()})").toString()
+                setcontentresult(formulatext,cosinusoperation,secondtextformula)
             }
 
             Button_Tan.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "tan()")
                 val tangenoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isTan = true, checkDegRad = DegRad_toggle).toString()
-                setcontentresult(formulatext,tangenoperation)
+                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("tan^-1(${funvalue()})").toString() else SecondTextview_Result.setText("tan(${funvalue()})").toString()
+                setcontentresult(formulatext,tangenoperation,secondtextformula)
             }
 
             Button_10PowerX.setOnClickListener {
