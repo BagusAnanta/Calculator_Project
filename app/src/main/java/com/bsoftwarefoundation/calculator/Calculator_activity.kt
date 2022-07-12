@@ -202,67 +202,67 @@ class Calculator_activity : AppCompatActivity() {
         // TODO : For Number Button
         Button_One.setOnClickListener {
             // check this if oke change more
-            Textview_Result.text = (Textview_Result.text.toString().plus(R.string.one_num))
+            Textview_Result.text = (Textview_Result.text.toString().plus("1"))
         }
 
         Button_Two.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "2")
+            Textview_Result.text = (Textview_Result.text.toString().plus("2"))
         }
 
         Button_Three.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "3")
+            Textview_Result.text = (Textview_Result.text.toString().plus("3"))
         }
 
         Button_Four.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "4")
+            Textview_Result.text = (Textview_Result.text.toString().plus("4"))
         }
 
         Button_Five.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "5")
+            Textview_Result.text = (Textview_Result.text.toString().plus("5"))
         }
 
         Button_Six.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "6")
+            Textview_Result.text = (Textview_Result.text.toString().plus("6"))
         }
 
         Button_Seven.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "7")
+            Textview_Result.text = (Textview_Result.text.toString().plus("7"))
         }
 
         Button_Eight.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "8")
+            Textview_Result.text = (Textview_Result.text.toString().plus("8"))
         }
 
         Button_Nine.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "9")
+            Textview_Result.text = (Textview_Result.text.toString().plus("9"))
         }
 
         Button_Zero.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "0")
+            Textview_Result.text = (Textview_Result.text.toString().plus("0"))
         }
 
         // TODO: Button Symbol
         Button_Decimal.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + ".")
+            Textview_Result.text = (Textview_Result.text.toString().plus("."))
         }
 
         Button_Add.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "+")
+            Textview_Result.text = (Textview_Result.text.toString().plus("+"))
         }
 
         Button_Divide.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "/")
+            Textview_Result.text = (Textview_Result.text.toString().plus("/"))
         }
 
         Button_Substract.setOnClickListener {
-            Textview_Result.text = (Textview_Result.text.toString() + "-")
+            Textview_Result.text = (Textview_Result.text.toString().plus("-"))
         }
 
         Button_Multiply.setOnClickListener {
             val string: String = Textview_Result.text.toString()
             try{
             if (!string.get(index = string.length - 1).equals("*")) {
-                Textview_Result.text = (Textview_Result.text.toString() + "*")
+                Textview_Result.text = (Textview_Result.text.toString().plus("*"))
                }
             } catch (E : StringIndexOutOfBoundsException){
                 Textview_Result.setText("")
@@ -297,7 +297,7 @@ class Calculator_activity : AppCompatActivity() {
         Button_DEL.setOnClickListener {
             // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
             if (SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()) {
-                // SecondTextview_Result.setText("0")
+                SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
             // component_delete call if Button_del pressed
@@ -561,7 +561,8 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Cosh.setOnClickListener {
-                val formulatext = (Textview_Result.text.toString() + "cosh()")
+                // test it now if work, change now
+                val formulatext = ("cosh(" + Textview_Result.text.toString())
                 val Cosh = Math_trigonometryhyper.CosinusHyperbolic(funvalue()).toString()
                 val secondtextformula = "cosh(${funvalue()})"
                 setcontentresult(formulatext,Cosh,secondtextformula)
@@ -603,15 +604,12 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val SinInverse = if (checkDegRad) Math_trigonometryinversedegress.SinusInverseDegress(value) else Math_trigonometryinverseradiant.SinusInverseRadiant(value)
                 result = SinInverse
-                SecondTextview_Result.setText("sin^-1($value)")
             } else if (isCos) {
                 val CosInverse = if (checkDegRad) Math_trigonometryinversedegress.CosinusInverseDegress(value) else Math_trigonometryinverseradiant.CosinusInverseRadiant(value)
                 result = CosInverse
-                SecondTextview_Result.setText("cos^-1($value)")
             } else if (isTan) {
                 val TanInverse = if (checkDegRad) Math_trigonometryinversedegress.TangenInverseDegress(value) else Math_trigonometryinverseradiant.TangeInverseRadiant(value)
                 result = TanInverse
-                SecondTextview_Result.setText("tan^-1($value)")
             } else {
                 IndicatorError_Result.setText(R.string.error_sign)
             }
@@ -621,15 +619,12 @@ class Calculator_activity : AppCompatActivity() {
             if (isSin) {
                 val Sinus = if (checkDegRad) Math_trigonometrydegress.SinusDegress(value) else Math_trigonometryradiant.SinusRadiant(value)
                 result = Sinus
-                SecondTextview_Result.setText("sin($value)")
             } else if (isCos) {
                 val Cosinus = if (checkDegRad) Math_trigonometrydegress.CosinusDegress(value) else Math_trigonometryradiant.CosinusRadiant(value)
                 result = Cosinus
-                SecondTextview_Result.setText("cos($value)")
             } else if (isTan) {
                 val Tangent = if (checkDegRad) Math_trigonometrydegress.TangenDegress(value) else Math_trigonometryradiant.TangenRadiant(value)
                 result = Tangent
-                SecondTextview_Result.setText("tan($value)")
             } else {
                 IndicatorError_Result.setText(R.string.error_sign)
             }
@@ -659,10 +654,10 @@ class Calculator_activity : AppCompatActivity() {
     }
 
     private fun funvalue() : Double{
-        val value = Textview_Result.text.toString().toDouble()
-        // check value if have Exception and catch this exception
+       var value = 0.0
        try{
-           value
+           value = Textview_Result.text.toString().toDouble()
+           // check value if have Exception and catch this exception
        } catch (E : Exception){
            // set default value == 0 on textview_result
           Textview_Result.text = "0"

@@ -1,11 +1,10 @@
 package com.bsoftwarefoundation.calculator.Mathoperation
-import net.objecthunter.exp4j.ExpressionBuilder
+import org.mariuszgromada.math.mxparser.Expression
 
 class Operation {
 
-    fun operation(Expression : String) : String{
-        val expression = ExpressionBuilder(Expression).build()
-        val result = expression.evaluate().toString()
-        return result
+    fun operation(expression : String) : String{
+        val result = Expression(expression).calculate()
+        return result.toString()
     }
 }

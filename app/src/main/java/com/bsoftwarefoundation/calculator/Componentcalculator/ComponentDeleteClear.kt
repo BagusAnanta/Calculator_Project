@@ -19,6 +19,8 @@ class ComponentDeleteClear {
         if(!string.equals("")){
             string = string.substring(0,string.length - 1)
             MainText.text = string
+        } else if(string.equals("")){
+            MainText.text = "0"
         }
     }
 }
