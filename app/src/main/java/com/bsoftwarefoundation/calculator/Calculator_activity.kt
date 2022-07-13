@@ -114,10 +114,6 @@ class Calculator_activity : AppCompatActivity() {
     private lateinit var Button_Derivative: Button
     private lateinit var Button_Pi: Button
 
-    // TODO: Initiate sin/cos/tan notation
-    // private lateinit var
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // full screen
@@ -326,10 +322,8 @@ class Calculator_activity : AppCompatActivity() {
         }
 
         Button_Percent.setOnClickListener {
-            val value = Textview_Result.text.toString().toDouble()
-            val result = value/100
-            Textview_Result.text = result.toString()
-            SecondTextview_Result.text = "$value%"
+            val result = funvalue()/100
+            setcontentresult("%",result.toString(),"${funvalue()}%")
         }
 
         // TODO:Landscape/scientific calculator configuration
@@ -407,11 +401,11 @@ class Calculator_activity : AppCompatActivity() {
 
             //TODO : Scientific Calculator Symbol
             Button_OpenParentheses.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + "(")
+                Textview_Result.text = (Textview_Result.text.toString().plus("("))
             }
 
             Button_CloseParentheses.setOnClickListener {
-                Textview_Result.text = (Textview_Result.text.toString() + ")")
+                Textview_Result.text = (Textview_Result.text.toString().plus(")"))
             }
 
             Button_XPower2.setOnClickListener {
@@ -518,25 +512,25 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             // for sin,cos,tan Degress/Radiant function
-            // TODO: Please repair this because secondtextresult is not show, and show default value (0)
+            // TODO: Please repair this because secondtextresult show in Kotlin.Unit on textview/secondtextresult
             Button_Sin.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "sin()")
                 val Sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
-                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("sin^-1(${funvalue()})").toString() else SecondTextview_Result.setText("sin(${funvalue()})").toString()
+                val secondtextformula = if(Inverse_toggle) "sin^-1(${funvalue()})" else "sin(${funvalue()})"
                 setcontentresult(formulatext,Sinusoperation,secondtextformula)
             }
 
             Button_Cos.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "cos()")
                 val cosinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isCos = true, checkDegRad = DegRad_toggle).toString()
-                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("cos^-1(${funvalue()})").toString() else SecondTextview_Result.setText("cos(${funvalue()})").toString()
+                val secondtextformula = if(Inverse_toggle) "cos^-1(${funvalue()})" else "cos(${funvalue()})" // TODO: Kotlin.Unit string show
                 setcontentresult(formulatext,cosinusoperation,secondtextformula)
             }
 
             Button_Tan.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "tan()")
                 val tangenoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isTan = true, checkDegRad = DegRad_toggle).toString()
-                val secondtextformula = if(Inverse_toggle) SecondTextview_Result.setText("tan^-1(${funvalue()})").toString() else SecondTextview_Result.setText("tan(${funvalue()})").toString()
+                val secondtextformula = if(Inverse_toggle) "tan^-1(${funvalue()})" else "tan(${funvalue()})"
                 setcontentresult(formulatext,tangenoperation,secondtextformula)
             }
 
@@ -561,7 +555,7 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Cosh.setOnClickListener {
-                // test it now if work, change now
+                // TODO: test it now if work, change now ( after evaluation
                 val formulatext = ("cosh(" + Textview_Result.text.toString())
                 val Cosh = Math_trigonometryhyper.CosinusHyperbolic(funvalue()).toString()
                 val secondtextformula = "cosh(${funvalue()})"
@@ -641,11 +635,11 @@ class Calculator_activity : AppCompatActivity() {
         Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
     }*/
 
-    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String = ""){
+    private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String){
         if (Textview_Result.text.toString().isEmpty()) {
             Textview_Result.text = ErrtextviewResult
             IndicatorError_Result.visibility = View.VISIBLE
-            IndicatorError_Result.setText("Kesalahan")
+            IndicatorError_Result.setText(R.string.error_sign)
         } else if (Textview_Result.text.toString().isNotEmpty()) {
             IndicatorError_Result.visibility = View.INVISIBLE
             Textview_Result.text = LastOperationShow
