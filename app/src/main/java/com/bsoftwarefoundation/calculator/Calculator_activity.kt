@@ -1,7 +1,6 @@
 package com.bsoftwarefoundation.calculator
 
 import android.content.res.Configuration
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -479,7 +478,6 @@ class Calculator_activity : AppCompatActivity() {
                 val Logaritm = Math_logaritm.Logaritm(funvalue()).toString()
                 val secondtextformula = "log(${funvalue()})"
                 setcontentresult(formulatext,Logaritm,secondtextformula)
-
             }
 
             Button_Absolute.setOnClickListener {
@@ -523,7 +521,7 @@ class Calculator_activity : AppCompatActivity() {
             Button_Cos.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "cos()")
                 val cosinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isCos = true, checkDegRad = DegRad_toggle).toString()
-                val secondtextformula = if(Inverse_toggle) "cos^-1(${funvalue()})" else "cos(${funvalue()})" // TODO: Kotlin.Unit string show
+                val secondtextformula = if(Inverse_toggle) "cos^-1(${funvalue()})" else "cos(${funvalue()})"
                 setcontentresult(formulatext,cosinusoperation,secondtextformula)
             }
 
@@ -625,15 +623,6 @@ class Calculator_activity : AppCompatActivity() {
         }
         return result
     }
-
-    /*private fun updatetext(stringtoAdd : String){
-        val oldstring = Textview_Result.text.toString()
-        val cursorposition : Int = Textview_Result.selectionStart
-        val leftstring = oldstring.substring(0,cursorposition)
-        val rightstring = oldstring.substring(cursorposition)
-
-        Textview_Result.text = String.format("%s%s%s",leftstring,stringtoAdd,rightstring)
-    }*/
 
     private fun setcontentresult(ErrtextviewResult : String,LastOperationShow : String,FormulaShow : String){
         if (Textview_Result.text.toString().isEmpty()) {

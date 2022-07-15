@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray">
 
     <TextView
         android:id="@+id/degradnotif"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="3dp"
         android:gravity="start"
         android:text="@string/degress_sym"
@@ -23,7 +23,7 @@
     <TextView
         android:id="@+id/secondtextViewcalculator"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="27dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:gravity="end"
@@ -41,21 +41,22 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:ems="10"
-        android:maxLength="12"
-        android:textSize="75sp"
-        android:text="@string/zero_num"
         android:gravity="end"
+        android:maxLength="12"
+        android:text="@string/zero_num"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/Tablelayoutcalculator"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toTopOf="@id/indicatorerrorcalculator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/secondtextViewcalculator" />
 
     <TextView
         android:id="@+id/indicatorerrorcalculator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="1dp"
         android:ems="10"
         android:gravity="end"
         android:maxLength="12"
@@ -69,10 +70,10 @@
 
     <TableLayout
         android:id="@+id/Tablelayoutcalculator"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="fill"
         android:layout_marginStart="5dp"
+        android:gravity="fill"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,126 +87,124 @@
 
             <Button
                 android:id="@+id/Openparentheses"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:autoSizeTextType="uniform"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/openparentheses_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                tools:targetApi="O"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Closeparentheses"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/closeparentheses_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/MC"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/mc_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Mplus"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/mplus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Mminus"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/mminus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Mr"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/mr_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Clear"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/clear_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Delete"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/delete_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/delete_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Plusminus"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/plusminus_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Divide"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/divide_sym"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/buop"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
 
         </TableRow>
@@ -218,124 +217,124 @@
 
             <Button
                 android:id="@+id/Xpower2"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/powerX2_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Xpower3"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/powerX3_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Xpowerx"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/powerXx_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Factorial"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/factorial_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Root"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/root_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Yunderrooty"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/yunderrooty_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/yunderrooty_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Seven"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/seven_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Eight"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/eight_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Nine"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/nine_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Multiply"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/multiply_sym"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/buop"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
         </TableRow>
 
@@ -348,130 +347,130 @@
 
             <Button
                 android:id="@+id/Dividedby1"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/divide1x_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/divide1x_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Naturalequation"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/natural_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/natural_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
             <Button
                 android:id="@+id/Naturalpowerx"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/naturalpowerx_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/naturalpowerx_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/In"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="19sp"
-                android:text="@string/In_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/In_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Logaritm"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/log_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/log_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Absolute"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="16sp"
-                android:text="@string/absolute_sym"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/absolute_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Four"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/four_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Five"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/five_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Six"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/six_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Substract"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/substract_sym"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/buop"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
 
         </TableRow>
 
@@ -485,120 +484,120 @@
                 android:id="@+id/Radiant"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="16sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/radian_sym"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whitebackdark" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Sinus"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/sin_sym"
-                android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whitebackdark"/>
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Cosinus"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="18sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/cos_sym"
-                android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whitebackdark"/>
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Tangen"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/tan_sym"
-                android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whitebackdark"/>
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
-                <ToggleButton
-                    android:id="@+id/Inverse"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="3dp"
-                    android:textSize="18sp"
-                    android:textOff="@string/inverse_sym"
-                    android:textOn="@string/inverse_sym"
-                    android:textColor="@color/black"
-                    android:textAllCaps="false"
-                    android:backgroundTint="@color/whitebackdark"/>
+            <ToggleButton
+                android:id="@+id/Inverse"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textOff="@string/inverse_sym"
+                android:textOn="@string/inverse_sym"
+                android:textSize="15sp" />
 
 
             <Button
                 android:id="@+id/Tenpowerx"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="18sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
                 android:text="@string/tenpowerx"
-                android:textColor="@color/black"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/whitebackdark"/>
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
             <Button
                 android:id="@+id/One"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/one_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Two"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/two_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Three"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whiteback"
                 android:text="@string/three_num"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/whiteback"/>
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Add"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/buop"
                 android:text="@string/add_sym"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/buop"/>
+                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -607,131 +606,131 @@
             android:layout_weight="1"
             android:gravity="center">
 
-        <Button
-            android:id="@+id/Degress"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="3dp"
-            android:textSize="16sp"
-            android:text="@string/degress_sym"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/whitebackdark"
-            style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/Degress"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:text="@string/degress_sym"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/Sinush"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="3dp"
-            android:textSize="15sp"
-            android:text="@string/sinh_sym"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/whitebackdark"
-            style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/Sinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:text="@string/sinh_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
-        <Button
-            android:id="@+id/Cosinush"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="3dp"
-            android:textSize="13sp"
-            android:text="@string/cosh_sym"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/whitebackdark"
-            style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/Cosinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:text="@string/cosh_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/Tangenh"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="3dp"
-            android:textSize="15sp"
-            android:text="@string/tanh_sym"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/whitebackdark"
-            style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/Tangenh"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:text="@string/tanh_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Derivative"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="3dp"
-                android:textSize="20sp"
-                android:text="@string/derivative1"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:backgroundTint="@color/whitebackdark"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/derivative1"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/pi"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="3dp"
-            android:textSize="20sp"
-            android:text="@string/pi_sym"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/whitebackdark"
-            style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/pi"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/whitebackdark"
+                android:text="@string/pi_sym"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Percent"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
-                android:text="@string/percent_sym"
-                android:textSize="25sp"
-                android:textColor="@color/black"
                 android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/percent_sym"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Zero"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
-                android:text="@string/zero_num"
-                android:textSize="25sp"
-                android:textColor="@color/black"
                 android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/zero_num"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Decimal"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
-                android:text="@string/decimal_sym"
-                android:textSize="25sp"
-                android:textColor="@color/black"
                 android:backgroundTint="@color/whiteback"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/decimal_sym"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Equals"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
-                android:text="@string/equal_sym"
-                android:textSize="25sp"
                 android:backgroundTint="@color/buop"
+                android:text="@string/equal_sym"
                 android:textColor="@color/white"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textSize="15sp" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
