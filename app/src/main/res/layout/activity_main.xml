@@ -80,7 +80,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/clear_sym"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Delete"
@@ -91,7 +92,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/delete_sym"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Plusminus"
@@ -102,7 +104,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/plusminus_sym"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Divide"
@@ -112,7 +115,9 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/buop"
                 android:text="@string/divide_sym"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                style="?android:attr/buttonBarButtonStyle" />
         </TableRow>
 
         <TableRow
@@ -131,7 +136,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/seven_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Eight"
@@ -142,7 +148,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/eight_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Nine"
@@ -153,7 +160,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/nine_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Multiply"
@@ -163,7 +171,9 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/buop"
                 android:text="@string/multiply_sym"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                style="?android:attr/buttonBarButtonStyle" />
 
         </TableRow>
 
@@ -183,7 +193,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/four_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Five"
@@ -194,7 +205,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/five_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Six"
@@ -205,7 +217,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/six_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Substract"
@@ -215,7 +228,9 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/buop"
                 android:text="@string/substract_sym"
-                android:textSize="25sp" />
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
         </TableRow>
 
@@ -235,7 +250,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/one_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Two"
@@ -246,7 +262,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/two_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Three"
@@ -257,7 +274,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/three_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Add"
@@ -267,7 +285,9 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/buop"
                 android:text="@string/add_sym"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                style="?android:attr/buttonBarButtonStyle" />
 
         </TableRow>
 
@@ -287,7 +307,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/percent_sym"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Zero"
@@ -298,7 +319,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/zero_num"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/Decimal"
@@ -309,7 +331,8 @@
                 android:backgroundTint="@color/whiteback"
                 android:text="@string/decimal_sym"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
 
             <Button
@@ -320,7 +343,9 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/buop"
                 android:text="@string/equal_sym"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                style="?android:attr/buttonBarButtonStyle" />
 
         </TableRow>
     </TableLayout>
