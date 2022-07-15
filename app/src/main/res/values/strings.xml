@@ -63,6 +63,7 @@
     <string name="derivative1">y<sup><small>\'</small></sup></string>
     <string name="error_sign">Kesalahan</string>
     <string name="empty_sign">Nilai kosong</string>
+    <string name="memory_empty_sign">Memori kosong</string>
 
     <!-- String for show result-->
     <string name="naturalpowerx_sym_show">e^(</string>

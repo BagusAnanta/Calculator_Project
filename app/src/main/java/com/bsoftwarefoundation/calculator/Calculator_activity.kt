@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
+import android.view.WindowManager.*
 import android.widget.Button
 import android.widget.TextView
 import android.widget.ToggleButton
@@ -14,41 +14,36 @@ import com.bsoftwarefoundation.calculator.Mathformula.*
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometry
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryHyperbolic
 import com.bsoftwarefoundation.calculator.Mathformula.Trigonometryformula.MathTrigonometryInverse
-import com.bsoftwarefoundation.calculator.Mathoperation.Evaluate
-import com.bsoftwarefoundation.calculator.Mathoperation.Operation
+import org.mariuszgromada.math.mxparser.Expression
 
 class Calculator_activity : AppCompatActivity() {
 
     // TODO: Initiated Degress & Radiant Value
-    // Degress Default
-    var DegRad_toggle: Boolean = true
+
+    private var DegRad_toggle: Boolean = true // Degress Default
 
     // TODO: Initiated Invert value default
-    var Inverse_toggle: Boolean = false
+    private var Inverse_toggle: Boolean = false
 
     // TODO: Initiated MathFormula Class
-    var Math_power = MathPower()
-    var Math_factorial = MathFactorial()
-    var Math_root = MathRoot()
-    var Math_eular = MathEuler()
-    var Math_logaritm = MathLogaritm()
-    var Math_absolute = MathAbsolute()
-    var Math_trigonometryhyper = MathTrigonometryHyperbolic()
-    var Math_trigonometryradiant = MathTrigonometry()
-    var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
-    var Math_trigonometryinverseradiant = MathTrigonometryInverse()
-    var Math_trigonometryinversedegress = MathTrigonometryInverse().MathTrigonometryInverseDegress()
-    var Math_pi = MathPi()
-    var Math_derivative = MathDerivative()
+    private var Math_power = MathPower()
+    private var Math_factorial = MathFactorial()
+    private var Math_root = MathRoot()
+    private var Math_eular = MathEuler()
+    private var Math_logaritm = MathLogaritm()
+    private var Math_absolute = MathAbsolute()
+    private var Math_trigonometryhyper = MathTrigonometryHyperbolic()
+    private var Math_trigonometryradiant = MathTrigonometry()
+    private var Math_trigonometrydegress = MathTrigonometry().MathTrigonometryDegress()
+    private var Math_trigonometryinverseradiant = MathTrigonometryInverse()
+    private var Math_trigonometryinversedegress = MathTrigonometryInverse().MathTrigonometryInverseDegress()
+    private var Math_pi = MathPi()
+    private var Math_derivative = MathDerivative()
 
     // TODO: Initiated Component Class
-    var Component_delete = ComponentDeleteClear()
-    var Component_memory = ComponentMemoryCalculator()
-    var Component_plusmin = ComponentPlusMinus()
-    var Operation = Operation()
-
-    // TODO: Initiated Evaluate/Result Component Class
-    var Evaluate_result = Evaluate()
+    private var Component_delete = ComponentDeleteClear()
+    private var Component_memory = ComponentMemoryCalculator()
+    private var Component_plusmin = ComponentPlusMinus()
 
     // TODO : Initiated TextView Result
     private lateinit var Textview_Result: TextView
@@ -117,8 +112,8 @@ class Calculator_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         // full screen
         window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
+            LayoutParams.FLAG_FULLSCREEN,
+            LayoutParams.FLAG_FULLSCREEN
         )
         // set content
         setContentView(R.layout.activity_main)
@@ -158,8 +153,7 @@ class Calculator_activity : AppCompatActivity() {
         // use this if a screen orientation Landscape
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-            // Scientific Math Calculator Symbol
-            // TODO: Null Pointer Exception Problem (Because after screen orientation landscape, findViewById() not detected a id component)
+            // TODO: Scientific Math Calculator Symbol
             Degradindicator_result = findViewById(R.id.degradnotif)
             Button_OpenParentheses = findViewById(R.id.Openparentheses)
             Button_CloseParentheses = findViewById(R.id.Closeparentheses)
@@ -191,12 +185,10 @@ class Calculator_activity : AppCompatActivity() {
             Button_Tanh = findViewById(R.id.Tangenh)
             Button_Derivative = findViewById(R.id.Derivative)
             Button_Pi = findViewById(R.id.pi)
-
         }
 
         // TODO : For Number Button
         Button_One.setOnClickListener {
-            // check this if oke change more
             Textview_Result.text = (Textview_Result.text.toString().plus("1"))
         }
 
@@ -270,33 +262,28 @@ class Calculator_activity : AppCompatActivity() {
             *  Kesel aku cok mati terus ni laptop dah, jadi mau ngoding males gua :(, jadi gini
             *  cara ngitung untuk scientific equation (sin() + sin()) atau etc kita ubah dulu mereka kedalam nilai baru dihitung
             *  Ex: sin(0) + sin(30) nanti kita ubah dulu ke nilainya jadi sin(0) = 0 dan sin(30) = 0,5 jadi nanti 0 + 0,5 = 0,5
-            *  sin(0) + sin(30) ->  0 + 0,5 -> = 0,5
+            *  sin(0) + sin(30) ->  0 + 0,5 -> = 0,5 (Buat Update selanjutnya)
             */
-
-            /*
-            * TODO: Yang perlu diperbaiki adalah letak nilai yang harus diambil yang akan dijadikan hasilnya
-            *  */
 
             // TODO: Convert into string and call Evaluate class in here
             val value : String = Textview_Result.text.toString()
-           /* // val result : Double = Evaluate_result.evaluate(value) as Double
-            // TODO: Convert into string
-            val convert_result = result.toString()*/
-            val result = Operation.operation(value)
+            val operation = Expression(value).calculate()
             // TODO: Show in at Textview_result and Second_result
-            Textview_Result.setText(result)
+            Textview_Result.setText(operation.toString())
             SecondTextview_Result.text = value
         }
 
         //TODO: Component Calculator AC/Del/+/-
         Button_DEL.setOnClickListener {
+            // component_delete call if Button_del pressed
+            Component_delete.Delete(Textview_Result)
+
             // if SecondTextview isNotEmpty, we mush delete it!!! and if IndicatorErrorResult isNotEmpty we must delete to
             if (SecondTextview_Result.text.toString().isNotEmpty() || IndicatorError_Result.text.isNotEmpty()) {
                 SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
-            // component_delete call if Button_del pressed
-            Component_delete.Delete(Textview_Result)
+
         }
 
         Button_AC.setOnClickListener {
@@ -306,15 +293,8 @@ class Calculator_activity : AppCompatActivity() {
 
         Button_PlusMinus.setOnClickListener {
             try {
-                if (Textview_Result.text.isEmpty()) {
-                    val defaultnumber = 0.0
-                    val defaultplusminus = Component_plusmin.PlusMinusOperation(defaultnumber)
-                    Textview_Result.text = defaultplusminus.toString()
-                } else {
-                    val resultconvert = Textview_Result.text.toString().toDouble()
-                    val plusminusconvert = Component_plusmin.PlusMinusOperation(resultconvert)
-                    Textview_Result.text = plusminusconvert.toString()
-                }
+                val plusminusconvert = Component_plusmin.PlusMinusOperation(funvalue())
+                Textview_Result.text = plusminusconvert.toString()
             } catch (Exception: NumberFormatException) {
                 Log.e("PlusMinusException", Exception.toString())
             }
@@ -333,7 +313,7 @@ class Calculator_activity : AppCompatActivity() {
                 if (Component_memory.GetMemory() == 0.0 || Component_memory.PrefMemory == 0.0) {
                     // Indicator warning show
                     IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText(R.string.empty_sign)
+                    IndicatorError_Result.setText(R.string.memory_empty_sign)
                     Textview_Result.text = "0"
                 } else {
                     // Memory and PrefMemory value must delete or 0 value
@@ -346,19 +326,18 @@ class Calculator_activity : AppCompatActivity() {
             Button_MPlus.setOnClickListener {
                try{
                    // if result convert is empty, set value default 0.0
-                   val resultconvert = Textview_Result.text.toString().toDouble()
                    // if Memory is empty/0.0 we must get memory and replace a result into Prevmemory
                    if (Component_memory.GetMemory() == 0.0) {
                        // set first value in memory
-                       Component_memory.SetMemory(resultconvert)
+                       Component_memory.SetMemory(funvalue())
                    } else {
                        // if a GetMemory() have a value or != 0.0 we must add with resultconvert and replace a new value into Prevmemory
-                       val addmem = Component_memory.AddMemory(resultconvert)
-                       Component_memory.PrefMemory = addmem
+                       val addmem = Component_memory.AddMemory(funvalue())
+                       Component_memory.PrefMemory = addmem // -> change a prefvalue memory before to new value from addmem
                        Textview_Result.text = addmem.toString()
                    }
                } catch (E : NumberFormatException){
-                   IndicatorError_Result.setText(R.string.empty_sign)
+                   IndicatorError_Result.setText(R.string.memory_empty_sign)
                }
 
             }
@@ -366,19 +345,18 @@ class Calculator_activity : AppCompatActivity() {
             // TODO: Repair this and check this!
             Button_MMinus.setOnClickListener {
                try{
-                   val resultconvert = Textview_Result.text.toString().toDouble()
                    // same like M+ but, use SubstractMemory()
                    // check before if memory empty/0.0 we must set memory  or if a prefmemory have a value before we use prefmemory
                    if (Component_memory.GetMemory() == 0.0) {
-                       Component_memory.SetMemory(resultconvert)
+                       Component_memory.SetMemory(funvalue())
                    } else if(!Component_memory.GetMemory().equals(0.0)) { // if PrefMemory != 0.0 or have value
-                       val substractmem = Component_memory.SubstractMemory(resultconvert)
+                       val substractmem = Component_memory.SubstractMemory(funvalue())
                        // place value result into Prefmemory
-                       Component_memory.PrefMemory = substractmem
+                       Component_memory.PrefMemory = substractmem // -> Same, prevmemory set new memory from substractmem
                        Textview_Result.text = substractmem.toString()
                    }
                } catch (E : NumberFormatException){
-                   IndicatorError_Result.setText(R.string.empty_sign)
+                   IndicatorError_Result.setText(R.string.memory_empty_sign)
                }
             }
 
@@ -386,12 +364,12 @@ class Calculator_activity : AppCompatActivity() {
                 // show Pref value before
                 // if component_memory in PrefMemory is 0.0
                 if (Component_memory.PrefMemory == 0.0) {
-                    // we get PrefMemory value from Memory value and show in Pref memory
+                    // we get PrefMemory value from Memory value and show in from Pref memory
                     Component_memory.PrefMemory = Component_memory.GetMemory()
                     Textview_Result.text = Component_memory.PrefMemory.toString()
-                } else if (Component_memory.GetMemory() == 0.0) {
+                } else if (Component_memory.GetMemory() == 0.0) { // -> if a GetMemory() same is empty or 0.0 we gonna show warning sign
                     IndicatorError_Result.visibility = View.VISIBLE
-                    IndicatorError_Result.setText(R.string.empty_sign)
+                    IndicatorError_Result.setText(R.string.memory_empty_sign)
                 } else {
                     // if prefmemory is exist/ != 0.0 we get memory data
                     Textview_Result.text = Component_memory.PrefMemory.toString()
@@ -510,7 +488,6 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             // for sin,cos,tan Degress/Radiant function
-            // TODO: Please repair this because secondtextresult show in Kotlin.Unit on textview/secondtextresult
             Button_Sin.setOnClickListener {
                 val formulatext = (Textview_Result.text.toString() + "sin()")
                 val Sinusoperation = trigonometryoperationchecker(Inverse_toggle, funvalue(), isSin = true, checkDegRad = DegRad_toggle).toString()
@@ -553,22 +530,21 @@ class Calculator_activity : AppCompatActivity() {
             }
 
             Button_Cosh.setOnClickListener {
-                // TODO: test it now if work, change now ( after evaluation
-                val formulatext = ("cosh(" + Textview_Result.text.toString())
+                val formulatext = (Textview_Result.text.toString().plus("cosh()"))
                 val Cosh = Math_trigonometryhyper.CosinusHyperbolic(funvalue()).toString()
                 val secondtextformula = "cosh(${funvalue()})"
                 setcontentresult(formulatext,Cosh,secondtextformula)
             }
 
             Button_Tanh.setOnClickListener {
-                val formulatext = (Textview_Result.text.toString() + "tanh()")
+                val formulatext = (Textview_Result.text.toString().plus("tanh()"))
                 val Tanh = Math_trigonometryhyper.TangenHyperbolic(funvalue()).toString()
                 val secondtextformula = "tanh(${funvalue()})"
                 setcontentresult(formulatext,Tanh,secondtextformula)
             }
 
             Button_Derivative.setOnClickListener {
-                val formulatext = (Textview_Result.text.toString() + "X^(n-1)")
+                val formulatext = (Textview_Result.text.toString().plus("X^(n-1)"))
                 val resultcalculation = "${funvalue()} X^(${Math_derivative.Derivative(funvalue())})"
                 val secondtextformula = "${funvalue()} X^(${funvalue()}-1)"
                 setcontentresult(formulatext,resultcalculation,secondtextformula)
