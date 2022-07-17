@@ -283,7 +283,6 @@ class Calculator_activity : AppCompatActivity() {
                 SecondTextview_Result.setText("0")
                 IndicatorError_Result.visibility = View.INVISIBLE
             }
-
         }
 
         Button_AC.setOnClickListener {
